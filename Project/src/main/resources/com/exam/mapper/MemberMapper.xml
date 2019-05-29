@@ -17,18 +17,14 @@
 	SELECT COUNT(*) FROM member WHERE id = #{id}
 </select>
 
-<update id="upDate">
-	UPDATE member 
-	
-	SET 
-	password = #{password}
-	email = #{email}
-	birthday = #{birthday}
-	
-	WHERE
-		id = #{id}
+<select id="checkPw" resultType="string">
+	select password from member where id = #{id}
+</select>
 
-</update>
+<delete id="deleteMember">
+	DELETE FROM member WHERE id = #{id}
+</delete>
+
 
 	
 </mapper>
