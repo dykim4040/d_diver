@@ -121,7 +121,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/delete")
-	public String memberDelete(String id, String password, HttpSession session) {
+	public String memberDelete(String id, String password, HttpSession session, Model model) {
 		System.out.println("<< delete 호출 >>");
 		
 		log.info("id : " + id);
