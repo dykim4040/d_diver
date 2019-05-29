@@ -60,22 +60,28 @@ location.href="/member/login";
 			<div class="fact-icon">
 				<img src="/resources/img/package/gold.png" alt="">
 			</div>
-			<h2>1287</h2>
-			<p>Amazing receipies</p>
+			<h3>GOLD</h3>
+			<p>6달 동안 시청 가능한 패키지</p>
+			<h4>$27.00</h4><br>
+			<button class="site-btn">구매하기</button>
 		</div>
 		<div class="pur col-sm-6 fact-item">
 			<div class="fact-icon">
 				<img src="/resources/img/package/silver.png" alt="">
 			</div>
-			<h2>25</h2>
-			<p>Wine pairings</p>
+			<h3>SILVER</h3>
+			<p>3달 동안 시청 가능한 패키지</p>
+			<h4>$16.00</h4><br>
+			<button class="site-btn">구매하기</button>
 		</div>
 		<div class="pur col-sm-6 fact-item">
 			<div class="fact-icon">
 				<img src="/resources/img/package/bronze.png" alt="">
 			</div>
-			<h2>471</h2>
-			<p>Meat receipies</p>
+			<h3>BRONZE</h3>
+			<p>1달 동안 시청 가능한 패키지</p>
+			<h4>$8.00</h4><br>
+			<button class="site-btn">구매하기</button>
 		</div>
 	</div>
 </div>
