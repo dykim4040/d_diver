@@ -16,5 +16,6 @@ public interface MemberService {
 	
 	public void deleteMember(String id);
 	
+	public String getCurrPackage(String id);
 
 }

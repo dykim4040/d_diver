@@ -113,7 +113,9 @@ public class MemberController {
 		System.out.println("<< myInfo 호출 >>");
 		
 		MemberVO member = service.getMember(id);
+		String pack = service.getCurrPackage(id);
 		
+		model.addAttribute("pack", pack);
 		model.addAttribute("member", member);
 		System.out.println("아이디 : " + id);
 		
