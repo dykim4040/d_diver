@@ -56,114 +56,113 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
+<!-- Page Preloder -->
+<div id="preloder">
+	<div class="loader"></div>
+</div>
+
+<!-- Header section -->
+<jsp:include page="/WEB-INF/views/inc/top.jsp"></jsp:include>
+<!-- Header section end -->
+
+
+<!-- Hero section -->
+<section class="page-top-section set-bg"
+	data-setbg="/resources/img/page-top-bg.jpg">
+	<div class="container">
+		<h2>내정보</h2>
 	</div>
-
-	<!-- Header section -->
-	<jsp:include page="/WEB-INF/views/inc/top.jsp"></jsp:include>
-	<!-- Header section end -->
+</section>
+<!-- Hero section end -->
 
 
-	<!-- Hero section -->
-	<section class="page-top-section set-bg"
-		data-setbg="/resources/img/page-top-bg.jpg">
-		<div class="container">
-			<h2>내정보</h2>
-		</div>
-	</section>
-	<!-- Hero section end -->
-
-
-	<section class="contact-section spad">
-		<div class="container">
+<section class="contact-section spad">
+<div class="container">
+	<div class="row">
+	<div class="col-lg-6" style="margin: auto;">
+		<div class="contact-form-warp">
+			<h4>내정보</h4>
+			<form action="/member/myInfo" method="post" id="myInfo" name="frm"
+				class="contact-form" onsubmit="return formCheck();">
 			<div class="row">
-				<div class="col-lg-6" style="margin: auto;">
-					<div class="contact-form-warp">
-						<h4>내정보</h4>
-						<form action="/member/myInfo" method="post" id="myInfo" name="frm"
-							class="contact-form" onsubmit="return formCheck();">
-							<div class="row">
-								<div class="col-md-12">
-									<c:set var="member" value="${member }"></c:set>
-									<fieldset>
-										<legend>"${member.id }" 회원님의 정보입니다.</legend>
-										<br>
-								
-											
-										<label>Password</label> <input type="password" name="password" id="password"
-											required><br>
-											
-											<label>E-Mail</label>
-										<input type="email" name="email" disabled="disabled"
-											value="${member.email }" required><br>
-											
-											
-										<label>Birthday</label><input
-											type="date" name="birthday"
-											value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
-											disabled="disabled"><br> 
-											
-											 <label>Mypackage</label>
-											<input type="Mypackage" name="Mypackage" disabled="disabled"
-											required><br> 
-											
-											<label>cash</label> 
-											<input
-											type="cash" name="cash" disabled="disabled"
-											value="${member.cash }" required><br> 
-											
-											<label>mileage</label>
-										<input type="mileage" name="mileage" disabled="disabled"
-											value="${member.mileage }" required><br>
-										<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
-										<button type="button"  id="delete">삭제</button>
-											
-									</fieldset>
-								</div>
-							</div>
-						</form>
-					</div>
+				<div class="col-md-12">
+					<c:set var="member" value="${member }"></c:set>
+					<fieldset>
+						<legend>"${member.id }" 회원님의 정보입니다.</legend>
+						<br>
+							
+						<label>Password</label> <input type="password" name="password" id="password"
+							required><br>
+							
+							<label>E-Mail</label>
+						<input type="email" name="email" disabled="disabled"
+							value="${member.email }" required><br>
+							
+							
+						<label>Birthday</label><input
+							type="date" name="birthday"
+							value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
+							disabled="disabled"><br> 
+							
+							 <label>Mypackage</label>
+							<input type="text" name="Mypackage" disabled="disabled"
+							value="${pack }" required><br> 
+							
+							<label>cash</label> 
+							<input
+							type="text" name="cash" disabled="disabled"
+							value="${member.cash }" required><br> 
+							
+							<label>mileage</label>
+						<input type="text" name="mileage" disabled="disabled"
+							value="${member.mileage }" required><br>
+						<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
+						<button type="button"  id="delete">삭제</button>
+							
+					</fieldset>
 				</div>
 			</div>
-		</div>
-	</section>
-	
-	<form action="${path}/member/delete" id="delete-form" method="post">
-		<input type="hidden" name="id" value="${member.id}">
-		<input type="hidden" name="password" value="" id="delete-password">
-	</form>
-
-	<!-- Gallery section -->
-	<div class="gallery">
-		<div class="gallery-slider owl-carousel">
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/1.jpg"></div>
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/2.jpg"></div>
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/3.jpg"></div>
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/4.jpg"></div>
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/5.jpg"></div>
-			<div class="gs-item set-bg"
-				data-setbg="/resources/img/instagram/6.jpg"></div>
+			</form>
 		</div>
 	</div>
-	<!-- Gallery section end -->
+	</div>
+</div>
+</section>
+
+<form action="${path}/member/delete" id="delete-form" method="post">
+	<input type="hidden" name="id" value="${member.id}">
+	<input type="hidden" name="password" value="" id="delete-password">
+</form>
+
+<!-- Gallery section -->
+<div class="gallery">
+	<div class="gallery-slider owl-carousel">
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/1.jpg"></div>
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/2.jpg"></div>
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/3.jpg"></div>
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/4.jpg"></div>
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/5.jpg"></div>
+		<div class="gs-item set-bg"
+			data-setbg="/resources/img/instagram/6.jpg"></div>
+	</div>
+</div>
+<!-- Gallery section end -->
 
 
-	<!-- Footer section  -->
-	<jsp:include page="/WEB-INF/views/inc/bottom.jsp"></jsp:include>
-	<!-- Footer section end -->
+<!-- Footer section  -->
+<jsp:include page="/WEB-INF/views/inc/bottom.jsp"></jsp:include>
+<!-- Footer section end -->
 
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script src="/resources/js/owl.carousel.min.js"></script>
-	<script src="/resources/js/main.js"></script>
+<!--====== Javascripts & Jquery ======-->
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
+<script src="/resources/js/owl.carousel.min.js"></script>
+<script src="/resources/js/main.js"></script>
 
 
 </body>

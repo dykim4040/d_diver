@@ -25,6 +25,10 @@
 	DELETE FROM member WHERE id = #{id}
 </delete>
 
+<select id="getCurrPackageById" resultType="string">
+	SELECT package FROM package
+	WHERE id = #{id} AND expire_date > current_date();
+</select>
 
 	
 </mapper>

@@ -69,7 +69,10 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
-	
+	@Override
+	public String getCurrPackage(String id) {
+		return mapper.getCurrPackageById(id);
+	}
 	
 	
 
