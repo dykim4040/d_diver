@@ -12,7 +12,9 @@ public interface MemberService {
 	
 	public MemberVO getMember(String id);
 
+	public boolean checkPw(String id, String password);
 	
+	public void deleteMember(String id);
 	
 
 }

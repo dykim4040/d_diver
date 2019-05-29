@@ -1,7 +1,5 @@
 package com.exam.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exam.domain.MemberVO;
@@ -121,7 +120,23 @@ public class MemberController {
 		return "member/myInfo";
 	}
 	
-	
+	@PostMapping("/delete")
+	public String memberDelete(String id, String password, HttpSession session) {
+		System.out.println("<< delete 호출 >>");
+		
+		log.info("id : " + id);
+		log.info("password : " + password);
+		
+		boolean result = service.checkPw(id, password);
+		if(result){
+			service.deleteMember(id);
+			session.invalidate();
+			return "redirect:/";
+		} 
+		
+		return "member/myInfo";
+		
+	}
 	
 	
 	

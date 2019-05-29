@@ -13,5 +13,9 @@ public interface MemberMapper {
 	
 	public List<MemberVO> getList();
 	
+ public String checkPw(String id);
+	
+	public void deleteMember(String id);
+	
 	
 }

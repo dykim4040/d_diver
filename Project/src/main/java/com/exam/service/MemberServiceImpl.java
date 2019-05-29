@@ -53,6 +53,23 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.getMemberById(id);
 	}
 
+	@Override
+	public void deleteMember(String id) {
+		mapper.deleteMember(id);
+	}
+
+	@Override
+	public boolean checkPw(String id, String password) {
+		boolean result = false;
+		
+		if(password.equals(mapper.checkPw(id))) {
+			result = true;
+		} 
+		
+		return result;
+	}
+
+	
 	
 	
 

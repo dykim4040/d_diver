@@ -29,6 +29,31 @@
 <link rel="stylesheet" href="/resources/css/animate.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	
+	$("#delete").click(function(){
+		
+		if(confirm("삭제??")){
+			var pw = document.querySelector("#password").value;
+			console.log('pw : ' + pw);
+			document.querySelector('#delete-password').value = pw;
+			//document.frm.action = "${path}/member/delete?id=${member.id }&password=" + pw;
+			document.querySelector('#delete-form').submit();
+		}
+	});
+	
+	$("#update").click(function(){
+		if(confirm("수정??")){
+			document.frm.action = "${path}/member/delete?id=${member.id }";
+			document.frm.submit();
+		}
+	});
+});
+
+</script>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -67,8 +92,8 @@
 										<br>
 								
 											
-										<label>Password</label> <input type="password" name="password"
-											value="${member.password }" required><br> 
+										<label>Password</label> <input type="password" name="password" id="password"
+											required><br>
 											
 											<label>E-Mail</label>
 										<input type="email" name="email" disabled="disabled"
@@ -93,7 +118,7 @@
 										<input type="mileage" name="mileage" disabled="disabled"
 											value="${member.mileage }" required><br>
 										<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
-										<button type="button" class = "site-btn" id = "delete" style="float: right;"onclick = "#">회원탈퇴</button>
+										<button type="button"  id="delete">삭제</button>
 											
 									</fieldset>
 								</div>
@@ -104,6 +129,11 @@
 			</div>
 		</div>
 	</section>
+	
+	<form action="${path}/member/delete" id="delete-form" method="post">
+		<input type="hidden" name="id" value="${member.id}">
+		<input type="hidden" name="password" value="" id="delete-password">
+	</form>
 
 	<!-- Gallery section -->
 	<div class="gallery">
