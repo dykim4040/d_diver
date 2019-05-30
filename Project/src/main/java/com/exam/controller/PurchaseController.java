@@ -41,7 +41,7 @@ public class PurchaseController {
 			StringBuffer msg = new StringBuffer();
 			msg.append("<script>");
 			msg.append("alert('세션이 만료되어 로그아웃되었습니다.');");
-			msg.append("history.back();");
+			msg.append("location.href='/';");
 			msg.append("</script>");
 			
 			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
@@ -89,6 +89,48 @@ public class PurchaseController {
 		msg.append("</script>");
 		
 		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+	}
+	
+	
+	@PostMapping("/buyPackage")
+	public ResponseEntity<String> buyPackage(String price, HttpSession session) {
+		System.out.println("<< buyPackage, POST >>");
+		String id = (String) session.getAttribute("sessionID");
+		System.out.println("buyPackage(id/price) : " + id + "/" + price);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		
+		if (id == null || "".equals(id)) {
+			StringBuffer msg = new StringBuffer();
+			msg.append("<script>");
+			msg.append("alert('세션이 만료되어 로그아웃되었습니다.');");
+			msg.append("location.href='/';");
+			msg.append("</script>");
+			
+			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+		}
+		int intPrice = Integer.parseInt(price);
+		int result = memberService.buyPackageUseCash(intPrice, id);
+		
+		if (result > 0) {
+			StringBuffer msg = new StringBuffer();
+			msg.append("<script>");
+			msg.append("alert('패키지 구매에 성공하였습니다.');");
+			msg.append("location.href='/';");
+			msg.append("</script>");
+			
+			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+		} else {
+			StringBuffer msg = new StringBuffer();
+			msg.append("<script>");
+			msg.append("alert('캐쉬 잔액이 부족합니다.');");
+			msg.append("location.href='/purchase';");
+			msg.append("</script>");
+			
+			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+		}
+		
 	}
 	
 	

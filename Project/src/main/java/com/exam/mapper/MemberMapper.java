@@ -19,13 +19,21 @@ public interface MemberMapper {
 
 	public String checkPw(String id);
 
+	public void upDateMember(MemberVO member);
+	
 	public void deleteMember(String id);
 
-	public String getCurrPackageById(String id);
 	
-
-	 public void upDateMember(MemberVO member);
+	
+	
+	
+	
+	/* 구매 관련 */
+	
+	public String getCurrPackageById(String id);
 	 
 	public int updateCash(@Param("cash") int cash, @Param("id") String id);
+	
+	public int insertPackage(@Param("id") String id, @Param("pack") String pack);
 	
 }

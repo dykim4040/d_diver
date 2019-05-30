@@ -109,21 +109,33 @@ public class HomeController {
         return "movie";
 	}//movie()
 	
+	
+	// 각각 패키지 금액
+	public final static int gold = 35000, silver = 20000, bronze = 8000;
 
 	@GetMapping("/purchase")
 	public String purchase(HttpSession session, Model model) {
 		System.out.println("<< purchase, GET >>");
-		String id = (String) session.getAttribute("sessionID");
 		
+		String id = (String) session.getAttribute("sessionID");
 		if (id == null || "".equals(id)) {
 			return "member/login";
 		}
 		
 		MemberVO member = memberService.getMember(id);
 		
+		Map<String, Integer> packList = new HashMap<String, Integer>();
+		packList.put("gold", gold);
+		packList.put("silver", silver);
+		packList.put("bronze", bronze);
+		
 		model.addAttribute("member", member);
+		model.addAttribute("packList", packList);
 		System.out.println(id + "의 현재 캐쉬 잔액 " + member.getCash() + "원");
 		return "purchase/purchase";
 	}
+	
+	
+	
 
 }
