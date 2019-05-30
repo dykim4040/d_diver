@@ -29,8 +29,24 @@
 <link rel="stylesheet" href="/resources/css/animate.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+<script>
+// $(document).ready(function(){
+	
+	
+// 	$("#delete").click(function(){
+		
+// 		if(confirm("삭제??")){
+// 			var pw = document.querySelector("#password").value;
+// 			console.log('pw : ' + pw);
+// 			document.querySelector('#delete-password').value = pw;
+// 			//document.frm.action = "${path}/member/delete?id=${member.id }&password=" + pw;
+// 			document.querySelector('#delete-form').submit();
+// 		}
+// 	});
+// });
 
-
+</script>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -59,43 +75,23 @@
 	<div class="col-lg-6" style="margin: auto;">
 		<div class="contact-form-warp">
 			<h4>내정보</h4>
-			<form action="/member/myInfo" method="post" id="myInfo" name="frm"
+			<form action="/member/memberDelete" method="post" id="frmDelete" name="frm"
 				class="contact-form" onsubmit="return formCheck();">
 			<div class="row">
 				<div class="col-md-12">
-					<c:set var="member" value="${member }"></c:set>
 					<fieldset>
-						<legend>"${member.id }" 회원님의 정보입니다.</legend>
+						<legend>"${sessionID}" 회원님 정말 탈퇴하겠습니까??.</legend>
+						<input type="hidden" name="id" value="${sessionID}">
+						
 						<br>
 							
-						<label>Password</label> <input type="password" name="password" id="password"
-							required><br>
+						<label>Password</label> 
+						<input type="password" name="password" id="password" required><br>
 							
-							<label>E-Mail</label>
-						<input type="email" name="email" disabled="disabled"
-							value="${member.email }" required><br>
-							
-							
-						<label>Birthday</label><input
-							type="date" name="birthday"
-							value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
-							disabled="disabled"><br> 
-							
-							 <label>Mypackage</label>
-							<input type="text" name="Mypackage" disabled="disabled"
-							value="${pack }" required><br> 
-							
-							<label>cash</label> 
-							<input
-							type="text" name="cash" disabled="disabled"
-							value="${member.cash }" required><br> 
-							
-							<label>mileage</label>
-						<input type="text" name="mileage" disabled="disabled"
-							value="${member.mileage }" required><br>
-						<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
-						<button type="button"  id="delete" onclick = "location.href = '/member/memberDelete'">삭제</button>
-							
+<!-- 						<label>Password</label> <input type="password" name="rePassword" id="rePassword" -->
+<!-- 							required><br> -->
+							<div>${message }</div>
+						<button type="submit"  id="delete">탈퇴하기</button>
 					</fieldset>
 				</div>
 			</div>
@@ -105,7 +101,6 @@
 	</div>
 </div>
 </section>
-
 
 <!-- Gallery section -->
 <div class="gallery">
