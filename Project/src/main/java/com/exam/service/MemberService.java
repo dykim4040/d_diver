@@ -21,4 +21,5 @@ public interface MemberService {
 	public void upDateMember(MemberVO member);
 	
 	
+	public int updateCash(int cash, String id);
 }
