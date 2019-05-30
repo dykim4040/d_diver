@@ -83,7 +83,11 @@ public class MemberServiceImpl implements MemberService {
 	
 	
 	
+	@Override
+	public void upDateMember(MemberVO member) {
+		mapper.upDateMember(member);
+	}
 	
-
+	
 	
 }

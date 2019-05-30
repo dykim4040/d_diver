@@ -30,6 +30,14 @@
 	WHERE id = #{id} AND expire_date > current_date()
 </select>
 
+<update id = "upDateMember">
+	UPDATE member 
+	SET password = #{password},
+	email = #{email},
+	birthday = #{birthday} 
+	WHERE id = #{id}
+</update>
+
 
 <update id="updateCash">
 	UPDATE member SET cash = #{cash} WHERE id = #{id}
