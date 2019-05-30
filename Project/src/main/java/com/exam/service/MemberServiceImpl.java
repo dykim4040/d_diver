@@ -73,8 +73,21 @@ public class MemberServiceImpl implements MemberService {
 	public String getCurrPackage(String id) {
 		return mapper.getCurrPackageById(id);
 	}
-	
-	
 
+	@Override
+	public int updateCash(int cash, String id) {
+		MemberVO memberVO = mapper.getMemberById(id);
+		int newCash = memberVO.getCash() + cash;
+		return mapper.updateCash(newCash, id);
+	}
+	
+	
+	
+	@Override
+	public void upDateMember(MemberVO member) {
+		mapper.upDateMember(member);
+	}
+	
+	
 	
 }

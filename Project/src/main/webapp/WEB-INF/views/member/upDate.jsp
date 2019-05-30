@@ -5,6 +5,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<!-- <script type="text/javascript">
+    function cancle() {
+        self.close();
+    }
+    function goSubmit() {
+        $("#myInfo").submit();
+    }
+</script> -->
 <head>
 <title>Food Blog - Web Template</title>
 <meta charset="UTF-8">
@@ -57,23 +65,43 @@
 				<div class="col-lg-6" style="margin: auto;">
 					<div class="contact-form-warp">
 						<h4>내정보수정</h4>
+<<<<<<< HEAD
 						<form action="/member/upDate" method="post" id="myInfo" name="frm"
 							class="contact-form" onsubmit="return formCheck();">
+=======
+						<form action="/member/upDateInfo" method="post" id="upDate" name="frm"
+							class="contact-form" >
+>>>>>>> branch 'master' of https://github.com/dykim4040/d_diver.git
 							<div class="row">
 								<div class="col-md-12">
 									<c:set var="member" value="${member }"></c:set>
 									<fieldset>
-										<legend>"${member.id }" 회원님의 정보입니다.</legend>
+									<input type="hidden" name="id" value="${member.id }">
 										<br>
+<<<<<<< HEAD
 										<label>Password</label> 
 										<input type="password" name="password" value="${member.password }" ><br> 
+=======
+										<label>Password</label> <input type="password" name="password"
+											value="${member.password }" ><br>
+>>>>>>> branch 'master' of https://github.com/dykim4040/d_diver.git
 																						
 										<label>E-Mail</label>
 										<input type="email" name="email" value="${member.email }" ><br>	
 											
+<<<<<<< HEAD
 										<label>Birthday</label>
 										<input type="date" name="birthday" value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
 										><br> 										
+=======
+										<label>Birthday</label><input
+											type="date" name="birthday"
+											value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
+											><br>
+											<input type="submit" value="글수정" class="btn">
+												
+											<input type="reset" value="다시작성" class="btn">		
+>>>>>>> branch 'master' of https://github.com/dykim4040/d_diver.git
 									</fieldset>
 								</div>
 							</div>

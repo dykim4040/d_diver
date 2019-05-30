@@ -29,6 +29,29 @@
 <link rel="stylesheet" href="/resources/css/animate.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	
+	$("#delete").click(function(){
+		
+		if(confirm("회원탈퇴하시겠습니까??")){
+			var pw = document.querySelector("#password").value;
+			console.log('pw : ' + pw);
+			document.querySelector('#delete-password').value = pw;
+			//document.frm.action = "${path}/member/delete?id=${member.id }&password=" + pw;
+			document.querySelector('#delete-form').submit();
+		}
+	});
+	
+	$("#update").click(function(){
+		if(confirm("수정??")){
+			document.frm.action = "${path}/member/delete?id=${member.id }";
+			document.frm.submit();
+		}
+	});
+});
 
 
 </head>
@@ -59,8 +82,9 @@
 	<div class="col-lg-6" style="margin: auto;">
 		<div class="contact-form-warp">
 			<h4>내정보</h4>
-			<form action="/member/myInfo" method="post" id="myInfo" name="frm"
+			<form action="/member/upDate" method="post" id="myInfo" name="frm"
 				class="contact-form" onsubmit="return formCheck();">
+			<input type="hidden" name="id" value="${member.id }">
 			<div class="row">
 				<div class="col-md-12">
 					<c:set var="member" value="${member }"></c:set>
@@ -95,6 +119,8 @@
 							value="${member.mileage }" required><br>
 						<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
 						<button type="button"  id="delete" onclick = "location.href = '/member/memberDelete'">삭제</button>
+						<button class="site-btn" id="upDate">수정하기</button>
+						<button type="button"  id="delete">삭제</button>
 							
 					</fieldset>
 				</div>

@@ -45,49 +45,35 @@ location.href="/member/login";
 <!-- Hero section -->
 <section class="page-top-section set-bg" data-setbg="/resources/img/page-top-bg.jpg">
 	<div class="container">
-		<h2>구매</h2>
+		<h2>캐쉬 충전</h2>
 	</div>
 </section>
 <!-- Hero section end -->
 
 
-<!-- Facts section -->
-<section class="facts-section">
-<div class="facts-warp">
+<section class="contact-section spad">
 <div class="container">
 	<div class="row">
-		<div class="pur col-sm-6 fact-item">
-			<div class="fact-icon">
-				<img src="/resources/img/package/gold.png" alt="">
-			</div>
-			<h3>GOLD</h3>
-			<p>6달 동안 시청 가능한 패키지</p>
-			<h4>$27.00</h4><br>
-			<button class="site-btn">구매하기</button>
+		<div class="col-lg-6" style="margin: auto;">
+		<div class="contact-form-warp">
+			<h4>캐쉬 충전하기</h4>
+			<form action="/purchase/cash" class="contact-form" method="POST">
+				<div class="row">
+					<div class="col-md-12">
+						<label>금액 입력</label>
+						<input type="text" name="strCash" placeholder="0">
+						<label>비밀번호</label>
+						<input type="password" name="password" placeholder="Password">
+						<button class="site-btn">충전</button>
+						<button type="reset" class="site-btn" style="float: right;">취소</button>
+					</div>
+				</div>
+			</form>
 		</div>
-		<div class="pur col-sm-6 fact-item">
-			<div class="fact-icon">
-				<img src="/resources/img/package/silver.png" alt="">
-			</div>
-			<h3>SILVER</h3>
-			<p>3달 동안 시청 가능한 패키지</p>
-			<h4>$16.00</h4><br>
-			<button class="site-btn">구매하기</button>
-		</div>
-		<div class="pur col-sm-6 fact-item">
-			<div class="fact-icon">
-				<img src="/resources/img/package/bronze.png" alt="">
-			</div>
-			<h3>BRONZE</h3>
-			<p>1달 동안 시청 가능한 패키지</p>
-			<h4>$8.00</h4><br>
-			<button class="site-btn">구매하기</button>
 		</div>
 	</div>
 </div>
-</div>
 </section>
-<!-- Facts section end -->
 
 <!-- Gallery section -->
 <div class="gallery">
