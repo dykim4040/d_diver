@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.mapper.MovieMapper">
+
+	<select id="getMovies" resultType="MovieVO">
+		SELECT * 
+		FROM d_diver.movie
+		<where>
+			<if test="search != null and search != ''">
+				movie_nm LIKE CONCAT('%', #{search}, '%')
+			</if>
+		</where>
+		ORDER BY movie_nm ASC
+		LIMIT #{amount} OFFSET #{startRow}
+	</select>
+	
+	<select id="getMovieCount" resultType="int">
+		SELECT COUNT(*) 
+		FROM d_diver.movie
+		<where>
+			<if test="search != null and search != ''">
+				movie_nm LIKE CONCAT('%', #{search}, '%')
+			</if>
+		</where>
+	</select>
+	
+	<select id="getMovie" resultType="MovieVO">
+		SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
+	</select>
+	
+	
+</mapper>  
