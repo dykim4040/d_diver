@@ -45,34 +45,6 @@
 </section>
 <!-- Hero section end -->
 
-
-<!-- Search section -->
-<div class="search-form-section">
-	<div class="sf-warp">
-		<div class="container">
-			<form class="big-search-form">
-				<select>
-					<option>All Recipes Categories</option>
-					<option>Pizza</option>
-					<option>Salads</option>
-					<option>Desserts</option>
-					<option>Side Dishes</option>
-				</select>
-				<select>
-					<option>All Ingredients</option>
-					<option>Breakfast</option>
-					<option>Lunch</option>
-					<option>Dinner</option>
-				</select>
-				<input type="text" placeholder="Search Receipies">
-				<button class="bsf-btn">Search</button>
-			</form>
-		</div>
-	</div>
-</div>
-<!-- Search section end -->
-
-
 <!-- Recipe big view -->
 <div class="recipe-view-section">
 	<div class="rv-warp set-bg" data-setbg="/resources/img/recipes/single-big.jpg"></div>
