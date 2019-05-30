@@ -15,10 +15,10 @@ public class MovieVO {
     private String repGenreNm;      // 장르
     private int views;              // null
     private Double avgScore;        // null
-    private String synopsis;        // null
+    private String synopsis;        // 줄거리
     private int price;              // null
-    private String covUrl;          // null
-    private String covThUrl;        // null
+    private String covUrl;          // 포스터 이미지
+    private String covThUrl;        // 포스터 섬네일 이미지
     private String watchGradeNm;    // 관람나이
     private Date openDt;            // 개봉일
     private int showTm;             // 상영시간

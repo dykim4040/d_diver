@@ -57,7 +57,7 @@ public class HomeController {
         int startRow = (pageNum - 1) * amount; // 시작행번호
         
         List<MovieVO> list = movieService.getMovies(startRow, amount, search);
-        System.out.println("list :: "+list);
+        
         // =========================================
         //  페이지 블록 구하기 작업
         // =========================================
@@ -99,17 +99,23 @@ public class HomeController {
         pageInfoMap.put("pageNum", pageNum); // 사용자가 요청한 페이지번호
         
         // model에 저장하면 스프링이 request 영역객체에 옮겨담아줌
-        model.addAttribute("list", list); // 글목록 list 
+        model.addAttribute("list", list); // list 
         model.addAttribute("pageInfoMap", pageInfoMap); // 페이지블록 출력관련 데이터
         
-        System.out.println("list :: "+list);
         
         model.addAttribute("search", search); // 검색어
         
         return "movie";
 	}//movie()
 	
+	@GetMapping("/recipe-single")
+	public String detail(int movieCd, Model model){
+	    MovieVO movieVO = movieService.getMovie(movieCd);
 
+	    return "recipe-single";
+	}
+	
+	
 	@GetMapping("/purchase")
 	public String purchase(HttpSession session, Model model) {
 		System.out.println("<< purchase, GET >>");
