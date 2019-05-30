@@ -66,3 +66,20 @@
     margin-bottom: 25px;
 }
 
+.site-pagination .more-page {
+    min-width: 48px;
+    height: 48px;
+    display: inline-block;
+    text-align: center;
+    padding: 13px 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    background: none;
+    margin-right: 4px;
+}
+
+
+
+
+
