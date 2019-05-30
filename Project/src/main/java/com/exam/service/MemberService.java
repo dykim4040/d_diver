@@ -18,4 +18,5 @@ public interface MemberService {
 	
 	public String getCurrPackage(String id);
 
+	public int updateCash(int cash, String id);
 }
