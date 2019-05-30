@@ -74,7 +74,11 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.getCurrPackageById(id);
 	}
 	
+	@Override
+	public void upDateMember(MemberVO member) {
+		mapper.upDateMember(member);
+	}
 	
-
+	
 	
 }

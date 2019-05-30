@@ -18,4 +18,7 @@ public interface MemberService {
 	
 	public String getCurrPackage(String id);
 
+	public void upDateMember(MemberVO member);
+	
+	
 }
