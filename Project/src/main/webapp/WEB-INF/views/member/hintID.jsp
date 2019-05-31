@@ -38,7 +38,7 @@
 <!-- Hero section -->
 <section class="page-top-section set-bg" data-setbg="/resources/img/page-top-bg.jpg">
 	<div class="container">
-		<h2>로그인</h2>
+		<h2>비밀번호찾기</h2>
 	</div>
 </section>
 <!-- Hero section end -->
@@ -49,9 +49,9 @@
 	<div class="row">
 		<div class="col-lg-6" style="margin: auto;">
 		<div class="contact-form-warp">
-			<h4>아이디 와 비밀번호를 입력하세요.</h4>
-			
-			<form action="/member/login" class="contact-form" method="POST">
+			<h4>비밀번호 찾기</h4>
+			<p>비밀번호를 찾을 아이디를 입력하세요.</p>
+			<form action="/member/hintID" class="contact-form" method="POST">
 				<div class="row">
 					<!-- <div class="col-md-6">
 						<input type="text" placeholder="Name">
@@ -61,9 +61,7 @@
 					</div> -->
 					<div class="col-md-12">
 						<input type="text" name="id" placeholder="ID">
-						<input type="password" name="password" placeholder="Password">
-						<button class="site-btn">로그인</button>
-						<a href="/member/hintID"><button type="button" class="site-btn" style="float: right;">비밀번호 찾기</button></a>
+						<a href="#"><button type="button" class="site-btn" style="float: right;">다음</button></a>
 					</div>
 				</div>
 			</form>

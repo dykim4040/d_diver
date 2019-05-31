@@ -78,16 +78,16 @@
 					<li>
 						<h6>Address:</h6>
 						<p>481 Creekside Lane Avila</p>
-						<p>Beach, CA 93424</p>
+						<p>Busan, 051</p>
 					</li>
 					<li>
 						<h6>Phone:</h6>
-						<p>+53 345 7953 32453</p>
+						<p>+82 010 6704 2242</p>
 						<p>+53 345 7557 822112</p>
 					</li>
 					<li>
 						<h6>Email:</h6>
-						<p>yourmail@gmail.com</p>
+						<p>dykim0927@gmail.com</p>
 					</li>
 				</ul>
 				<div class="contact-social">

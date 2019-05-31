@@ -85,6 +85,9 @@
 											type="date" name="birthday"
 											value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
 											><br>
+											<label>좋아하는 동물이름은?</label>
+										<input type="text" name="hint" 
+											value="${member.hint }"><br>
 											<input type="submit" value="글수정" class="btn">
 												
 											<input type="reset" value="다시작성" class="btn">		

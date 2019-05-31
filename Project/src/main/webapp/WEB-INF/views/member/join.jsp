@@ -75,6 +75,7 @@ function formCheck() {
 	return true;
 }
 
+
 // function idDupCheck() {
 // 	// id값이 공백이면 "아이디 입력하세요." 포커스 주기.
 // 	var id = frm.id.value; // string 타입
@@ -105,7 +106,7 @@ function formCheck() {
 <section class="page-top-section set-bg"
 	data-setbg="/resources/img/page-top-bg.jpg">
 	<div class="container">
-		<h2>Join</h2>
+		<h2>회원가입</h2>
 	</div>
 </section>
 <!-- Hero section end -->
@@ -116,7 +117,7 @@ function formCheck() {
 <div class="row">
 	<div class="col-lg-6" style="margin: auto;">
 	<div class="contact-form-warp">
-		<h4>Sign in to Food Blog</h4>
+		<h4>회원정보를 입력하세요.</h4>
 		<form action="/member/join" method="post" id="join" name="frm" class="contact-form" onsubmit="return formCheck();">
 		<div class="row">
 			<div class="col-md-12">
@@ -133,6 +134,8 @@ function formCheck() {
 				<fieldset>
 					<legend>Optional</legend>
 					<label>Birthday</label><input type="date" name="birthday"><br>
+					<label>좋아하는 동물 이름은?</label>
+					<input type = "text" name = "hint">
 					<label>Gender</label>
 					<div class="row">
 					<div class="col-md-6">
