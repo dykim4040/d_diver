@@ -57,7 +57,7 @@ public class HomeController {
         
         int allRowCount = 0; // 전체 행 갯수
         
-        allRowCount = movieService.getMovieCount(search);
+        allRowCount = movieService.getMovieCount(search, repNationNm);
         
         int maxPage = allRowCount / amount + (allRowCount % amount == 0 ? 0 : 1);
         

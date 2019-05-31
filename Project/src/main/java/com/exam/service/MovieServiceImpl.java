@@ -23,8 +23,8 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public int getMovieCount(String search) {
-        return mapper.getMovieCount(search);
+    public int getMovieCount(String search, String repNationNm) {
+        return mapper.getMovieCount(search, repNationNm);
     }
 
     @Override
