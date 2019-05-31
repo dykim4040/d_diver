@@ -54,12 +54,23 @@
 		<form class="big-search-form">
 			<select name="repNationNm">
 				<option value="">영화 카테고리</option>
-				<option>로맨스</option>
-				<option>가족</option>
-				<option>액션</option>
-				<option>코미디</option>
-				<option>공포(호러)</option>
-				<option>기타</option>
+				<option>드라마</option>
+	            <option>멜로/로맨스</option>
+	            <option>SF</option>
+	            <option>애니메이션</option>
+	            <option>판타지</option>
+	            <option>액션</option>
+	            <option>가족</option>
+	            <option>스릴러</option>
+	            <option>코미디</option>
+	            <option>공포(호러)</option>
+	            <option>범죄</option>
+	            <option>사극</option>
+	            <option>전쟁</option>
+	            <option>미스터리</option>
+	            <option>뮤지컬</option>
+	            <option>어드벤처</option>
+	            <option>기타</option>
 			</select>
 			<input type="text" name="search" class="input_box" value="${search}" placeholder="검색">
 			<button class="bsf-btn">검색</button>
