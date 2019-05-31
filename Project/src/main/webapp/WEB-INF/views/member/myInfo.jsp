@@ -64,10 +64,9 @@
 			<input type="hidden" name="id" value="${member.id }">
 			<div class="row">
 				<div class="col-md-12">
-					<c:set var="member" value="${member }"></c:set>
+					<c:set var="member" value="${member }" />
 					<fieldset>
-						<legend>"${member.id }" 회원님의 정보입니다.</legend>
-						<br>
+						<legend>"${member.id }" 회원님의 정보입니다.</legend><br>
 							
 						<label>Password</label>
 						<input type="password" name="password" id="password" required><br>
@@ -93,9 +92,8 @@
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
 						
-						<button class="site-btn"  id="delete" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 						<button class="site-btn" id="upDate">수정하기</button>
-						
+						<button class="site-btn" id="delete" style="float: right;" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 							
 					</fieldset>
 				</div>

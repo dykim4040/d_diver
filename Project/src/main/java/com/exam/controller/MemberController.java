@@ -114,6 +114,14 @@ public class MemberController {
 
 		MemberVO member = service.getMember(id);
 		String pack = service.getCurrPackage(id);
+		
+		if ("G".equals(pack)) {
+			pack += "old";
+		} else if ("S".equals(pack)) {
+			pack += "ilver";
+		} else if ("B".equals(pack)) {
+			pack += "ronze";
+		}
 
 		model.addAttribute("pack", pack);
 		model.addAttribute("member", member);
