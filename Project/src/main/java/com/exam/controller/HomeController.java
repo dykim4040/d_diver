@@ -48,7 +48,7 @@ public class HomeController {
 	
 	@GetMapping("/movie")
 	public String movie(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(required = false) String search, Model model) throws Exception {
-		System.out.println("<< movie 호출 >>");
+		System.out.println("<< movie 호출22 >>");
 		
 		// =========================================
         // 한 페이지에 해당하는 글목록 구하기 작업
