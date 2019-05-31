@@ -84,7 +84,7 @@ public class HomeController {
         model.addAttribute("list", list); // list 
         model.addAttribute("pageInfoMap", pageInfoMap); // 페이지블록 출력관련 데이터
         
-        
+        model.addAttribute("category", repNationNm);
         model.addAttribute("search", search); // 검색어
         
         return "movie";

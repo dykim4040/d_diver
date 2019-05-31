@@ -25,7 +25,25 @@
 <link rel="stylesheet" href="/resources/css/style.css"/>
 <link rel="stylesheet" href="/resources/css/custom.css" />
 
-
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+<script>
+$(function() {
+	
+	var category = $('#category').html();
+	var option = $('#select option').html();
+	console.log(category);
+	console.log(option);
+	
+	for (i = 0; i < 18; i++) {
+		var n = $('#c' + i).html();
+		if (n == category) {
+			$('#select option').removeAttr("selected");
+			$('#c' + i).attr("selected", "selected");
+		}
+	}
+	
+});
+</script>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -48,29 +66,30 @@
 
 
 <!-- Search section -->
+<div id="category" style="display: none;">${category }</div>
 <div class="search-form-section">
 <div class="sf-warp">
 	<div class="container">
 		<form class="big-search-form">
-			<select name="repNationNm">
-				<option value="">영화 카테고리</option>
-				<option>드라마</option>
-	            <option>멜로/로맨스</option>
-	            <option>SF</option>
-	            <option>애니메이션</option>
-	            <option>판타지</option>
-	            <option>액션</option>
-	            <option>가족</option>
-	            <option>스릴러</option>
-	            <option>코미디</option>
-	            <option>공포(호러)</option>
-	            <option>범죄</option>
-	            <option>사극</option>
-	            <option>전쟁</option>
-	            <option>미스터리</option>
-	            <option>뮤지컬</option>
-	            <option>어드벤처</option>
-	            <option>기타</option>
+			<select id="select" name="repNationNm">
+				<option id="c0" value="">영화 카테고리</option>
+				<option id="c1">드라마</option>
+	            <option id="c2">멜로/로맨스</option>
+	            <option id="c3">SF</option>
+	            <option id="c4">애니메이션</option>
+	            <option id="c5">판타지</option>
+	            <option id="c6">액션</option>
+	            <option id="c7">가족</option>
+	            <option id="c8">스릴러</option>
+	            <option id="c9">코미디</option>
+	            <option id="c10">공포(호러)</option>
+	            <option id="c11">범죄</option>
+	            <option id="c12">사극</option>
+	            <option id="c13">전쟁</option>
+	            <option id="c14">미스터리</option>
+	            <option id="c15">뮤지컬</option>
+	            <option id="c16">어드벤처</option>
+	            <option id="c17">기타</option>
 			</select>
 			<input type="text" name="search" class="input_box" value="${search}" placeholder="검색">
 			<button class="bsf-btn">검색</button>
