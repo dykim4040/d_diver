@@ -114,6 +114,9 @@ public class PurchaseController {
 		int result = memberService.buyPackageUseCash(intPrice, id);
 		
 		if (result > 0) {
+			String pack = memberService.getCurrPackage(id);
+			session.setAttribute("pack", pack);
+			
 			StringBuffer msg = new StringBuffer();
 			msg.append("<script>");
 			msg.append("alert('패키지 구매에 성공하였습니다.');");
