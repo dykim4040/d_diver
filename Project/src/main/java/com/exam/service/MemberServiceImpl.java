@@ -2,7 +2,9 @@ package com.exam.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.exam.controller.HomeController;
 import com.exam.domain.MemberVO;
 import com.exam.mapper.MemberMapper;
 
@@ -54,6 +56,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public void upDateMember(MemberVO member) {
+		mapper.upDateMember(member);
+	}
+	
+	@Override
 	public void deleteMember(String id) {
 		mapper.deleteMember(id);
 	}
@@ -69,6 +76,20 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* 구매 관련 */
+	
 	@Override
 	public String getCurrPackage(String id) {
 		return mapper.getCurrPackageById(id);
@@ -80,13 +101,37 @@ public class MemberServiceImpl implements MemberService {
 		int newCash = memberVO.getCash() + cash;
 		return mapper.updateCash(newCash, id);
 	}
-	
-	
-	
+
+	@Transactional
 	@Override
-	public void upDateMember(MemberVO member) {
-		mapper.upDateMember(member);
+	public int buyPackageUseCash(int price, String id) {
+		MemberVO memberVO = mapper.getMemberById(id);
+		int cash = memberVO.getCash() - price;
+		System.out.println("MemberServiceImpl : " + cash);
+		
+		if (cash < 0) {
+			return 0;
+		}
+		mapper.updateCash(cash, id);
+		
+		String pack = "";
+		if (price == HomeController.gold) {
+			pack = "G";
+		} else if (price == HomeController.silver) {
+			pack = "S";
+		} else if (price == HomeController.bronze) {
+			pack = "B";
+		}
+		
+		return mapper.insertPackage(id, pack);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -73,30 +73,39 @@ location.href="/member/login";
 	<div class="row">
 		<div class="col-lg-4 pur col-sm-6 fact-item">
 			<div class="fact-icon">
-				<img src="/resources/img/package/gold.png" alt="">
+				<img src="/resources/img/package/gold.png" >
 			</div>
 			<h3>GOLD</h3>
 			<p>6달 동안 시청 가능한 패키지</p>
-			<h4>$27.00</h4><br>
-			<button class="site-btn">구매하기</button>
+			<h4>￦${packList.gold }</h4><br>
+			<form action="/purchase/buyPackage" method="POST">
+				<input type="hidden" name="price" value="${packList.gold }">
+				<button class="site-btn">구매하기</button>
+			</form>
 		</div>
 		<div class="col-lg-4 pur col-sm-6 fact-item">
 			<div class="fact-icon">
-				<img src="/resources/img/package/silver.png" alt="">
+				<img src="/resources/img/package/silver.png" >
 			</div>
 			<h3>SILVER</h3>
 			<p>3달 동안 시청 가능한 패키지</p>
-			<h4>$16.00</h4><br>
-			<button class="site-btn">구매하기</button>
+			<h4>￦${packList.silver }</h4><br>
+			<form action="/purchase/buyPackage" method="POST">
+				<input type="hidden" name="price" value="${packList.silver }">
+				<button class="site-btn">구매하기</button>
+			</form>
 		</div>
 		<div class="col-lg-4 pur col-sm-6 fact-item">
 			<div class="fact-icon">
-				<img src="/resources/img/package/bronze.png" alt="">
+				<img src="/resources/img/package/bronze.png" >
 			</div>
 			<h3>BRONZE</h3>
 			<p>1달 동안 시청 가능한 패키지</p>
-			<h4>$8.00</h4><br>
-			<button class="site-btn">구매하기</button>
+			<h4>￦${packList.bronze }</h4><br>
+			<form action="/purchase/buyPackage" method="POST">
+				<input type="hidden" name="price" value="${packList.bronze }">
+				<button class="site-btn">구매하기</button>
+			</form>
 		</div>
 	</div>
 </div>

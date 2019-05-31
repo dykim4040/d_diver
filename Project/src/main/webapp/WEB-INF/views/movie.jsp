@@ -72,7 +72,7 @@
 
 <!-- 추천영화 section -->
 <section class="recipes-page spad">
-<div class="container">
+<div class="container" id="list">
 	<div class="row">
 		<div class="col-md-8">
 			<div class="section-title">
@@ -87,12 +87,12 @@
 <!-- 		</div> -->
 	</div>
 	<div class="row">
-<c:choose>
-<c:when test="${not empty list}">
-<c:forEach var="movie" items="${list}">		
+	<c:choose>
+	<c:when test="${not empty list}">
+		<c:forEach var="movie" items="${list}">		
 		<div class="col-lg-4 col-md-6">
 			<div class="recipe">
-				<img src="${movie.covThUrl }" alt="">
+				<a href="/recipe-single"><img src="${movie.covThUrl}" width="350px" height="500px"></a>
 				<div class="recipe-info-warp">
 					<div class="recipe-info">
 						<h3>${movie.movieNm}</h3>
@@ -107,37 +107,42 @@
 				</div>
 			</div>
 		</div>
-</c:forEach>
-</c:when>
-<c:otherwise>		
-<div><h3>영화가 없습니다.</h3></div>
-</c:otherwise>
-</c:choose>
+		</c:forEach>
+	</c:when>
+	<c:otherwise>		
+		<div><h3>영화가 없습니다.</h3></div>
+	</c:otherwise>
+	</c:choose>
    </div>
-</div>
+
+
 	<div class="site-pagination">
 		<c:if test="${pageInfoMap.allRowCount gt 0}">
 		<!-- 이전 블록이 존재하는지 확인 -->
 		<c:if test="${pageInfoMap.startPage gt pageInfoMap.pageBlockSize}">
-			<a href="/movie?pageNum=${pageInfoMap.startPage - pageInfoMap.pageBlockSize}&search=${search}">이전</a>
+			<a href="/movie?pageNum=1&search=${search }&#list">1</a><span class="more-page">...</span>
+			<a href="/movie?pageNum=${pageInfoMap.startPage - 1}&search=${search}&#list">이전</a>
 		</c:if>
 		
 		<c:forEach var="i" begin="${pageInfoMap.startPage}" end="${pageInfoMap.endPage}" step="1">
 			<c:choose>
 			<c:when test="${i eq pageInfoMap.pageNum}">
-				<a href="/movie?pageNum=${i}&search=${search}">${ i }</a>
+				<span>${i }</span>
 			</c:when>
 			<c:otherwise>
-				<a href="/movie?pageNum=${i}&search=${search}">${ i }</a>
+				<a href="/movie?pageNum=${i}&search=${search}&#list">${ i }</a>
 			</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		
 		<!-- 다음 블록이 존재하는지 확인 -->
 		<c:if test="${pageInfoMap.endPage lt pageInfoMap.maxPage}">
-			<a href="/movie?pageNum=${pageInfoMap.startPage + pageInfoMap.pageBlockSize}&search=${search}">다음</a>
+			<a href="/movie?pageNum=${pageInfoMap.startPage + pageInfoMap.pageBlockSize}&search=${search}&#list">다음</a>
+			<span class="more-page">...</span>
+			<a href="/movie?pageNum=${pageInfoMap.maxPage }&search=${search }&#list">${pageInfoMap.maxPage }</a>
 		</c:if>
-	</c:if>
+		</c:if>
+	</div>
 	</div>
 </section>
 <!-- Recipes section end -->

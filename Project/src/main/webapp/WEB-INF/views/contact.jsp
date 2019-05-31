@@ -102,7 +102,7 @@
 		</div>
 	</div>
 	<!-- map -->
-	<div class="location-map" id="map-canvas"></div>	
+<!-- 	<div class="location-map" id="map-canvas"></div>	 -->
 </div>
 </section>
 

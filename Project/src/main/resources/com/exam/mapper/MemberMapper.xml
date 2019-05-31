@@ -21,15 +21,6 @@
 	select password from member where id = #{id}
 </select>
 
-<delete id="deleteMember">
-	DELETE FROM member WHERE id = #{id}
-</delete>
-
-<select id="getCurrPackageById" resultType="string">
-	SELECT package FROM package
-	WHERE id = #{id} AND expire_date > current_date()
-</select>
-
 <update id = "upDateMember">
 	UPDATE member 
 	SET password = #{password},
@@ -38,11 +29,31 @@
 	WHERE id = #{id}
 </update>
 
+<delete id="deleteMember">
+	DELETE FROM member WHERE id = #{id}
+</delete>
+
+
+
+
+
+<!-- 구매 관련 -->
+
+<select id="getCurrPackageById" resultType="string">
+	SELECT package FROM package
+	WHERE id = #{id} AND expire_date > current_date()
+</select>
 
 <update id="updateCash">
 	UPDATE member SET cash = #{cash} WHERE id = #{id}
 </update>
 	
+<insert id="insertPackage">
+	INSERT INTO package (id, package, expire_date)
+	VALUES (#{id}, #{pack}, DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH))
+</insert>
+	
+
 </mapper>
 
 

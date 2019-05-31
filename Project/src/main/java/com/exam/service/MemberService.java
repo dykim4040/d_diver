@@ -12,14 +12,21 @@ public interface MemberService {
 	
 	public MemberVO getMember(String id);
 
+	public void upDateMember(MemberVO member);
+	
 	public boolean checkPw(String id, String password);
 	
 	public void deleteMember(String id);
 	
-	public String getCurrPackage(String id);
-
-	public void upDateMember(MemberVO member);
 	
+	
+	
+	
+	/* 구매 관련 */
+	
+	public String getCurrPackage(String id);
 	
 	public int updateCash(int cash, String id);
+	
+	public int buyPackageUseCash(int price, String id);
 }
