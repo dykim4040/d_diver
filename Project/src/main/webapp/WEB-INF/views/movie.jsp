@@ -30,13 +30,11 @@
 $(function() {
 	
 	var category = $('#category').html();
-	var option = $('#select option').html();
 	console.log(category);
-	console.log(option);
 	
 	for (i = 0; i < 18; i++) {
-		var n = $('#c' + i).html();
-		if (n == category) {
+		var option = $('#c' + i).html();
+		if (option == category) {
 			$('#select option').removeAttr("selected");
 			$('#c' + i).attr("selected", "selected");
 		}
