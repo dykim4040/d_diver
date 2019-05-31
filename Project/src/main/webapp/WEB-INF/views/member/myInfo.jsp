@@ -64,34 +64,31 @@
 			<input type="hidden" name="id" value="${member.id }">
 			<div class="row">
 				<div class="col-md-12">
-					<c:set var="member" value="${member }"></c:set>
+					<c:set var="member" value="${member }" />
 					<fieldset>
-						<legend>"${member.id }" 회원님의 정보입니다.</legend>
-						<br>
+						<legend>"${member.id }" 회원님의 정보입니다.</legend><br>
 							
-						<label>Password</label> <input type="password" name="password" id="password"
-							required><br>
-							
-							<label>E-Mail</label>
+						<label>Password</label>
+						<input type="password" name="password" id="password" required><br>
+						
+						<label>E-Mail</label>
 						<input type="email" name="email" disabled="disabled"
 							value="${member.email }" required><br>
 							
-							
-						<label>Birthday</label><input
-							type="date" name="birthday"
+						<label>Birthday</label>
+						<input type="date" name="birthday"
 							value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
 							disabled="disabled"><br> 
 							
-							 <label>Mypackage</label>
-							<input type="text" name="Mypackage" disabled="disabled"
+						<label>Mypackage</label>
+						<input type="text" name="Mypackage" disabled="disabled"
 							value="${pack }" required><br> 
 							
-							<label>cash</label> 
-							<input
-							type="text" name="cash" disabled="disabled"
+						<label>cash</label> 
+						<input type="text" name="cash" disabled="disabled"
 							value="${member.cash }" required><br> 
 							
-							<label>mileage</label>
+						<label>mileage</label>
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
 							
@@ -101,9 +98,8 @@
 							
 							
 						
-						<button class="site-btn"  id="delete" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 						<button class="site-btn" id="upDate">수정하기</button>
-						
+						<button class="site-btn" id="delete" style="float: right;" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 							
 					</fieldset>
 				</div>

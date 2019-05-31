@@ -58,6 +58,8 @@ public class MemberController {
 			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
 		}
 		session.setAttribute("sessionID", member.getId());
+		String pack = service.getCurrPackage(member.getId());
+		session.setAttribute("pack", pack);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Location", "/"); // redirect 경로 위치
@@ -112,6 +114,14 @@ public class MemberController {
 
 		MemberVO member = service.getMember(id);
 		String pack = service.getCurrPackage(id);
+		
+		if ("G".equals(pack)) {
+			pack += "old";
+		} else if ("S".equals(pack)) {
+			pack += "ilver";
+		} else if ("B".equals(pack)) {
+			pack += "ronze";
+		}
 
 		model.addAttribute("pack", pack);
 		model.addAttribute("member", member);
@@ -177,6 +187,7 @@ public class MemberController {
 		 */
 		return "member/login";
 	}
+	
 
 	// 아이디찾기
 	@GetMapping("/hintID")

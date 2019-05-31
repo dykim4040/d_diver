@@ -120,16 +120,20 @@ public class MemberServiceImpl implements MemberService {
 		}
 		mapper.updateCash(cash, id);
 		
+		int month = 0;
 		String pack = "";
 		if (price == HomeController.gold) {
 			pack = "G";
+			month = 6;
 		} else if (price == HomeController.silver) {
 			pack = "S";
+			month = 3;
 		} else if (price == HomeController.bronze) {
 			pack = "B";
+			month = 1;
 		}
 		
-		return mapper.insertPackage(id, pack);
+		return mapper.insertPackage(id, pack, month);
 	}
 
 	
