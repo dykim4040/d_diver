@@ -30,5 +30,28 @@
 		SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
 	</select>
 	
+	<select id="getCompaniesIn" resultType="CompaniesInVO">
+		SELECT * FROM d_diver.companies_in WHERE movie_cd = #{movieCd}
+	</select>
+	
+	<select id="getDirectorsIn" resultType="DirectorsInVO">
+		SELECT * FROM d_diver.directors_in WHERE movie_cd = #{movieCd}
+	</select>
+	
+	<select id="getMovieGenre" resultType="MovieGenreVO">
+		SELECT * FROM d_diver.movie_genre WHERE movie_cd = #{movieCd}
+	</select> 
+	
+	<select id="getMovieStillCut" resultType="MovieStillCutVO">
+		SELECT * FROM d_diver.movie_still_cut WHERE movie_cd = #{movieCd}
+	</select> 
+	
+	<select id="getStarsIn" resultType="StarsInVO">
+		SELECT * FROM d_diver.stars_in WHERE movie_cd = #{movieCd}
+	</select> 
+	
+	<update id="updateAvgScore">
+		UPDATE d_diver.movie SET avg_score = #{avg_score} WHERE movie_cd = #{movieCd}
+	</update>
 	
 </mapper>  
