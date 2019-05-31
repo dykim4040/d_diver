@@ -65,8 +65,7 @@
 				<div class="col-lg-6" style="margin: auto;">
 					<div class="contact-form-warp">
 						<h4>내정보수정</h4>
-						<form action="/member/upDate" method="post" id="myInfo" name="frm"
-							class="contact-form" onsubmit="return formCheck();">
+						
 						<form action="/member/upDateInfo" method="post" id="upDate" name="frm"
 							class="contact-form" >
 							<div class="row">
@@ -75,17 +74,13 @@
 									<fieldset>
 									<input type="hidden" name="id" value="${member.id }">
 										<br>
-										<label>Password</label> 
-										<input type="password" name="password" value="${member.password }" ><br> 
+								
 										<label>Password</label> <input type="password" name="password"
 											value="${member.password }" ><br>
 																						
 										<label>E-Mail</label>
 										<input type="email" name="email" value="${member.email }" ><br>	
-											
-										<label>Birthday</label>
-										<input type="date" name="birthday" value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
-										><br> 										
+																				
 										<label>Birthday</label><input
 											type="date" name="birthday"
 											value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
