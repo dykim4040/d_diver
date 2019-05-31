@@ -58,6 +58,8 @@ public class MemberController {
 			return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
 		}
 		session.setAttribute("sessionID", member.getId());
+		String pack = service.getCurrPackage(member.getId());
+		session.setAttribute("pack", pack);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Location", "/"); // redirect 경로 위치

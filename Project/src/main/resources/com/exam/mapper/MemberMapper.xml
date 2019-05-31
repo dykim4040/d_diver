@@ -50,7 +50,7 @@
 	
 <insert id="insertPackage">
 	INSERT INTO package (id, package, expire_date)
-	VALUES (#{id}, #{pack}, DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH))
+	VALUES (#{id}, #{pack}, DATE_ADD(CURRENT_DATE, INTERVAL #{month} MONTH))
 </insert>
 	
 

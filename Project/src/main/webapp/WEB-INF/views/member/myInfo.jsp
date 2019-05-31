@@ -92,29 +92,27 @@ $(document).ready(function(){
 						<legend>"${member.id }" 회원님의 정보입니다.</legend>
 						<br>
 							
-						<label>Password</label> <input type="password" name="password" id="password"
-							required><br>
-							
-							<label>E-Mail</label>
+						<label>Password</label>
+						<input type="password" name="password" id="password" required><br>
+						
+						<label>E-Mail</label>
 						<input type="email" name="email" disabled="disabled"
 							value="${member.email }" required><br>
 							
-							
-						<label>Birthday</label><input
-							type="date" name="birthday"
+						<label>Birthday</label>
+						<input type="date" name="birthday"
 							value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
 							disabled="disabled"><br> 
 							
-							 <label>Mypackage</label>
-							<input type="text" name="Mypackage" disabled="disabled"
+						<label>Mypackage</label>
+						<input type="text" name="Mypackage" disabled="disabled"
 							value="${pack }" required><br> 
 							
-							<label>cash</label> 
-							<input
-							type="text" name="cash" disabled="disabled"
+						<label>cash</label> 
+						<input type="text" name="cash" disabled="disabled"
 							value="${member.cash }" required><br> 
 							
-							<label>mileage</label>
+						<label>mileage</label>
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
 						<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
