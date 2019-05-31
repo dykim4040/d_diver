@@ -154,43 +154,69 @@ public class MemberController {
 		return "member/delete";
 	}
 
+	// 회원정보수정하게만들기
 	@PostMapping("/upDate")
 	public String upDateMember(String id, Model model) {
 		System.out.println("<< upDate 호출 >>");
-		
+
 		MemberVO member = service.getMember(id);
-		model.addAttribute("member", member); 
+		model.addAttribute("member", member);
 		System.out.println("아이디 : " + id);
-		
+
 		return "member/upDate";
 	}
-	
-   @PostMapping("/upDateInfo")
-    public String upDateMember(MemberVO memberVO) {
-	   System.out.println("<< upDate 됬어요 호출 >>");
-	   service.upDateMember(memberVO);
-	/*
-	 * // 글 패스워드 일치하면 글수정 후 글목록으로 이동 // 글 패스워드 불일치하면 이전화면으로 돌아가기 // boolean
-	 * isSuccess == true 수정성공 // isSuccess == false 수정실패 boolean isSuccess =
-	 service.updateMember(memberVO);
-	 * 
-	 * if (!isSuccess) { // // 글 수정 실패 HttpHeaders headers = new HttpHeaders();
-	 * headers.add("Content-Type", "text/html; charset=UTF-8");
-	 * 
-	 * StringBuilder sb = new StringBuilder(); sb.append("<script>");
-	 * sb.append("alert('글비밀번호가 틀립니다.');"); sb.append("history.back();");
-	 * sb.append("</script>");
-	 * 
-	 * return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
-	 */
-	   return "member/login";
-    }
 
-	        
-	      
-	  
+	// 회원정보수정페이지완료
+	@PostMapping("/upDateInfo")
+	public String upDateMember(MemberVO memberVO) {
+		System.out.println("<< upDate 됬어요 호출 >>");
+		service.upDateMember(memberVO);
+		/*
+		 * // 글 패스워드 일치하면 글수정 후 글목록으로 이동 // 글 패스워드 불일치하면 이전화면으로 돌아가기 // boolean
+		 * isSuccess == true 수정성공 // isSuccess == false 수정실패 boolean isSuccess =
+		 * service.updateMember(memberVO);
+		 * 
+		 * if (!isSuccess) { // // 글 수정 실패 HttpHeaders headers = new HttpHeaders();
+		 * headers.add("Content-Type", "text/html; charset=UTF-8");
+		 * 
+		 * StringBuilder sb = new StringBuilder(); sb.append("<script>");
+		 * sb.append("alert('글비밀번호가 틀립니다.');"); sb.append("history.back();");
+		 * sb.append("</script>");
+		 * 
+		 * return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
+		 */
+		return "member/login";
+	}
 	
-	
-	
-		
+
+	// 아이디찾기
+	@GetMapping("/hintID")
+	public String hintID() {
+		System.out.println("<< hintID 호출 >>");
+		return "member/hintID";
+	}
+
+	@PostMapping("/hintID")
+	public ResponseEntity<String> hintID(MemberVO member, HttpSession session) {
+		System.out.println("<< hintID, POST >>"); // int check
+		int check = service.countById(member.getId());
+
+		String message = "";
+		if (check != 1) { // 로그인 실패 String message = null; if (check == -1) { message
+			message = "해당하는 아이디가 없습니다.";
+		}
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+
+		StringBuffer msg = new StringBuffer();
+		msg.append("<script>");
+		msg.append("alert('" + message + "');");
+		msg.append("history.back();");
+		msg.append("</script>");
+
+		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+
+	}
+
 }

@@ -18,6 +18,10 @@ public interface MemberService {
 	
 	public void deleteMember(String id);
 	
+	public void hintID(String id);
+	
+	public int countById(String id);
+	
 	
 	
 	

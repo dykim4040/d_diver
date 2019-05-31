@@ -91,6 +91,12 @@
 						<label>mileage</label>
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
+							
+							<label>좋아하는 동물이름은?</label>
+						<input type="text" name="hint" disabled="disabled"
+							value="${member.hint }" required><br>
+							
+							
 						
 						<button class="site-btn" id="upDate">수정하기</button>
 						<button class="site-btn" id="delete" style="float: right;" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>

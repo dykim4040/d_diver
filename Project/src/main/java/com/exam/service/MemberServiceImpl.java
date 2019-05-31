@@ -75,10 +75,16 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
-
+	@Override
+	public void hintID(String id) {
+		mapper.hintID(id);
+	}
 	
 	
-	
+	@Override
+	public int countById(String id) {
+		return mapper.countById(id);
+	}
 	
 	
 	
@@ -129,6 +135,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mapper.insertPackage(id, pack, month);
 	}
+
+	
 	
 	
 	

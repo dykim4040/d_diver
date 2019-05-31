@@ -22,6 +22,8 @@ public interface MemberMapper {
 	public void upDateMember(MemberVO member);
 	
 	public void deleteMember(String id);
+	
+	public void hintID(String id);
 
 	
 	

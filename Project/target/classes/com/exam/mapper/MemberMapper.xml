@@ -5,8 +5,8 @@
 <mapper namespace="com.exam.mapper.MemberMapper">
 
 <insert id="insert">
-	INSERT INTO member (id, password, reg_date, cash, mileage, email, birthday, gender)
-	VALUES (#{id},#{password},CURRENT_TIMESTAMP, 0, 0, #{email},#{birthday},#{gender})
+	INSERT INTO member (id, password, reg_date, cash, mileage, email, birthday, gender,hint)
+	VALUES (#{id},#{password},CURRENT_TIMESTAMP, 0, 0, #{email},#{birthday},#{gender},#{hint})
 </insert>
 
 <select id="getMemberById" resultType="memberVO">
@@ -25,7 +25,8 @@
 	UPDATE member 
 	SET password = #{password},
 	email = #{email},
-	birthday = #{birthday} 
+	birthday = #{birthday},
+	hint = #{hint}
 	WHERE id = #{id}
 </update>
 
