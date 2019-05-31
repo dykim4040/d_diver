@@ -95,7 +95,7 @@
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
 						
-						<button type="button"  id="delete" onclick = "location.href = '/member/memberDelete'">삭제</button>
+						<button class="site-btn"  id="delete" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 						<button class="site-btn" id="upDate">수정하기</button>
 						
 							

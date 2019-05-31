@@ -147,7 +147,7 @@ public class MemberController {
 	
 	
 	@PostMapping("/upDate")
-	public String upDate(String id, Model model) {
+	public String upDateMember(String id, Model model) {
 		System.out.println("<< upDate 호출 >>");
 		
 		MemberVO member = service.getMember(id);
@@ -157,7 +157,7 @@ public class MemberController {
 		return "member/upDate";
 	}
 	   @PostMapping("/upDateInfo")
-	    public String upDate(MemberVO memberVO) {
+	    public String upDateMember(MemberVO memberVO) {
 		   System.out.println("<< upDate 됬어요 호출 >>");
 		   service.upDateMember(memberVO);
 		/*
