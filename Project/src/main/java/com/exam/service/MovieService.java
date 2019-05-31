@@ -6,7 +6,7 @@ import com.exam.domain.MovieVO;
 
 public interface MovieService {
     
-    public List<MovieVO> getMovies(int startRow, int amount, String search) throws Exception;
+    public List<MovieVO> getMovies(int startRow, int amount, String search, String repNationNm) throws Exception;
     
     public int getMovieCount(String search);
     

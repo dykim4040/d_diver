@@ -17,8 +17,9 @@ public class MovieServiceImpl implements MovieService {
     private MovieMapper mapper;
     
     @Override
-    public List<MovieVO> getMovies(int startRow, int amount, String search) throws Exception {
-        return mapper.getMovies(startRow, amount, search);
+    public List<MovieVO> getMovies(int startRow, int amount, String search, String repNationNm) throws Exception {
+    	System.out.println("search, rep : " + search + " : " + repNationNm);
+        return mapper.getMovies(startRow, amount, search, repNationNm);
     }
 
     @Override

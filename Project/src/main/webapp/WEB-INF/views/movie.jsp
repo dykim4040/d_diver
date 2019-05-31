@@ -52,8 +52,8 @@
 <div class="sf-warp">
 	<div class="container">
 		<form class="big-search-form">
-			<select>
-				<option>영화 카테고리</option>
+			<select name="repNationNm">
+				<option value="">영화 카테고리</option>
 				<option>로맨스</option>
 				<option>가족</option>
 				<option>액션</option>
