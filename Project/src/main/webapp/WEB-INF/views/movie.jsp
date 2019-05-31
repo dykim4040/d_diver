@@ -92,11 +92,7 @@
 		<c:forEach var="movie" items="${list}">		
 		<div class="col-lg-4 col-md-6">
 			<div class="recipe">
-<<<<<<< HEAD
-				<a href="/recipe-single"><img src="${movie.covThUrl}"></a>
-=======
-				<img src="${movie.covThUrl}" >
->>>>>>> branch 'master' of https://github.com/dykim4040/d_diver.git
+				<a href="/recipe-single"><img src="${movie.covThUrl}" width="350px" height="500px"></a>
 				<div class="recipe-info-warp">
 					<div class="recipe-info">
 						<h3>${movie.movieNm}</h3>
