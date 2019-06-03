@@ -2,6 +2,7 @@ package com.exam.service;
 
 import java.util.List;
 
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 
 public interface MovieService {
@@ -14,7 +15,7 @@ public interface MovieService {
     
     public List<MovieVO> newGetMovie(int amount) throws Exception;
     
-    
+
     
 	/* 내 컨텐츠 */
 	
@@ -25,6 +26,8 @@ public interface MovieService {
 	public List<MovieVO> getWishList(String id, int amount);
 	
 	/* 내 컨텐츠 */
+    
+    public MovieInfoVO getMovieInfo(int movieCd);
     
 }
 

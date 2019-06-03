@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class MovieStillCutVO {
-    int movieCd;
+//    int movieCd;
     String StillCutUrl;
 }

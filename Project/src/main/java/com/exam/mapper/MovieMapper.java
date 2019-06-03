@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 
 public interface MovieMapper {
@@ -34,4 +35,7 @@ public interface MovieMapper {
 	/* 내 컨텐츠 */
 	
 	
+    public MovieInfoVO getMovieInfo(int movieCd);
+    
+    
 }

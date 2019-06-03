@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.exam.domain.MemberVO;
-import com.exam.domain.MovieVO;
 
 public interface MemberMapper {
 	public int insert(MemberVO member);

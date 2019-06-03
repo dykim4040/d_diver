@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class MovieGenreVO {
-    int movieCd;
+//    int movieCd;
     String movieGenre;
 }

@@ -46,6 +46,7 @@
 
 
 
+
 <!-- 내 컨텐츠 -->
 
 <insert id="insertWatchList"><!-- 시청 목록 추가 -->
@@ -85,7 +86,53 @@
 	
 	
 	
-	
+
+ 
+<resultMap type="movieInfoVO" id="collectionResultMap">
+	<result column="movie_cd" property="movieCd" />
+	<result column="movie_nm" property="movieNm" />
+	<result column="movie_nm_en" property="movieNmEn" />
+	<result column="rep_nation_nm" property="repNationNm" />
+	<result column="rep_genre_nm" property="repGenreNm" />
+	<result column="synopsis" property="synopsis" />
+	<result column="cov_url" property="covUrl" />
+	<result column="cov_th_url" property="covThUrl" />
+	<result column="watch_grade_nm" property="watchGradeNm" />
+	<result column="open_dt" property="openDt" />
+	<result column="show_tm" property="showTm" />
+	<result column="views" property="views" />
+	<result column="price" property="price" />
+	<result column="avg_score" property="avgScore" />
+
+	<collection property="starsIn" ofType="starsInVO">
+		<result column="star_cd" property="starCd"/>
+		<result column="star_nm" property="starNm"/>
+		<result column="star_nm_en" property="starNmEn"/>
+		<result column="star_cast" property="starCast"/>
+	</collection>
+	<collection property="directorsIn" ofType="directorsInVo">
+		<result column="director_cd" property="directorCd"/>
+		<result column="director_nm" property="directorNm"/>
+		<result column="director_nm_en" property="directorNmEn"/>
+	</collection>
+	<collection property="companiesIn" ofType="companiesInVo">
+		<result column="company_cd" property="companyCd"/>
+		<result column="company_nm" property="companyNm"/>
+		<result column="company_nm_en" property="companyNmEn"/>
+		<result column="company_part_nm" property="companyPartNm"/>
+	</collection>
+	<collection property="movieGenre" ofType="movieGenreVo">
+		<result column="movie_genre" property="movieGenre"/>
+	</collection>
+	<collection property="movieStillCut" ofType="movieStillCutVO">
+		<result column="still_cut_url" property="stillCutUrl"/>
+	</collection>
+</resultMap>
+
+<!-- 뷰 생성되어 있음 -->
+<select id="getMovieInfo" resultMap="collectionResultMap">
+	select * from movie_info where movie_cd = #{movieCd}
+</select>
 	
 	
 </mapper>  

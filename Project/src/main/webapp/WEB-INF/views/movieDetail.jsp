@@ -37,7 +37,7 @@
 
 </head>
 <body>
-<c:set var="movie" value="${movie }"></c:set>
+<c:set var="movie" value="${movieInfo }"></c:set>
 <!-- Page Preloder -->
 <div id="preloder">
 	<div class="loader"></div>
@@ -52,7 +52,7 @@
 <section class="page-top-section set-bg"
 	data-setbg="/resources/img/page-top-bg.jpg">
 	<div class="container">
-		<h2>${movie.movieNm}</h2>
+		<h2>${movieInfo.movieNm}</h2>
 	</div>
 </section>
 <!-- Hero section end -->
@@ -77,7 +77,7 @@
 		<!-- 	<div class="racipe-cata"> -->
 		<!-- 		<span>For Begginers</span> -->
 		<!-- 	</div> -->
-		<h2>${movie.movieNm}</h2>
+		<h2>${movieInfo.movieNm}</h2>
 		<div class="rating">
 			<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 				class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -94,22 +94,26 @@
 	<div class="container-row">
 		<div class="thumb">
 				
-			<img src="${movie.covThUrl}" id="movieP">
+			<img src="${movieInfo.covThUrl}" id="movieP">
 			
 		</div>
 		<div class="row2">
-			<div class="summary">${movie.synopsis}</div>
+		
+			<div class="summary"><b>시놉시스</b> <br>${movieInfo.synopsis}</div>
 			<ul id="summmary-ul">
 				<li>
 					<strong>개요</strong>
-					<span>${movie.repGenreNm}</span>
+					<span>${movieInfo.repGenreNm}</span>
 					<small>&nbsp;|&nbsp;</small>
-					${movie.watchGradeNm}
+					${movieInfo.watchGradeNm}
 					<small>&nbsp;|&nbsp;</small>
-					${movie.showTm}분
+					${movieInfo.showTm}분
 				</li>
 				<li>
-					<strong>출연</strong>
+					<strong>출연</strong><br>
+					<c:forEach var="star" items="${movieInfo.starsIn }">
+						<b>${star.starNm }, &nbsp;</b>
+					</c:forEach>
 				</li>
 				<li>
 					<strong>감독</strong>

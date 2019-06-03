@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 import com.exam.service.MemberService;
 import com.exam.service.MovieService;
@@ -31,13 +32,8 @@ public class HomeController {
 	private MovieService movieService;
 	
 	@GetMapping("/")
-	public String main(Model model) throws Exception {
+	public String main(Model model) {
 		System.out.println("<< main 호출 >>");
-        
-		List<MovieVO> list = movieService.newGetMovie(6);
-		
-        model.addAttribute("list", list);
-		
 		return "index";
 	}//main()
 	
@@ -111,8 +107,8 @@ public class HomeController {
 		System.out.println("<< movieDetail >>");
 		log.info("movieCd : " + movieCd );
 		
-		MovieVO movie = movieService.getMovie(movieCd);
-		model.addAttribute("movie", movie);
+		MovieInfoVO movieInfo = movieService.getMovieInfo(movieCd);
+		model.addAttribute("movieInfo", movieInfo);
 		
 		String id = (String) session.getAttribute("sessionID");
 		if (!(id == null || "".equals(id))) {
@@ -123,7 +119,7 @@ public class HomeController {
 	    return "movieDetail";
 	}
 	
-	
+
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	
 

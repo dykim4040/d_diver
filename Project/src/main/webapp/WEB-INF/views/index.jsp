@@ -70,14 +70,12 @@
 		<h2>최신 영화</h2>
 	</div>
 	<div class="row">
-	<c:if test="${not empty list}">
-	<c:forEach var="movie" items="${list}">
 		<div class="col-lg-4 col-md-6">
 			<div class="recipe">
-				<img src="${movie.covThUrl}" alt="">
+				<img src="/resources/img/recipes/1.jpg" alt="">
 				<div class="recipe-info-warp">
 					<div class="recipe-info">
-					<h3>${movie.movieNm}</h3>
+					<h3>Traditional Pizza</h3>
 					<div class="rating">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -89,8 +87,91 @@
 				</div>
 			</div>
 		</div>
-	</c:forEach>
-	</c:if>	
+		<div class="col-lg-4 col-md-6 col-md-6">
+			<div class="recipe">
+				<img src="/resources/img/recipes/2.jpg" alt="">
+				<div class="recipe-info-warp">
+					<div class="recipe-info">
+					<h3>Italian home-made pasta</h3>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star is-fade"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6">
+			<div class="recipe">
+				<img src="/resources/img/recipes/3.jpg" alt="">
+				<div class="recipe-info-warp">
+					<div class="recipe-info">
+					<h3>Chesse Cake Tart</h3>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star is-fade"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6">
+			<div class="recipe">
+				<img src="/resources/img/recipes/4.jpg" alt="">
+				<div class="recipe-info-warp">
+					<div class="recipe-info">
+					<h3>Traditional Pizza</h3>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star is-fade"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6">
+			<div class="recipe">
+				<img src="/resources/img/recipes/5.jpg" alt="">
+				<div class="recipe-info-warp">
+					<div class="recipe-info">
+					<h3>Italian home-made pasta</h3>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star is-fade"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6">
+			<div class="recipe">
+				<img src="/resources/img/recipes/6.jpg" alt="">
+				<div class="recipe-info-warp">
+					<div class="recipe-info">
+					<h3>Chesse Cake Tart</h3>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star is-fade"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 </section>
@@ -101,7 +182,8 @@
 <section class="bottom-widgets-section spad">
 <div class="container">
 <div class="row">
-	<div class="col-lg-4 col-md-6 ftw-warp">
+	<div class="col-lg-4 col-md-6 ftw-warp"
+		 style="max-width: 50%; flex: auto;">
 		<div class="section-title">
 			<h3>평점</h3>
 		</div>
@@ -178,7 +260,8 @@
 			</li>
 		</ul>
 	</div>
-	<div class="col-lg-4 col-md-6 ftw-warp">
+	<div class="col-lg-4 col-md-6 ftw-warp"
+		 style="max-width: 50%; flex: auto;">
 		<div class="section-title">
 			<h3>조회</h3>
 		</div>
@@ -254,23 +337,6 @@
 				</div>
 			</li>
 		</ul>
-	</div>
-	<div class="col-lg-4">
-		<div class="sp-blog-item">
-			<div class="blog-thubm">
-				<img src="/resources/img/blog/1.jpg" alt="">
-				<div class="blog-date">
-					<span>May 04, 2018</span>
-				</div>
-			</div>
-			<div class="blog-text">
-				<h5>Italian restaurant Review</h5>
-				<span>By Maria Williams</span>
-				<p>Donec quam felis, ultricies nec, pellente sque eu, pretium quis, sem. Nulla conseq uat massa quis enim. </p>
-				<a href="#" class="comment">2 Comments</a>
-				<a href="#" class="readmore"><i class="fa fa-angle-right"></i></a>
-			</div>
-		</div>
 	</div>
 </div>
 </div>

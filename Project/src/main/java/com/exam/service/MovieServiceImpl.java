@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 import com.exam.mapper.MovieMapper;
 
@@ -65,4 +66,8 @@ public class MovieServiceImpl implements MovieService {
 
 	/* 내 컨텐츠 */
    
+    @Override
+    public MovieInfoVO getMovieInfo(int movieCd) {
+        return mapper.getMovieInfo(movieCd);
+    }
 }
