@@ -115,6 +115,7 @@ public class HomeController {
 			movieService.insertWatchList(id, movieCd);
 			System.out.println(id + " 시청 목록에 " + movieCd + " 영화 추가!");
 		}
+		model.addAttribute("movieInfo", movieInfo);
 		
 	    return "movieDetail";
 	}
