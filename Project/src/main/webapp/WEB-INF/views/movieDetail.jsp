@@ -111,12 +111,24 @@
 				</li>
 				<li>
 					<strong>출연</strong><br>
-					<c:forEach var="star" items="${movieInfo.starsIn }">
-						<b>${star.starNm }, &nbsp;</b>
+					<c:forEach var="star" items="${movieInfo.starsIn }" varStatus="index">
+						<b>${star.starNm }</b>
+						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
 					</c:forEach>
 				</li>
 				<li>
-					<strong>감독</strong>
+					<strong>감독</strong><br>
+					<c:forEach var="director" items="${movieInfo.directorsIn }" varStatus="index">
+						<b>${director.directorNm }</b>
+						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
+					</c:forEach>
+				</li>
+				<li>
+					<strong>회사</strong><br>
+					<c:forEach var="company" items="${movieInfo.companiesIn }" varStatus="index">
+						<b>${company.companyNm } &lt;${company.companyPartNm }&gt;</b>
+						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
+					</c:forEach>
 				</li>
 			</ul>
 			<button class="btn">구매하기</button>

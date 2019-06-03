@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 import com.exam.service.MemberService;
 import com.exam.service.MovieService;
@@ -97,9 +98,9 @@ public class HomeController {
 		System.out.println("<< movieDetail >>");
 		
 		log.info("movieCd : " + movieCd );
-		MovieVO movie = movieService.getMovie(movieCd);
+		MovieInfoVO movieInfo = movieService.getMovieInfo(movieCd);
 		
-		model.addAttribute("movie", movie);
+		model.addAttribute("movieInfo", movieInfo);
 		
 	    return "movieDetail";
 	}
