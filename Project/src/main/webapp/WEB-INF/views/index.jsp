@@ -181,7 +181,8 @@
 <section class="bottom-widgets-section spad">
 <div class="container">
 <div class="row">
-	<div class="col-lg-4 col-md-6 ftw-warp">
+	<div class="col-lg-4 col-md-6 ftw-warp"
+		 style="max-width: 50%; flex: auto;">
 		<div class="section-title">
 			<h3>평점</h3>
 		</div>
@@ -258,7 +259,8 @@
 			</li>
 		</ul>
 	</div>
-	<div class="col-lg-4 col-md-6 ftw-warp">
+	<div class="col-lg-4 col-md-6 ftw-warp"
+		 style="max-width: 50%; flex: auto;">
 		<div class="section-title">
 			<h3>조회</h3>
 		</div>
@@ -334,23 +336,6 @@
 				</div>
 			</li>
 		</ul>
-	</div>
-	<div class="col-lg-4">
-		<div class="sp-blog-item">
-			<div class="blog-thubm">
-				<img src="/resources/img/blog/1.jpg" alt="">
-				<div class="blog-date">
-					<span>May 04, 2018</span>
-				</div>
-			</div>
-			<div class="blog-text">
-				<h5>Italian restaurant Review</h5>
-				<span>By Maria Williams</span>
-				<p>Donec quam felis, ultricies nec, pellente sque eu, pretium quis, sem. Nulla conseq uat massa quis enim. </p>
-				<a href="#" class="comment">2 Comments</a>
-				<a href="#" class="readmore"><i class="fa fa-angle-right"></i></a>
-			</div>
-		</div>
 	</div>
 </div>
 </div>
