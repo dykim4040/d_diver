@@ -25,7 +25,23 @@
 <link rel="stylesheet" href="/resources/css/style.css"/>
 <link rel="stylesheet" href="/resources/css/custom.css" />
 
-
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+<script>
+$(function() {
+	
+	var category = $('#category').html();
+	console.log(category);
+	
+	for (i = 0; i < 18; i++) {
+		var option = $('#c' + i).html();
+		if (option == category) {
+			$('#select option').removeAttr("selected");
+			$('#c' + i).attr("selected", "selected");
+		}
+	}
+	
+});
+</script>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -48,18 +64,30 @@
 
 
 <!-- Search section -->
+<div id="category" style="display: none;">${category }</div>
 <div class="search-form-section">
 <div class="sf-warp">
 	<div class="container">
 		<form class="big-search-form">
-			<select>
-				<option>영화 카테고리</option>
-				<option>로맨스</option>
-				<option>가족</option>
-				<option>액션</option>
-				<option>코미디</option>
-				<option>공포(호러)</option>
-				<option>기타</option>
+			<select id="select" name="repNationNm">
+				<option id="c0" value="">영화 카테고리</option>
+				<option id="c1">드라마</option>
+	            <option id="c2">멜로/로맨스</option>
+	            <option id="c3">SF</option>
+	            <option id="c4">애니메이션</option>
+	            <option id="c5">판타지</option>
+	            <option id="c6">액션</option>
+	            <option id="c7">가족</option>
+	            <option id="c8">스릴러</option>
+	            <option id="c9">코미디</option>
+	            <option id="c10">공포(호러)</option>
+	            <option id="c11">범죄</option>
+	            <option id="c12">사극</option>
+	            <option id="c13">전쟁</option>
+	            <option id="c14">미스터리</option>
+	            <option id="c15">뮤지컬</option>
+	            <option id="c16">어드벤처</option>
+	            <option id="c17">기타</option>
 			</select>
 			<input type="text" name="search" class="input_box" value="${search}" placeholder="검색">
 			<button class="bsf-btn">검색</button>
@@ -76,7 +104,24 @@
 	<div class="row">
 		<div class="col-md-8">
 			<div class="section-title">
-				<h2>All Movies</h2>
+			<c:choose>
+			<c:when test="${category == null || category == '' }">
+				<c:choose>
+				<c:when test="${search == null || search == '' }">
+					<h2>All Movies</h2>
+				</c:when>
+				<c:otherwise>
+					<h2>"${search }" 검색결과</h2>
+				</c:otherwise>
+				</c:choose>
+			</c:when>
+			<c:when test="${search == null || search == '' }">
+				<h2>${category } 검색결과</h2>
+			</c:when>
+			<c:otherwise>
+				<h2>${category } "${search }" 검색결과</h2>
+			</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 <!-- 		<div class="col-md-4"> -->
@@ -92,7 +137,7 @@
 		<c:forEach var="movie" items="${list}">		
 		<div class="col-lg-4 col-md-6">
 			<div class="recipe">
-				<a href="/recipe-single"><img src="${movie.covThUrl}" width="350px" height="500px"></a>
+				<a href="/movieDetail?movieCd=${movie.movieCd}"><img src="${movie.covThUrl}" width="350px" height="500px"></a>
 				<div class="recipe-info-warp">
 					<div class="recipe-info">
 						<h3>${movie.movieNm}</h3>
@@ -120,8 +165,8 @@
 		<c:if test="${pageInfoMap.allRowCount gt 0}">
 		<!-- 이전 블록이 존재하는지 확인 -->
 		<c:if test="${pageInfoMap.startPage gt pageInfoMap.pageBlockSize}">
-			<a href="/movie?pageNum=1&search=${search }&#list">1</a><span class="more-page">...</span>
-			<a href="/movie?pageNum=${pageInfoMap.startPage - 1}&search=${search}&#list">이전</a>
+			<a href="/movie?repNationNm=${category }&search=${search }&pageNum=1&#list">1</a><span class="more-page">...</span>
+			<a href="/movie?repNationNm=${category }&search=${search}&pageNum=${pageInfoMap.startPage - 1}&#list">이전</a>
 		</c:if>
 		
 		<c:forEach var="i" begin="${pageInfoMap.startPage}" end="${pageInfoMap.endPage}" step="1">
@@ -130,16 +175,16 @@
 				<span>${i }</span>
 			</c:when>
 			<c:otherwise>
-				<a href="/movie?pageNum=${i}&search=${search}&#list">${ i }</a>
+				<a href="/movie?repNationNm=${category }&search=${search}&pageNum=${i}&#list">${ i }</a>
 			</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		
 		<!-- 다음 블록이 존재하는지 확인 -->
 		<c:if test="${pageInfoMap.endPage lt pageInfoMap.maxPage}">
-			<a href="/movie?pageNum=${pageInfoMap.startPage + pageInfoMap.pageBlockSize}&search=${search}&#list">다음</a>
+			<a href="/movie?repNationNm=${category }&search=${search}&pageNum=${pageInfoMap.startPage + pageInfoMap.pageBlockSize}&#list">다음</a>
 			<span class="more-page">...</span>
-			<a href="/movie?pageNum=${pageInfoMap.maxPage }&search=${search }&#list">${pageInfoMap.maxPage }</a>
+			<a href="/movie?repNationNm=${category }&search=${search }&pageNum=${pageInfoMap.maxPage }&#list">${pageInfoMap.maxPage }</a>
 		</c:if>
 		</c:if>
 	</div>

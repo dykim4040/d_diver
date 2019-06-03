@@ -22,6 +22,10 @@ public interface MemberService {
 	
 	public int countById(String id);
 	
+	public int countByhint(String hint);
+	
+	public void hintUser(String id);
+	
 	
 	
 	

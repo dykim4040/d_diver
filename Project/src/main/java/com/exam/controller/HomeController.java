@@ -16,10 +16,13 @@ import com.exam.domain.MemberVO;
 import com.exam.domain.MovieVO;
 import com.exam.service.MemberService;
 import com.exam.service.MovieService;
+import com.mysql.jdbc.log.Log;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Controller
+@Log4j
 public class HomeController {
 	
 	@Setter(onMethod_ = @Autowired)
@@ -47,36 +50,19 @@ public class HomeController {
 	}//contact()
 	
 	@GetMapping("/movie")
-	public String movie(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(required = false) String search, Model model) throws Exception {
-		System.out.println("<< movie 호출22 >>");
+	public String movie(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(required = false) String search, @RequestParam(required = false) String repNationNm, Model model) throws Exception {
+		System.out.println("<< movie 호출 >>");
 		
-		// =========================================
-        // 한 페이지에 해당하는 글목록 구하기 작업
-        // =========================================
         int amount = 12; // 한 페이지 당 보여줄 글(레코드) 갯수
         int startRow = (pageNum - 1) * amount; // 시작행번호
         
-        List<MovieVO> list = movieService.getMovies(startRow, amount, search);
+        List<MovieVO> list = movieService.getMovies(startRow, amount, search, repNationNm);
         
-        // =========================================
-        //  페이지 블록 구하기 작업
-        // =========================================
         int allRowCount = 0; // 전체 행 갯수
         
-        allRowCount = movieService.getMovieCount(search);
+        allRowCount = movieService.getMovieCount(search, repNationNm);
         
         int maxPage = allRowCount / amount + (allRowCount % amount == 0 ? 0 : 1);
-        // 1페이지 ~ maxPage 페이지까지 존재함.
-        // -> 페이지 블록단위로 끊어줌
-
-        // 시작페이지번호(1)             끝페이지번호(10)
-        // 1 2 3 4 5 6 7 8 9 10             -- [블록구성 10개]
-        
-        // 시작페이지번호(11)             끝페이지번호(20)
-        // 11 12 13 14 15 16 17 18 19 20   -- [블록구성 10개]
-        
-        // 시작페이지번호(21)             끝페이지번호(23)
-        // 21 22 23                         -- [블록구성 3개]
         
         // 한 페이지블록을 구성하는 페이지갯수
         int pageBlockSize = 5;
@@ -88,7 +74,6 @@ public class HomeController {
         if (endPage > maxPage) { // 마지막 블록에서 끝페이지번호 구하기
             endPage = maxPage;
         }
-        
         
         Map<String, Integer> pageInfoMap = new HashMap<>();
         pageInfoMap.put("startPage", startPage); // 시작페이지번호
@@ -102,24 +87,24 @@ public class HomeController {
         model.addAttribute("list", list); // list 
         model.addAttribute("pageInfoMap", pageInfoMap); // 페이지블록 출력관련 데이터
         
-        
+        model.addAttribute("category", repNationNm);
         model.addAttribute("search", search); // 검색어
         
         return "movie";
 	}//movie()
 	
-	@GetMapping("/recipe-single")
+	@GetMapping("/movieDetail")
 	public String detail(int movieCd, Model model){
-	    MovieVO movieVO = movieService.getMovie(movieCd);
-	    return "recipe-single";
+		System.out.println("<< movieDetail >>");
+		
+		log.info("movieCd : " + movieCd );
+		MovieVO movie = movieService.getMovie(movieCd);
+		
+		model.addAttribute("movie", movie);
+		
+	    return "movieDetail";
 	}
 	
-
-
-
-
-
-
 
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	
@@ -129,9 +114,6 @@ public class HomeController {
 		System.out.println("<< purchase, GET >>");
 		
 		String id = (String) session.getAttribute("sessionID");
-		if (id == null || "".equals(id)) {
-			return "member/login";
-		}
 		
 		MemberVO member = memberService.getMember(id);
 		
@@ -142,7 +124,7 @@ public class HomeController {
 		
 		model.addAttribute("member", member);
 		model.addAttribute("packList", packList);
-		System.out.println(id + "의 현재 캐쉬 잔액 " + member.getCash() + "원");
+//		System.out.println(id + "의 현재 캐쉬 잔액 " + member.getCash() + "원");
 		return "purchase/purchase";
 	}
 	
