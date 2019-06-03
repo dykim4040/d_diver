@@ -21,4 +21,6 @@ public class MemberVO {
 	private Date birthday;
 	
 	private String gender;
+	
+	private String hint;
 }

@@ -56,8 +56,8 @@ location.href="/member/login";
 <div class="facts-warp">
 <div class="container cash">
 <fieldset>
-<label><b>${member.id }</b> 님의 현재 잔액</label>
-<input type="text" class="txt-box" value="${member.cash } 원" readonly><br>
+	<label><b>${member.id }</b> 님의 현재 잔액</label>
+	<input type="text" class="txt-box" value="${member.cash } 원" readonly><br>
 </fieldset>
 <a href="/purchase/cash" class="cash-btn"><img src="/resources/img/cash.png" width="50px" style="margin-right: 20px;">캐쉬 충전하기</a>
 </div>

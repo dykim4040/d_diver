@@ -30,30 +30,7 @@
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
 <script src="/resources/script/jquery-3.3.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	
-	
-	$("#delete").click(function(){
-		
-		if(confirm("회원탈퇴하시겠습니까??")){
-			var pw = document.querySelector("#password").value;
-			console.log('pw : ' + pw);
-			document.querySelector('#delete-password').value = pw;
-			//document.frm.action = "${path}/member/delete?id=${member.id }&password=" + pw;
-			document.querySelector('#delete-form').submit();
-		}
-	});
-	
-	$("#update").click(function(){
-		if(confirm("수정??")){
-			document.frm.action = "${path}/member/delete?id=${member.id }";
-			document.frm.submit();
-		}
-	});
-});
 
-</script>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -87,40 +64,42 @@ $(document).ready(function(){
 			<input type="hidden" name="id" value="${member.id }">
 			<div class="row">
 				<div class="col-md-12">
-					<c:set var="member" value="${member }"></c:set>
+					<c:set var="member" value="${member }" />
 					<fieldset>
-						<legend>"${member.id }" 회원님의 정보입니다.</legend>
-						<br>
+						<legend>"${member.id }" 회원님의 정보입니다.</legend><br>
 							
-						<label>Password</label> <input type="password" name="password" id="password"
-							required><br>
-							
-							<label>E-Mail</label>
+						<label>Password</label>
+						<input type="password" name="password" id="password" required><br>
+						
+						<label>E-Mail</label>
 						<input type="email" name="email" disabled="disabled"
 							value="${member.email }" required><br>
 							
-							
-						<label>Birthday</label><input
-							type="date" name="birthday"
+						<label>Birthday</label>
+						<input type="date" name="birthday"
 							value='<fmt:formatDate value="${member.birthday }" pattern="yyyy-MM-dd"/>'
 							disabled="disabled"><br> 
 							
-							 <label>Mypackage</label>
-							<input type="text" name="Mypackage" disabled="disabled"
+						<label>Mypackage</label>
+						<input type="text" name="Mypackage" disabled="disabled"
 							value="${pack }" required><br> 
 							
-							<label>cash</label> 
-							<input
-							type="text" name="cash" disabled="disabled"
+						<label>cash</label> 
+						<input type="text" name="cash" disabled="disabled"
 							value="${member.cash }" required><br> 
 							
-							<label>mileage</label>
+						<label>mileage</label>
 						<input type="text" name="mileage" disabled="disabled"
 							value="${member.mileage }" required><br>
-						<button type="button" class = "site-btn" id = "upDate" onclick = "member/upDate">수정하기</button>
-						<button type="button"  id="delete" onclick = "location.href = '/member/memberDelete'">삭제</button>
+							
+							<label>좋아하는 동물이름은?</label>
+						<input type="text" name="hint" disabled="disabled"
+							value="${member.hint }" required><br>
+							
+							
+						
 						<button class="site-btn" id="upDate">수정하기</button>
-						<button type="button"  id="delete">삭제</button>
+						<button class="site-btn" id="delete" style="float: right;" onclick = "location.href = '/member/memberDelete'">탈퇴하기</button>
 							
 					</fieldset>
 				</div>

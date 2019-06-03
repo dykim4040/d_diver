@@ -22,6 +22,8 @@ public interface MemberMapper {
 	public void upDateMember(MemberVO member);
 	
 	public void deleteMember(String id);
+	
+	public void hintID(String id);
 
 	
 	
@@ -34,6 +36,7 @@ public interface MemberMapper {
 	 
 	public int updateCash(@Param("cash") int cash, @Param("id") String id);
 	
-	public int insertPackage(@Param("id") String id, @Param("pack") String pack);
+	public int insertPackage(@Param("id") String id, @Param("pack") String pack, @Param("month") int month);
 	
 }
+

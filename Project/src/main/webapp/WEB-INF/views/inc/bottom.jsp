@@ -19,10 +19,10 @@
 		<div class="col-lg-6 text-lg-right">
 			<ul class="footer-menu">
 				<li><a href="/">홈</a></li>
-				<li><a href="/about">내컨텐츠</a></li>
 				<li><a href="/movie">영화</a></li>
-				<li><a href="#">통계</a></li>
-				<li><a href="/contact">Contact</a></li>
+				<li><a href="/about">내컨텐츠</a></li>
+<!-- 				<li><a href="#">통계</a></li> -->
+				<li><a href="/contact">고객센터</a></li>
 			</ul>
 			<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				Copyright &copy;

@@ -10,7 +10,17 @@
 			<a href="/member/login">Login</a>
 		</c:when>
 		<c:otherwise>
-
+			<c:choose>
+			<c:when test="${pack == 'G' }">
+			<img src="/resources/img/package/gold.png" width="23px" >
+			</c:when>
+			<c:when test="${pack == 'S' }">
+			<img src="/resources/img/package/silver.png" width="23px" >
+			</c:when>
+			<c:when test="${pack == 'B' }">
+			<img src="/resources/img/package/bronze.png" width="23px" >
+			</c:when>
+			</c:choose>
 			<a href="/member/myInfo?id=${sessionID}"><b><span style="color: #FFBBBB;">${sessionID}</span></b></a>&nbsp;님&nbsp;
 			<a href="/member/logout"><button class="logout">로그아웃</button></a>
 		</c:otherwise>
@@ -33,8 +43,8 @@
 			</div>
 			<ul class="main-menu">
 				<li><a href="/">홈</a></li>
-				<li><a href="/about">내컨텐츠</a></li>
 				<li><a href="/movie">영화</a></li>
+				<li><a href="/about">내컨텐츠</a></li>
 <!-- 				<li><a href="#">통계</a></li> -->
 				<li><a href="/contact">고객센터</a></li>
 			</ul>

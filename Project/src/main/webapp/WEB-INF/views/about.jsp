@@ -52,12 +52,15 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-6 about-text">
-			<h2>About our great team</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magni. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magni.</p>
-			<div class="site-btn">Read more</div>
+			<h2>즐겨찾기목록</h2>
+			<p>즐겨찾기목록들나옴</p>
+			
 		</div>
-		<div class="col-lg-6">
-			<img src="/resources/img/about.jpg" alt="">
+		<div class="col-lg-6 about-text">
+		<h2>시청목록</h2>
+		<p>시청목록입니다.</p>
+			
+		
 		</div>
 	</div>
 </div>
@@ -65,65 +68,9 @@
 <!-- About section end -->
 
 
-<!-- Facts section -->
-<section class="facts-section">
-<div class="facts-warp">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-sm-6 fact-item">
-				<div class="fact-icon">
-					<img src="/resources/img/icon/1.png" alt="">
-				</div>
-				<h2>1287</h2>
-				<p>Amazing receipies</p>
-			</div>
-			<div class="col-lg-3 col-sm-6 fact-item">
-				<div class="fact-icon">
-					<img src="/resources/img/icon/2.png" alt="">
-				</div>
-				<h2>25</h2>
-				<p>Wine pairings</p>
-			</div>
-			<div class="col-lg-3 col-sm-6 fact-item">
-				<div class="fact-icon">
-					<img src="/resources/img/icon/3.png" alt="">
-				</div>
-				<h2>471</h2>
-				<p>Meat receipies</p>
-			</div>
-			<div class="col-lg-3 col-sm-6 fact-item">
-				<div class="fact-icon">
-					<img src="/resources/img/icon/4.png" alt="">
-				</div>
-				<h2>326</h2>
-				<p>Desert receipies</p>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
-<!-- Facts section end -->
 
 
-<!-- Newsletter section -->
-<section class="newsletter-section spad">
-<div class="container">
-	<div class="row">
-		<div class="col-lg-6 nl-text">
-			<h2>Subscribe to our newsletter</h2>
-			<form class="newsletter-form">
-				<input type="text" placeholder="Your E-mail">
-				<button class="site-btn">Subscribe</button>
-			</form>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. </p>
-		</div>
-		<div class="col-lg-6">
-			<img class="nl-sp-img" src="/resources/img/newslatter.png" alt="">
-		</div>
-	</div>
-</div>
-</section>
-<!-- Newsletter section end -->
+
 
 
 <!-- Gallery section -->
