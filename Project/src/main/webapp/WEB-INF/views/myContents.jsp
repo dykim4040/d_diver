@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,26 +51,80 @@
 <!-- About section -->
 <section class="about-section spad">
 <div class="container">
+	<div class="section-title">
+		<h2>시청 목록</h2>
+	</div>
 	<div class="row">
-		<div class="col-lg-6 about-text">
-			<h2>즐겨찾기목록</h2>
-			<p>즐겨찾기목록들나옴</p>
-			
+	<c:choose>
+	<c:when test="${not empty watchList}">
+	<c:forEach var="movie" items="${watchList}">
+		<div class="col-lg-4 col-md-6">
+		<div class="recipe">
+			<img src="${movie.covThUrl}" alt="">
+			<div class="recipe-info-warp">
+				<div class="recipe-info">
+				<h3>${movie.movieNm}</h3>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star is-fade"></i>
+				</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-lg-6 about-text">
-		<h2>시청목록</h2>
-		<p>시청목록입니다.</p>
-			
-		
 		</div>
+	</c:forEach>
+	</c:when>
+	<c:otherwise>
+		<div class="col-lg-4 col-md-6"><div class="recipe">
+		시청 목록이 없습니다.
+		</div></div>
+	</c:otherwise>
+	</c:choose>	
+	</div>
+</div>
+</section>
+
+<section class="about-section spad">
+<div class="container">
+	<div class="section-title">
+		<h2>즐겨찾기</h2>
+	</div>
+	<div class="row">
+	<c:choose>
+	<c:when test="${not empty wishList}">
+	<c:forEach var="movie" items="${wishList}">
+		<div class="col-lg-4 col-md-6">
+		<div class="recipe">
+			<img src="${movie.covThUrl}" alt="">
+			<div class="recipe-info-warp">
+				<div class="recipe-info">
+				<h3>${movie.movieNm}</h3>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star is-fade"></i>
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</c:forEach>
+	</c:when>
+	<c:otherwise>
+		<div class="col-lg-4 col-md-6"><div class="recipe">
+		즐겨찾기로 저장한 목록이 없습니다.
+		</div></div>
+	</c:otherwise>
+	</c:choose>	
 	</div>
 </div>
 </section>
 <!-- About section end -->
-
-
-
-
 
 
 

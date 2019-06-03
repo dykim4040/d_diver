@@ -1,6 +1,5 @@
 package com.exam.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,6 @@ import com.exam.domain.MemberVO;
 import com.exam.domain.MovieVO;
 import com.exam.service.MemberService;
 import com.exam.service.MovieService;
-import com.mysql.jdbc.log.Log;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -43,11 +41,20 @@ public class HomeController {
 		return "index";
 	}//main()
 	
-	@GetMapping("/about")
-	public String about() {
-		System.out.println("<< about 호출 >>");
-		return "about";
-	}//about()
+	@GetMapping("/myContents")
+	public String myContents(HttpSession session, Model model) throws Exception {
+		System.out.println("<< myContents 호출 >>");
+		
+		String id = (String) session.getAttribute("sessionID");
+		
+		List<MovieVO> watchList = movieService.getWatchList(id, 6);
+		List<MovieVO> wishList = movieService.getWishList(id, 6);
+		
+		model.addAttribute("watchList", watchList);
+		model.addAttribute("wishList", wishList);
+		
+		return "myContents";
+	}//myContents()
 	
 	@GetMapping("/contact")
 	public String contact() {
@@ -100,13 +107,18 @@ public class HomeController {
 	}//movie()
 	
 	@GetMapping("/movieDetail")
-	public String detail(int movieCd, Model model){
+	public String detail(int movieCd, Model model, HttpSession session){
 		System.out.println("<< movieDetail >>");
-		
 		log.info("movieCd : " + movieCd );
-		MovieVO movie = movieService.getMovie(movieCd);
 		
+		MovieVO movie = movieService.getMovie(movieCd);
 		model.addAttribute("movie", movie);
+		
+		String id = (String) session.getAttribute("sessionID");
+		if (!(id == null || "".equals(id))) {
+			movieService.insertWatchList(id, movieCd);
+			System.out.println(id + " 시청 목록에 " + movieCd + " 영화 추가!");
+		}
 		
 	    return "movieDetail";
 	}

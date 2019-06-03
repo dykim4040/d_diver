@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieVO;
 
 public interface MemberMapper {
 	public int insert(MemberVO member);
@@ -41,6 +42,10 @@ public interface MemberMapper {
 	
 	public int insertPackage(@Param("id") String id, @Param("pack") String pack, @Param("month") int month);
 
+	/* 구매 관련 */
+	
+	
+	
 
 	
 }

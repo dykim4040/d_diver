@@ -4,43 +4,88 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.exam.mapper.MovieMapper">
 
-	<select id="getMovies" resultType="MovieVO">
-		SELECT * 
-		FROM d_diver.movie
-		<where>
-			<if test="search != null and search != ''">
-				movie_nm LIKE CONCAT('%', #{search}, '%')
-			</if>
-			<if test="repNationNm != null and repNationNm != ''">
-				AND rep_genre_nm = #{repNationNm}
-			</if>
-		</where>
-		ORDER BY movie_nm ASC
-		LIMIT #{amount} OFFSET #{startRow}
-	</select>
+<select id="getMovies" resultType="MovieVO">
+	SELECT * 
+	FROM d_diver.movie
+	<where>
+		<if test="search != null and search != ''">
+			movie_nm LIKE CONCAT('%', #{search}, '%')
+		</if>
+		<if test="repNationNm != null and repNationNm != ''">
+			AND rep_genre_nm = #{repNationNm}
+		</if>
+	</where>
+	ORDER BY movie_nm ASC
+	LIMIT #{amount} OFFSET #{startRow}
+</select>
+
+<select id="getMovieCount" resultType="int">
+	SELECT COUNT(*) 
+	FROM d_diver.movie
+	<where>
+		<if test="search != null and search != ''">
+			movie_nm LIKE CONCAT('%', #{search}, '%')
+		</if>
+		<if test="repNationNm != null and repNationNm != ''">
+			AND rep_genre_nm = #{repNationNm}
+		</if>
+	</where>
+</select>
+
+<select id="getMovie" resultType="MovieVO">
+	SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
+</select>
+
+<select id="newGetMovie" resultType="MovieVO">
+	SELECT * 
+	FROM d_diver.movie	
+	ORDER BY open_dt DESC
+	LIMIT #{amount}
+</select>
+
+
+
+
+<!-- 내 컨텐츠 -->
+
+<insert id="insertWatchList"><!-- 시청 목록 추가 -->
+	INSERT INTO d_diver.watch_list (id, movie_cd, watch_date)
+	VALUES (#{id}, #{movieCd}, CURRENT_TIMESTAMP)
+</insert>
+
+<select id="countWatchListByIdAndMovieCd" resultType="_int">
+	SELECT COUNT(*) FROM d_diver.watch_list 
+	WHERE id = #{id} AND movie_cd = #{movieCd}
+</select>
+
+<delete id="deleteWatchList">
+	DELETE FROM d_diver.watch_list
+	WHERE id = #{id} AND movie_cd = #{movieCd}
+</delete>
+
+<select id="getWatchList" resultType="movieVO"><!-- 시청 목록 -->
+	SELECT m.*
+	FROM d_diver.movie m INNER JOIN 
+	(SELECT * FROM d_diver.watch_list WHERE id = #{id}) w
+	ON m.movie_cd = w.movie_cd
+	ORDER BY watch_date DESC
+	LIMIT #{amount}
+</select>
 	
-	<select id="getMovieCount" resultType="int">
-		SELECT COUNT(*) 
-		FROM d_diver.movie
-		<where>
-			<if test="search != null and search != ''">
-				movie_nm LIKE CONCAT('%', #{search}, '%')
-			</if>
-			<if test="repNationNm != null and repNationNm != ''">
-				AND rep_genre_nm = #{repNationNm}
-			</if>
-		</where>
-	</select>
+<select id="getWishList" resultType="movieVO"><!-- 즐겨찾기 -->
+	SELECT m.*
+	FROM d_diver.movie m INNER JOIN 
+	(SELECT * FROM d_diver.wish_List WHERE id = #{id}) w
+	ON m.movie_cd = w.movie_cd
+	LIMIT #{amount}
+</select>
+
+<!-- 내 컨텐츠 -->
 	
-	<select id="getMovie" resultType="MovieVO">
-		SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
-	</select>
 	
-	<select id="newGetMovie" resultType="MovieVO">
-		SELECT * 
-		FROM d_diver.movie	
-		ORDER BY open_dt DESC
-		LIMIT #{amount}
-	</select>
+	
+	
+	
+	
 	
 </mapper>  

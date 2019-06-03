@@ -1,6 +1,5 @@
 package com.exam.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +36,33 @@ public class MovieServiceImpl implements MovieService {
     public List<MovieVO> newGetMovie(int amount) throws Exception{
         return mapper.newGetMovie(amount);
     }
+    
+    
+    
+    
+    
+    
+	/* 내 컨텐츠 */
+
+	@Override
+	public void insertWatchList(String id, int movieCd) {
+		int count = mapper.countWatchListByIdAndMovieCd(id, movieCd);
+		if (count == 1) {
+			mapper.deleteWatchList(id, movieCd);
+		}
+		mapper.insertWatchList(id, movieCd);
+	}
+	
+	@Override
+	public List<MovieVO> getWatchList(String id, int amount) {
+		return mapper.getWatchList(id, amount);
+	}
+
+	@Override
+	public List<MovieVO> getWishList(String id, int amount) {
+		return mapper.getWishList(id, amount);
+	}
+
+	/* 내 컨텐츠 */
    
 }

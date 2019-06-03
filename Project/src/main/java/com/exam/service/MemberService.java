@@ -37,4 +37,9 @@ public interface MemberService {
 	public int updateCash(int cash, String id);
 	
 	public int buyPackageUseCash(int price, String id);
+	
+	/* 구매 관련 */
+	
+	
+
 }
