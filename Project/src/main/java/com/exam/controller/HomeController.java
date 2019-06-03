@@ -16,10 +16,13 @@ import com.exam.domain.MemberVO;
 import com.exam.domain.MovieVO;
 import com.exam.service.MemberService;
 import com.exam.service.MovieService;
+import com.mysql.jdbc.log.Log;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Controller
+@Log4j
 public class HomeController {
 	
 	@Setter(onMethod_ = @Autowired)
@@ -110,16 +113,16 @@ public class HomeController {
 	
 	@GetMapping("/recipe-single")
 	public String detail(int movieCd, Model model){
-	    MovieVO movieVO = movieService.getMovie(movieCd);
+		System.out.println("<< movidDetail >>");
+		
+		log.info("movieCd : " + movieCd );
+		MovieVO movie = movieService.getMovie(movieCd);
+		
+		model.addAttribute("movie", movie);
+		
 	    return "recipe-single";
 	}
 	
-
-
-
-
-
-
 
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	
