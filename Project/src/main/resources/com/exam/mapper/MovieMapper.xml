@@ -35,29 +35,59 @@
 	<select id="getMovie" resultType="MovieVO">
 		SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
 	</select>
-	
-	<select id="getCompaniesIn" resultType="CompaniesInVO">
-		SELECT * FROM d_diver.companies_in WHERE movie_cd = #{movieCd}
+
+
+	<select id="newGetMovie" resultType="MovieVO">
+		SELECT * 
+		FROM d_diver.movie	
+		ORDER BY open_dt DESC
+		LIMIT #{amount}
 	</select>
-	
-	<select id="getDirectorsIn" resultType="DirectorsInVO">
-		SELECT * FROM d_diver.directors_in WHERE movie_cd = #{movieCd}
+	 
+	<resultMap type="movieInfoVO" id="collectionResultMap">
+		<result column="movie_cd" property="movieCd" />
+		<result column="movie_nm" property="movieNm" />
+		<result column="movie_nm_en" property="movieNmEn" />
+		<result column="rep_nation_nm" property="repNationNm" />
+		<result column="rep_genre_nm" property="repGenreNm" />
+		<result column="synopsis" property="synopsis" />
+		<result column="cov_url" property="covUrl" />
+		<result column="cov_th_url" property="covThUrl" />
+		<result column="watch_grade_nm" property="watchGradeNm" />
+		<result column="open_dt" property="openDt" />
+		<result column="show_tm" property="showTm" />
+		<result column="views" property="views" />
+		<result column="price" property="price" />
+		<result column="avg_score" property="avgScore" />
+
+		<collection property="starsIn" ofType="starsInVO">
+			<result column="star_cd" property="starCd"/>
+			<result column="star_nm" property="starNm"/>
+			<result column="star_nm_en" property="starNmEn"/>
+			<result column="star_cast" property="starCast"/>
+		</collection>
+		<collection property="directorsIn" ofType="directorsInVo">
+			<result column="director_cd" property="directorCd"/>
+			<result column="director_nm" property="directorNm"/>
+			<result column="director_nm_en" property="directorNmEn"/>
+		</collection>
+		<collection property="companiesIn" ofType="companiesInVo">
+			<result column="company_cd" property="companyCd"/>
+			<result column="company_nm" property="companyNm"/>
+			<result column="company_nm_en" property="companyNmEn"/>
+			<result column="company_part_nm" property="companyPartNm"/>
+		</collection>
+		<collection property="movieGenre" ofType="MovieGenreVo">
+			<result column="movie_genre" property="movieGenre"/>
+		</collection>
+		<collection property="movieStillCut" ofType="MovieStillCutVO">
+			<result column="still_cut_url" property="stillCutUrl"/>
+		</collection>
+	</resultMap>
+
+	<!-- 뷰 생성되어 있음 -->
+	<select id="getMovieInfo" resultMap="collectionResultMap">
+		select * from movie_info where movie_cd = #{movieCd}
 	</select>
-	
-	<select id="getMovieGenre" resultType="MovieGenreVO">
-		SELECT * FROM d_diver.movie_genre WHERE movie_cd = #{movieCd}
-	</select> 
-	
-	<select id="getMovieStillCut" resultType="MovieStillCutVO">
-		SELECT * FROM d_diver.movie_still_cut WHERE movie_cd = #{movieCd}
-	</select> 
-	
-	<select id="getStarsIn" resultType="StarsInVO">
-		SELECT * FROM d_diver.stars_in WHERE movie_cd = #{movieCd}
-	</select> 
-	
-	<update id="updateAvgScore">
-		UPDATE d_diver.movie SET avg_score = #{avg_score} WHERE movie_cd = #{movieCd}
-	</update>
 	
 </mapper>  

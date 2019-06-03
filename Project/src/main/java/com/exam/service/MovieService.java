@@ -1,9 +1,11 @@
 package com.exam.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 
 public interface MovieService {
@@ -14,5 +16,8 @@ public interface MovieService {
     
     public MovieVO getMovie(int movieCd);
     
+    public List<MovieVO> newGetMovie(int amount) throws Exception;
+    
+    public MovieInfoVO getMovieInfo(int movieCd);
 }
 
