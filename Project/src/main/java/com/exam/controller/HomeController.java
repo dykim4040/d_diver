@@ -99,16 +99,16 @@ public class HomeController {
         return "movie";
 	}//movie()
 	
-	@GetMapping("/recipe-single")
+	@GetMapping("/movieDetail")
 	public String detail(int movieCd, Model model){
-		System.out.println("<< movidDetail >>");
+		System.out.println("<< movieDetail >>");
 		
 		log.info("movieCd : " + movieCd );
 		MovieVO movie = movieService.getMovie(movieCd);
 		
 		model.addAttribute("movie", movie);
 		
-	    return "recipe-single";
+	    return "movieDetail";
 	}
 	
 	

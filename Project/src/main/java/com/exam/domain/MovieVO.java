@@ -22,4 +22,7 @@ public class MovieVO {
     private String watchGradeNm;    // 관람나이
     private Date openDt;            // 개봉일
     private int showTm;             // 상영시간
+    
+    private String searchType;      // 검색 카테고리
+    private String keyword;         // 검색 search
 }
