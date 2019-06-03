@@ -36,5 +36,11 @@
 		SELECT * FROM d_diver.movie WHERE movie_cd = #{movieCd}
 	</select>
 	
+	<select id="newGetMovie" resultType="MovieVO">
+		SELECT * 
+		FROM d_diver.movie	
+		ORDER BY open_dt DESC
+		LIMIT #{amount}
+	</select>
 	
 </mapper>  

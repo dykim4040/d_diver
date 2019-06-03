@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,12 +70,14 @@
 		<h2>최신 영화</h2>
 	</div>
 	<div class="row">
+	<c:if test="${not empty list}">
+	<c:forEach var="movie" items="${list}">
 		<div class="col-lg-4 col-md-6">
 			<div class="recipe">
-				<img src="/resources/img/recipes/1.jpg" alt="">
+				<img src="${movie.covThUrl}" alt="">
 				<div class="recipe-info-warp">
 					<div class="recipe-info">
-					<h3>Traditional Pizza</h3>
+					<h3>${movie.movieNm}</h3>
 					<div class="rating">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -86,91 +89,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4 col-md-6 col-md-6">
-			<div class="recipe">
-				<img src="/resources/img/recipes/2.jpg" alt="">
-				<div class="recipe-info-warp">
-					<div class="recipe-info">
-					<h3>Italian home-made pasta</h3>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star is-fade"></i>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<div class="recipe">
-				<img src="/resources/img/recipes/3.jpg" alt="">
-				<div class="recipe-info-warp">
-					<div class="recipe-info">
-					<h3>Chesse Cake Tart</h3>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star is-fade"></i>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<div class="recipe">
-				<img src="/resources/img/recipes/4.jpg" alt="">
-				<div class="recipe-info-warp">
-					<div class="recipe-info">
-					<h3>Traditional Pizza</h3>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star is-fade"></i>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<div class="recipe">
-				<img src="/resources/img/recipes/5.jpg" alt="">
-				<div class="recipe-info-warp">
-					<div class="recipe-info">
-					<h3>Italian home-made pasta</h3>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star is-fade"></i>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<div class="recipe">
-				<img src="/resources/img/recipes/6.jpg" alt="">
-				<div class="recipe-info-warp">
-					<div class="recipe-info">
-					<h3>Chesse Cake Tart</h3>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star is-fade"></i>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</c:forEach>
+	</c:if>	
 	</div>
 </div>
 </section>

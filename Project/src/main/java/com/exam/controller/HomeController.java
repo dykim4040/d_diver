@@ -1,5 +1,6 @@
 package com.exam.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +33,13 @@ public class HomeController {
 	private MovieService movieService;
 	
 	@GetMapping("/")
-	public String main(Model model) {
+	public String main(Model model) throws Exception {
 		System.out.println("<< main 호출 >>");
+        
+		List<MovieVO> list = movieService.newGetMovie(6);
+		
+        model.addAttribute("list", list);
+		
 		return "index";
 	}//main()
 	
@@ -105,7 +111,7 @@ public class HomeController {
 	    return "recipe-single";
 	}
 	
-
+	
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	
 

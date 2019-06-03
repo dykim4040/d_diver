@@ -1,5 +1,6 @@
 package com.exam.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -13,6 +14,8 @@ public interface MovieService {
     public int getMovieCount(String search, String repNationNm);
     
     public MovieVO getMovie(int movieCd);
+    
+    public List<MovieVO> newGetMovie(int amount) throws Exception;
     
 }
 
