@@ -195,26 +195,64 @@ public class MemberController {
 		System.out.println("<< hintID 호출 >>");
 		return "member/hintID";
 	}
-
 	@PostMapping("/hintID")
 	public ResponseEntity<String> hintID(MemberVO member, HttpSession session) {
-		System.out.println("<< hintID, POST >>"); // int check
+		System.out.println("<< hintID, POST >>"); 
 		int check = service.countById(member.getId());
+		HttpHeaders headers = new HttpHeaders();
+		StringBuffer msg = new StringBuffer();
 
 		String message = "";
 		if (check != 1) { // 로그인 실패 String message = null; if (check == -1) { message
 			message = "해당하는 아이디가 없습니다.";
+			headers.add("Content-Type", "text/html; charset=UTF-8");
+			msg.append("<script>");
+			msg.append("alert('" + message + "');");
+			msg.append("history.back();");
+			msg.append("</script>");
+		} else if (check == 1) {
+			message = "아이디확인";
+			headers.add("Content-Type", "text/html; charset=UTF-8");
+			msg.append("<script>");
+			msg.append("alert('" + message + "');");
+			msg.append("location.href = '/member/hintUser';");
+			msg.append("</script>");
 		}
+		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
 
+	}
+	
+	
+	
+	//아이디찾기 완료했을때 힌트로넘어감
+	@GetMapping("/hintUser")
+	public String hintUser() {
+		System.out.println("<< hintUser 호출 >>");
+		return "member/hintUser";
+	}
+	@PostMapping("/hintUser")
+	public ResponseEntity<String> hintUser(MemberVO member, HttpSession session) {
+		System.out.println("<< hintUser, POST >>"); 
+		int check = service.countByhint(member.getHint());
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Type", "text/html; charset=UTF-8");
-
 		StringBuffer msg = new StringBuffer();
-		msg.append("<script>");
-		msg.append("alert('" + message + "');");
-		msg.append("history.back();");
-		msg.append("</script>");
 
+		String message = "";
+		if (check != 1) { //
+			message = "해당하는 힌트가 없습니다.";
+			headers.add("Content-Type", "text/html; charset=UTF-8");
+			msg.append("<script>");
+			msg.append("alert('" + message + "');");
+			msg.append("history.back();");
+			msg.append("</script>");
+		} else if (check == 1) {
+			message = "비밀번호확인";
+			headers.add("Content-Type", "text/html; charset=UTF-8");
+			msg.append("<script>");
+			msg.append("alert('" + message + "');");
+			msg.append("location.href = '/member/hintUser';");
+			msg.append("</script>");
+		}
 		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
 
 	}

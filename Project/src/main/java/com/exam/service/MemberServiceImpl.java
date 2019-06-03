@@ -80,11 +80,21 @@ public class MemberServiceImpl implements MemberService {
 		mapper.hintID(id);
 	}
 	
+	@Override
+	public void hintUser(String id) {
+		mapper.hintUser(id);
+	}
+	
 	
 	@Override
 	public int countById(String id) {
 		return mapper.countById(id);
 	}
+	@Override
+	public int countByhint(String hint) {
+		return mapper.countByhint(hint);
+	}
+	
 	
 	
 	

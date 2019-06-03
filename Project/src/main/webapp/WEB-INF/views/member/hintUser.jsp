@@ -50,8 +50,8 @@
 		<div class="col-lg-6" style="margin: auto;">
 		<div class="contact-form-warp">
 			<h4>비밀번호 찾기</h4>
-			<p>비밀번호를 찾을 아이디를 입력하세요.</p>
-			<form action="/member/hintID" class="contact-form" method="POST">
+			<p>좋아하는 동물 이름은?</p>
+			<form action="/member/hintUser" class="contact-form" method="POST">
 				<div class="row">
 					<!-- <div class="col-md-6">
 						<input type="text" placeholder="Name">
@@ -60,9 +60,8 @@
 						<input type="text" placeholder="E-mail">
 					</div> -->
 					<div class="col-md-12">
-						<input type="text" name="id" placeholder="ID">
-						<!-- <a href="/member/hintUser"> -->
-						<button class="site-btn">다음</button>
+						<input type="text" name="hint" placeholder="hint">
+						<button class="site-btn">확인</button>
 					</div>
 				</div>
 			</form>
