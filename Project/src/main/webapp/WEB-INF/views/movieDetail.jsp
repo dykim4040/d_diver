@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="/resources/css/animate.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
-<%/*test commit, 테스트용 발견시 지워주세요*/ %>
+
 <style>
 
  
