@@ -186,7 +186,29 @@ public class HomeController {
 		
 	    return "movieDetail";
 	}
+//	@PostMapping("/movieDetail")
+//	public String detail(String id,  int starInput, int movieCd) {
+//		System.out.println("<<movieStar>>");
+//		log.info("userId : " + id );
+//		log.info("별점 : " + starInput );
+//		log.info("영화번호 : " + movieCd );
+//		
+//		memberService.insertScore(id, starInput, movieCd);
+//		
+//		return "redirect:/";
+//		
+//	}
 	
+	@GetMapping("/movieDetailJson")
+	public void detail(String id,  int starInput, int movieCd) {
+		System.out.println("<<movieStar>>");
+		log.info("userId : " + id );
+		log.info("별점 : " + starInput );
+		log.info("영화번호 : " + movieCd );
+		
+		memberService.insertScore(id, starInput, movieCd);
+		
+	}
 
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	

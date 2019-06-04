@@ -144,34 +144,41 @@
 			<span id="fnt">Leave a comment</span>
 		</div>
 		<div class="row2">
-			<span class="star-input"> 
-	<span class="input"> 
-	<input type="radio" name="star-input" onclick="mark(1)" value="1" id="p1"> 
+		<form method="post" id="frmStar" name="frmStar">
+			<span class="starInput">
+	 
+	<span class="input">
+	 
+	<input type="radio" name="starInput"  value="1" id="p1"> 
 	<label for="p1">1</label> 
-	<input type="radio" name="star-input" onclick="mark(2)" value="2" id="p2"> 
+	<input type="radio" name="starInput"  value="2" id="p2"> 
 	<label for="p2">2</label> 
-	<input type="radio" name="star-input" onclick="mark(3)" value="3" id="p3"> 
+	<input type="radio" name="starInput"  value="3" id="p3"> 
 	<label for="p3">3</label>
-	<input type="radio" name="star-input" onclick="mark(4)" value="4" id="p4"> 
+	<input type="radio" name="starInput"  value="4" id="p4"> 
 	<label for="p4">4</label> 
-	<input type="radio" name="star-input" onclick="mark(5)" value="5" id="p5"> 
+	<input type="radio" name="starInput"  value="5" id="p5"> 
 	<label for="p5">5</label> 
-	<input type="radio" name="star-input" onclick="mark(6)" value="6" id="p6"> 
+	<input type="radio" name="starInput"  value="6" id="p6"> 
 	<label for="p6">6</label> 
-	<input type="radio" name="star-input" onclick="mark(7)" value="7" id="p7"> 
+	<input type="radio" name="starInput"  value="7" id="p7"> 
 	<label for="p7">7</label> 
-	<input type="radio" name="star-input" onclick="mark(8)" value="8" id="p8"> 
+	<input type="radio" name="starInput"  value="8" id="p8"> 
 	<label for="p8">8</label> 
-	<input type="radio" name="star-input" onclick="mark(9)" value="9" id="p9"> 
+	<input type="radio" name="starInput"  value="9" id="p9"> 
 	<label for="p9">9</label> 
-	<input type="radio" name="star-input" onclick="mark(10)" value="10" id="p10"> 
+	<input type="radio" name="starInput"  value="10" id="p10"> 
 	<label for="p10">10</label>
 
-	</span> 
-	<output for="star-input">
+	</span>
+	<input type="hidden" name="id" value="${sessionID}">
+	 <input type="hidden" name="movieCd" value="${movie.movieCd}"> 
+	<output for="starInput">
 			<b>0</b>점
 	</output>
 	</span>
+	<button class="btn" type="submit">별</button>
+	</form>
 		</div>
 		
 	</div>
@@ -212,14 +219,14 @@
 <script src="/resources/js/main.js"></script>
 <script>
 	var starRating = function() {
-		var $star = $(".star-input");
+		var $star = $(".starInput");
 		$result = $star.find("output>b");
 
-		$(document).on("focusin", ".star-input>.input", function() {
+		$(document).on("focusin", ".starInput>.input", function() {
 			$(this).addClass("focus");
 		})
 
-		.on("focusout", ".star-input>.input", function() {
+		.on("focusout", ".starInput>.input", function() {
 			var $this = $(this);
 			setTimeout(function() {
 				if ($this.find(":focus").length === 0) {
@@ -228,11 +235,11 @@
 			}, 100);
 		})
 
-		.on("change", ".star-input :radio", function() {
+		.on("change", ".starInput :radio", function() {
 			$result.text($(this).next().text());
-		}).on("mouseover", ".star-input label", function() {
+		}).on("mouseover", ".starInput label", function() {
 			$result.text($(this).text());
-		}).on("mouseleave", ".star-input>.input", function() {
+		}).on("mouseleave", ".starInput>.input", function() {
 			var $checked = $star.find(":checked");
 			if ($checked.length === 0) {
 				$result.text("0");
@@ -244,6 +251,33 @@
 	
 
 	starRating();
+$(document).ready(function(){
+		$('#frmStar').submit(function(){
+			var id = $('input[name=id]').val();
+			var movieCd = $('input[name=movieCd]').val();
+			var starInput = $('input:radio[name="starInput"]:checked').val();
+			console.log('id: ' + id);
+			console.log('movieCd: ' + movieCd);
+			console.log('score: ' + starInput);
+			
+			$.ajax({
+				url : '/movieDetailJson',
+				data :{
+					id : id,
+					movieCd : movieCd,
+					starInput : starInput
+				},
+				
+				success : function(){
+					alert("성공입니다.");
+					location.reload();
+				}
+				
+			});
+			
+			return false;
+		});
+	});
 </script>
 </body>
 </html>

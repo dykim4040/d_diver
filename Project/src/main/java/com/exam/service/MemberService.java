@@ -40,6 +40,9 @@ public interface MemberService {
 	
 	/* 구매 관련 */
 	
+	/* 별 스코어*/
+	public int insertScore(String id, int starInput, int movieCd);
+	
 	
 
 }

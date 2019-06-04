@@ -62,8 +62,12 @@
 
 <!-- 구매 관련 -->
 
-
-
+<!-- 별점 -->
+<insert id="insertScore">
+	INSERT INTO d_diver.member_movie_score (movie_cd, id, score)
+	VALUES (#{movieCd}, #{id}, #{starInput});
+</insert>
+<!-- 별점 -->
 
 
 </mapper>
