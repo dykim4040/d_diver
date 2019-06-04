@@ -32,8 +32,12 @@ public class HomeController {
 	private MovieService movieService;
 	
 	@GetMapping("/")
-	public String main(Model model) {
+	public String main(Model model) throws Exception {
 		System.out.println("<< main 호출 >>");
+		
+		List<MovieVO> list = movieService.newGetMovie(6);
+		model.addAttribute("list", list);
+		
 		return "index";
 	}//main()
 	

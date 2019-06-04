@@ -30,10 +30,6 @@
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
 
-<style>
-
- 
-</style>
 
 </head>
 <body>
