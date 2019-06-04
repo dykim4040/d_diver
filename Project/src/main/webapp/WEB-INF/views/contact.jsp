@@ -50,14 +50,12 @@
 	</section>
 	<!-- Hero section end -->
 
-
-
 	<section class="contact-section spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
-						<h1>Notice [전체글개수: ${pageInfoMap.allRowCount}]</h1>
+						<h1>Q&A [전체글개수: ${pageInfoMap.allRowCount}]</h1>
 
 						<table id="notice">
 							<tr>
