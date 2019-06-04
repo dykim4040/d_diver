@@ -16,4 +16,6 @@ public interface BoardService {
     
     public int getBoardCount(String search);
     
+    public int updateReadcount(int num);
+    
 }

@@ -20,4 +20,6 @@ public interface BoardMapper {
     
     public int getBoardCount(@Param("search") String search);
     
+    public int updateReadcount(int num);
+    
 }

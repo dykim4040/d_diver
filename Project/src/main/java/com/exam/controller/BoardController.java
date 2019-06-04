@@ -1,9 +1,5 @@
 package com.exam.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.exam.domain.BoardVO;
 import com.exam.service.BoardService;
@@ -51,6 +46,31 @@ public class BoardController {
         service.insert(boardVO);
         return "redirect:/contact";
     }
+    
+    @GetMapping("/detail")
+    public String detail(int num, Model model) {
+        // 조회수 1증가
+        service.updateReadcount(num);
+        
+        // 글번호에 해당하는 글 전체(상세)내용 가져오기
+        BoardVO board = service.getBoard(num);
+        log.info("detail board : " + board);
+        
+        // *글내용 줄바꿈 처리방법
+        // (1) <pre>태그처리
+        // (2) \r\n -> <br> 바꾸기
+        String content = "";
+        if (board.getContent() != null) {
+            content = board.getContent().replace("\r\n", "<br>");
+            board.setContent(content);
+        }
+        
+        model.addAttribute("board", board); // 글번호 해당되는 글내용
+        
+        return "center/content";
+    }
+    
+    
     
     
     

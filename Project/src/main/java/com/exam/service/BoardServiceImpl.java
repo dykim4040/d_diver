@@ -41,6 +41,9 @@ public class BoardServiceImpl implements BoardService {
         return mapper.getBoardCount(search);
     }
     
-    
+    @Override
+    public int updateReadcount(int num) {
+        return mapper.updateReadcount(num);
+    }
     
 }

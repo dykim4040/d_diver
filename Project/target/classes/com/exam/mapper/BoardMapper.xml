@@ -35,6 +35,13 @@
 	</where>
 </select>
 
+<update id="updateReadcount">
+	UPDATE board 
+	SET readCount = readCount+1 
+	WHERE num = #{num}
+</update>
+
+
 <select id="getBoard" resultType="boardVO">
 	SELECT * FROM board WHERE num = #{num}
 </select>
