@@ -44,7 +44,8 @@ public interface MemberMapper {
 	/* 구매 관련 */
 	
 	
-	
+	/* 별 점 Score*/
+	public int insertScore(@Param("id") String id,@Param("starInput") int starInput,@Param("movieCd") int movieCd);
 
 	
 }
