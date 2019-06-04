@@ -56,12 +56,20 @@
 
 <select id="countWatchListByIdAndMovieCd" resultType="_int">
 	SELECT COUNT(*) FROM d_diver.watch_list 
-	WHERE id = #{id} AND movie_cd = #{movieCd}
+	WHERE id = #{id} 
+	<if test="movieCd != 0" >
+		AND movie_cd = #{movieCd}
+	</if>
 </select>
 
-<delete id="deleteWatchList">
+<delete id="deleteWatchList"><!-- 시청 목록 중복 시 삭제 -->
 	DELETE FROM d_diver.watch_list
 	WHERE id = #{id} AND movie_cd = #{movieCd}
+</delete>
+
+<delete id="deleteFullWatchList"><!-- 시청 목록이 가득 차면 가장 오래된 값 삭제 -->
+	DELETE FROM watch_list WHERE id = #{id} 
+	ORDER BY watch_date ASC LIMIT 1;
 </delete>
 
 <select id="getWatchList" resultType="movieVO"><!-- 시청 목록 -->
