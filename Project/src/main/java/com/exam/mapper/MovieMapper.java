@@ -28,6 +28,8 @@ public interface MovieMapper {
 	
 	public void deleteWatchList(@Param("id") String id, @Param("movieCd") int movieCd);
 	
+	public void deleteFullWatchList(String id);
+	
 	public List<MovieVO> getWatchList(@Param("id") String id, @Param("amount") int amount);
 	
 	public List<MovieVO> getWishList(@Param("id") String id, @Param("amount") int amount);
