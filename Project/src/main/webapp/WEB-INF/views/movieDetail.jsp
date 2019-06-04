@@ -94,11 +94,11 @@
 			
 		</div>
 		<div class="row2">
-		
-			<div class="summary"><b>시놉시스</b> <br>${movieInfo.synopsis}</div>
+			<b>시놉시스</b>
+			<div class="summary">${movieInfo.synopsis}</div>
 			<ul id="summmary-ul">
 				<li>
-					<strong>개요</strong>
+					<strong>개요</strong><br>
 					<span>${movieInfo.repGenreNm}</span>
 					<small>&nbsp;|&nbsp;</small>
 					${movieInfo.watchGradeNm}
@@ -108,21 +108,21 @@
 				<li>
 					<strong>출연</strong><br>
 					<c:forEach var="star" items="${movieInfo.starsIn }" varStatus="index">
-						<b>${star.starNm }</b>
+						${star.starNm }
 						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
 					</c:forEach>
 				</li>
 				<li>
 					<strong>감독</strong><br>
 					<c:forEach var="director" items="${movieInfo.directorsIn }" varStatus="index">
-						<b>${director.directorNm }</b>
+						${director.directorNm }
 						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
 					</c:forEach>
 				</li>
 				<li>
 					<strong>회사</strong><br>
 					<c:forEach var="company" items="${movieInfo.companiesIn }" varStatus="index">
-						<b>${company.companyNm } &lt;${company.companyPartNm }&gt;</b>
+						${company.companyNm } &lt;${company.companyPartNm }&gt;
 						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
 					</c:forEach>
 				</li>

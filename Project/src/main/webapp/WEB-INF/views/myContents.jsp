@@ -60,7 +60,7 @@
 	<c:forEach var="movie" items="${watchList}">
 		<div class="col-lg-4 col-md-6">
 		<div class="recipe">
-			<img src="${movie.covThUrl}" alt="">
+			<a href="/movieDetail?movieCd=${movie.movieCd}"><img src="${movie.covThUrl}" ></a>
 			<div class="recipe-info-warp">
 				<div class="recipe-info">
 				<h3>${movie.movieNm}</h3>
