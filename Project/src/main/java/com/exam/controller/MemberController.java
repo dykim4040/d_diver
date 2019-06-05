@@ -143,9 +143,6 @@ public class MemberController {
 	public String memberDelete(String id, String password, HttpSession session, Model model) {
 		System.out.println("<< delete 호출 >>");
 
-		log.info("id : " + id);
-		log.info("password : " + password);
-
 		boolean result = service.checkPw(id, password);
 		if (result) {
 			service.deleteMember(id);
@@ -173,20 +170,7 @@ public class MemberController {
 	public String upDateMember(MemberVO memberVO) {
 		System.out.println("<< upDate 됬어요 호출 >>");
 		service.upDateMember(memberVO);
-		/*
-		 * // 글 패스워드 일치하면 글수정 후 글목록으로 이동 // 글 패스워드 불일치하면 이전화면으로 돌아가기 // boolean
-		 * isSuccess == true 수정성공 // isSuccess == false 수정실패 boolean isSuccess =
-		 * service.updateMember(memberVO);
-		 * 
-		 * if (!isSuccess) { // // 글 수정 실패 HttpHeaders headers = new HttpHeaders();
-		 * headers.add("Content-Type", "text/html; charset=UTF-8");
-		 * 
-		 * StringBuilder sb = new StringBuilder(); sb.append("<script>");
-		 * sb.append("alert('글비밀번호가 틀립니다.');"); sb.append("history.back();");
-		 * sb.append("</script>");
-		 * 
-		 * return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
-		 */
+		
 		return "member/login";
 	}
 	
