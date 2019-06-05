@@ -180,8 +180,12 @@
 		</form>
 		</div>
 		
-	</div>
-
+	</div><br>
+	<b>스틸컷</b>
+	<c:forEach var="stillCut" items="${movieInfo.movieStillCut }" varStatus="index">
+		<br>&nbsp;
+		<img src="${stillCut.stillCutUrl }">
+	</c:forEach>
 </div>
 </section>
 <!-- Comment section -->

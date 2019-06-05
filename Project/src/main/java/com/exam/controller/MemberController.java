@@ -197,66 +197,116 @@ public class MemberController {
 		System.out.println("<< hintID 호출 >>");
 		return "member/hintID";
 	}
+	
 	@PostMapping("/hintID")
-	public ResponseEntity<String> hintID(MemberVO member, HttpSession session) {
+	public String hintID(MemberVO member, Model model) {
 		System.out.println("<< hintID, POST >>"); 
 		int check = service.countById(member.getId());
 		HttpHeaders headers = new HttpHeaders();
 		StringBuffer msg = new StringBuffer();
 
-		String message = "";
-		if (check != 1) { // 로그인 실패 String message = null; if (check == -1) { message
-			message = "해당하는 아이디가 없습니다.";
-			headers.add("Content-Type", "text/html; charset=UTF-8");
-			msg.append("<script>");
-			msg.append("alert('" + message + "');");
-			msg.append("history.back();");
-			msg.append("</script>");
-		} else if (check == 1) {
-			message = "아이디확인";
-			headers.add("Content-Type", "text/html; charset=UTF-8");
-			msg.append("<script>");
-			msg.append("alert('" + message + "');");
-			msg.append("location.href = '/member/hintUser';");
-			msg.append("</script>");
-		}
-		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+		
+		/*
+		 * String message = ""; if (check != 1) { // 로그인 실패 String message = null; if
+		 * (check == -1) { message message = "아이디를 정확하게 입력해주세요."; }
+		 * headers.add("Content-Type", "text/html; charset=UTF-8");
+		 * msg.append("<script>"); msg.append("alert('" + message + "');");
+		 * msg.append("history.back();"); msg.append("</script>"); } else if (check ==
+		 * 1) { message = "아이디를 확인하였습니다."; headers.add("Content-Type",
+		 * "text/html; charset=UTF-8"); msg.append("<script>"); msg.append("alert('" +
+		 * message + "');"); msg.append("location.href = '/member/hintUser';");
+		 * msg.append("</script>"); }
+		 */
 
-	}
-	
-	
-	
-	//아이디찾기 완료했을때 힌트로넘어감
-	@GetMapping("/hintUser")
-	public String hintUser() {
-		System.out.println("<< hintUser 호출 >>");
+		model.addAttribute("id", member.getId());
 		return "member/hintUser";
+
+	} //내일 위에처럼 String 으로 다바꿔주세요
+	
+	
+	
+	
+	  //아이디찾기 완료했을때 힌트로넘어감
+	  
+	  @GetMapping("/hintUser") 
+	  public String hintUser() {
+	  System.out.println("<< hintUser 호출 >>"); 
+	  return "member/hintUser";
+	  
+	  }
+	  
+	  @PostMapping("/hintUser") 
+	  public String hintUser(MemberVO member, Model model) { 
+		  System.out.println("<< hintUser, POST >>");
+	  System.out.println(member); 
+	  String hint = service.getHintById(member.getId()); HttpHeaders headers = new HttpHeaders();
+	  StringBuffer msg = new StringBuffer();
+	  
+	  if(hint.equals(member.getHint())) {
+		  }
+	  		else {
+	  			return "member/hintID";
+	  }
+	  
+	  
+	  model.addAttribute("id", member.getId());
+	  
+	  
+	 return "member/hintPassword"; }
+	 
+	//아이디찾기 완료했을때 힌트로넘어감
+	/*
+	 * @GetMapping("/hintUser") public String hintUser() {
+	 * System.out.println("<< hintUser 호출 >>"); return "member/hintUser"; }
+	 * 
+	 * @PostMapping("/hintUser") public ResponseEntity<String> hintUser(MemberVO
+	 * member, HttpSession session) { System.out.println("<< hintUser, POST >>");
+	 * int check = service.countByhint(member.getHint()); HttpHeaders headers = new
+	 * HttpHeaders(); StringBuffer msg = new StringBuffer();
+	 * 
+	 * String message = ""; if (check != 1) { // message = "해당하는 힌트가 없습니다.";
+	 * headers.add("Content-Type", "text/html; charset=UTF-8");
+	 * msg.append("<script>"); msg.append("alert('" + message + "');");
+	 * msg.append("history.back();"); msg.append("</script>"); } else if (check ==
+	 * 1) { message = "비밀번호확인"; headers.add("Content-Type",
+	 * "text/html; charset=UTF-8"); msg.append("<script>"); msg.append("alert('" +
+	 * message + "');"); msg.append("location.href = '/member/hintUser';");
+	 * msg.append("</script>"); } return new ResponseEntity<>(msg.toString(),
+	 * headers, HttpStatus.OK);
+	 * 
+	 * }
+	 */
+	
+	
+	@GetMapping("/hintPassword")
+	public String hintPassword() {
+		System.out.println("<< hintPassword 호출 >>");
+		return "member/hintPassword";
 	}
-	@PostMapping("/hintUser")
-	public ResponseEntity<String> hintUser(MemberVO member, HttpSession session) {
-		System.out.println("<< hintUser, POST >>"); 
-		int check = service.countByhint(member.getHint());
+	@PostMapping("/hintPassword")
+	public String hintPassword(MemberVO member, Model model) {
+		System.out.println("<< hintPassword, POST >>"); 
+		System.out.println(member);
+		int check = service.updatePassword(member.getId() , member.getPassword());
 		HttpHeaders headers = new HttpHeaders();
 		StringBuffer msg = new StringBuffer();
+		
 
-		String message = "";
-		if (check != 1) { //
-			message = "해당하는 힌트가 없습니다.";
-			headers.add("Content-Type", "text/html; charset=UTF-8");
-			msg.append("<script>");
-			msg.append("alert('" + message + "');");
-			msg.append("history.back();");
-			msg.append("</script>");
-		} else if (check == 1) {
-			message = "비밀번호확인";
-			headers.add("Content-Type", "text/html; charset=UTF-8");
-			msg.append("<script>");
-			msg.append("alert('" + message + "');");
-			msg.append("location.href = '/member/hintUser';");
-			msg.append("</script>");
-		}
-		return new ResponseEntity<>(msg.toString(), headers, HttpStatus.OK);
+		/*
+		 * String message = ""; if (!id.equals(member.getHint())) { message = "비밀번호 실패";
+		 * headers.add("Content-Type", "text/html; charset=UTF-8");
+		 * msg.append("<script>"); msg.append("alert('" + message + "');");
+		 * msg.append("history.back();"); msg.append("</script>"); } else { message =
+		 * "비밀번호 수정"; headers.add("Content-Type", "text/html; charset=UTF-8");
+		 * msg.append("<script>"); msg.append("alert('" + message + "');");
+		 * msg.append("location.href = '/member/hintPassword';");
+		 * msg.append("</script>"); }
+		 */
+		model.addAttribute("id", member.getId());
+	
+		return "member/login";
 
 	}
 
+	
 }

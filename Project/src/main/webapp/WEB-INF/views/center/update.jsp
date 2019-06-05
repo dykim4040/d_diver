@@ -55,48 +55,32 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
+						<h1>Q&A 글수정</h1>
 						
-						<article>
-						<h1>Q&A 내용</h1>
+						<form action="/board/modify" method="post" name="frm">
+						<input type="hidden" name="num" value="${param.num}">
+						<input type="hidden" name="pageNum" value="${param.pageNum}">
 						<table id="notice">
-						<tr>
-							<th>글번호</th><td>${board.num}</td>
-							<th>조회수</th><td>${board.readCount}</td>
-						</tr>
-						<tr>
-							<th>작성자</th><td>${board.name}</td>
-							<th>작성일</th><td>${board.regDate}</td>
-						</tr>
-						<tr>
-							<th>글제목</th>
-							<td colspan="3" class="left">${board.subject}</td>
-						</tr>
+						<tr><th>작성자명</th><td><input type="text" name="name" value="${board.name}"></td></tr>
+						<tr><th>비밀번호</th><td><input type="password" name="pass"></td></tr>
+						<tr><th>글제목</th><td><input type="text" name="subject" value="${board.subject}"></td></tr>
 						<tr>
 							<th>글내용</th>
-							<td colspan="3" class="left">${board.content}</td>
+							<td><textarea rows="13" cols="40" name="content">${board.content}</textarea></td>
 						</tr>
 						</table>
 						
-						<%--
-						  세션값 있으면(로그인 했으면)
-						  수정,삭제,답글쓰기 버튼 보이게 설정
-						 --%>
 						<div id="table_search">
-						<c:if test="${sessionID eq board.name}">
-							<input type="button" value="글수정" class="btn" onclick="location.href='/board/modify?num=${board.num}&pageNum=${param.pageNum}';">
-							<input type="button" value="글삭제" class="btn" onclick="location.href='/board/delete?num=${board.num}&pageNum=${param.pageNum}';">
-						</c:if>
-						<input type="button" value="답글쓰기" class="btn" 
-							 onclick="location.href='/board/reply?reRef=${board.reRef}&reLev=${board.reLev}&reSeq=${board.reSeq}&pageNum=${param.pageNum}';">
-						<input type="button" value="글목록" class="btn" onclick="location.href='/contact?pageNum=${param.pageNum}';">
+						<input type="submit" value="글쓰기" class="btn">
+						<input type="reset" value="다시작성" class="btn">
+						<input type="button" value="글목록" class="btn" onclick="location.href='contact';">
 						</div>
-						
-						<div class="clear"></div>
-						
-						</article>
+						</form>
 						
 					</div>
 				</div>
+				<!-- map -->
+				<!-- 	<div class="location-map" id="map-canvas"></div>	 -->
 			</div>
 		</div>
 	</section>
