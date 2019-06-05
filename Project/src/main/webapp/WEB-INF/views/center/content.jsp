@@ -125,13 +125,10 @@
 	<jsp:include page="/WEB-INF/views/inc/bottom.jsp"></jsp:include>
 	<!-- Footer section end -->
 
-
-
 	<!--====== Javascripts & Jquery ======-->
 	<script src="/resources/js/jquery-3.2.1.min.js"></script>
 	<script src="/resources/js/owl.carousel.min.js"></script>
 	<script src="/resources/js/main.js"></script>
-
 
 	<!-- load for map -->
 	<script

@@ -32,6 +32,13 @@ public interface MovieMapper {
 	
 	public List<MovieVO> getWatchList(@Param("id") String id, @Param("amount") int amount);
 	
+	
+	public void insertWishList(@Param("id") String id, @Param("movieCd") int movieCd);
+	
+	public int countWishListByIdAndMovieCd(@Param("id") String id, @Param("movieCd") int movieCd);
+	
+	public void deleteWishList(@Param("id") String id, @Param("movieCd") int movieCd);
+	
 	public List<MovieVO> getWishList(@Param("id") String id, @Param("amount") int amount);
 	
 	/* 내 컨텐츠 */
