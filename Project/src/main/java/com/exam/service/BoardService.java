@@ -18,4 +18,9 @@ public interface BoardService {
     
     public int updateReadcount(int num);
     
+    public boolean updateBoard(BoardVO board);
+    
+    public boolean deleteBoard(int num, String pass);
+    
+    public void replyInsert(BoardVO board);
 }
