@@ -138,17 +138,10 @@
 			</c:if>
 		</div>
 		
-		
-		<input type="button" value="글쓰기" class="btn" onclick="location.href = '/board/write';">
-		<form action="/contact" method="GET">
-			<input type="text" name="search" class="input_box" value="${search}">
-			<input type="submit" value="검색" class="btn" style="float: right;">
-		</form>
 	</div>
 	<p style="text-align: right;">
 	<input type="button" value="글쓰기" class="btn" onclick="location.href = '/board/write';">
 	</p>
-	
 	
 <!-- 	<div class="row" style="text-align: center;"> -->
 <!-- 	<h3 class="h5 text-black mb-3">Search</h3> -->
