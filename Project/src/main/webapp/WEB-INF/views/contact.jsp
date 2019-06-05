@@ -136,7 +136,7 @@
 		</div>
 		
 		<input type="button" value="글쓰기" class="btn" onclick="location.href = '/board/write';">
-		<form action="/board/list" method="GET">
+		<form action="/contact" method="GET">
 			<input type="text" name="search" class="input_box" value="${search}">
 			<input type="submit" value="검색" class="btn" style="float: right;">
 		</form>
