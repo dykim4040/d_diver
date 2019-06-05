@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.exam.controller.HomeController;
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieVO;
 import com.exam.mapper.MemberMapper;
 
 import lombok.Setter;
@@ -150,21 +151,29 @@ public class MemberServiceImpl implements MemberService {
 
 	/* 구매 관련 */
 	
-	
+	/*별 관련*/
 	@Override
 	public int insertScore(String id, int starInput, int movieCd) {
 		return mapper.insertScore(id, starInput, movieCd);
 	}
+
+
+	@Override
+	public int countByScore(int movieCd) {
+		return mapper.countByScore(movieCd);
+	}
+
+	@Override
+	public int updateAvg(int movieCd) {
+		// TODO Auto-generated method stub
+		return mapper.updateAvg(movieCd);
+	}
+
 	
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.exam.service;
 
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieVO;
 
 public interface MemberService {
 	
@@ -29,7 +30,6 @@ public interface MemberService {
 	
 	
 	
-	
 	/* 구매 관련 */
 	
 	public String getCurrPackage(String id);
@@ -43,6 +43,9 @@ public interface MemberService {
 	/* 별 스코어*/
 	public int insertScore(String id, int starInput, int movieCd);
 	
+	public int countByScore(int movieCd);
+	
+	public int updateAvg(int movieCd);
 	
 
 }

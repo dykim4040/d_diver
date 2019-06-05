@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.exam.domain.MemberVO;
+import com.exam.domain.MovieScoreDTO;
+import com.exam.domain.MovieVO;
 
 public interface MemberMapper {
 	public int insert(MemberVO member);
@@ -46,7 +48,9 @@ public interface MemberMapper {
 	
 	/* 별 점 Score*/
 	public int insertScore(@Param("id") String id,@Param("starInput") int starInput,@Param("movieCd") int movieCd);
-
 	
+	public int countByScore(int movieCd);
+	
+	public int updateAvg(int movieCd);
 }
 

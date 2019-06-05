@@ -29,7 +29,49 @@
 <link rel="stylesheet" href="/resources/css/animate.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
+<style>
 
+   
+      .a{
+	background-image: url('/resources/img/grade_img.png');
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        
+        display: inline-block;
+        width: 150px;
+        height: 28px;
+        background-size: 150px;
+        white-space: nowrap;
+      
+        position: relative;
+       
+   }
+  .b{
+       display: inline-block;
+       background-size: 150px;
+       background-position: 0 bottom;
+       height: 28px;
+
+       position: absolute;
+       background-image: url('/resources/img/grade_img.png');
+            background-repeat: no-repeat;
+            vertical-align: middle;
+       
+   }
+   .myInput{
+   	float: right;
+   	
+   }
+
+   .c{
+	width: 15px;
+       z-index: 10;
+   }
+   .d{
+	width: 30px;
+       z-index: 9;
+   }
+</style>
 
 </head>
 <body>
@@ -79,6 +121,7 @@
 				class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 				class="fa fa-star is-fade"></i>
 		</div>
+		
 
 
 	</div>
@@ -182,6 +225,9 @@
 		</div>
 		
 	</div><br>
+	<div class="myInput">
+			<div class="myStar"></div>
+	</div>
 	<b>스틸컷</b>
 	<c:forEach var="stillCut" items="${movieInfo.movieStillCut }" varStatus="index">
 		<br>&nbsp;
@@ -257,12 +303,13 @@
 	starRating();
 $(document).ready(function(){
 		$('#frmStar').submit(function(){
-			var id = $('input[name=id]').val();
-			var movieCd = $('input[name=movieCd]').val();
+			var id = $('input[name="id" ]').val();
+			var movieCd = $('input[name="movieCd"]').val();
 			var starInput = $('input:radio[name="starInput"]:checked').val();
 			console.log('id: ' + id);
 			console.log('movieCd: ' + movieCd);
 			console.log('score: ' + starInput);
+			
 			
 			$.ajax({
 				url : '/movieDetailJson',
@@ -274,6 +321,8 @@ $(document).ready(function(){
 				
 				success : function(){
 					alert("성공입니다.");
+					$('.myInput').addClass('a');
+					$('.myStar').addClass('b c');
 					location.reload();
 				}
 				
