@@ -33,61 +33,7 @@
 <!-- Header section -->
 <jsp:include page="/WEB-INF/views/inc/top.jsp"></jsp:include>
 <!-- Header section end -->
-<script src="/resources/script/jquery-3.3.1.min.js"></script>
-<Script>
-var isDuplicated = true;
 
-function formCheck() {
-	if(frm.id.value.length < 3) {
-		alert('ID 는  3글자이상 입력해주세요');
-		frm.id.focus();
-		return false;
-	} else {
-		var id = $('.id').val();
-		console.log('id 변수 타입: ' + typeof id);
-		console.log('id: ' + id);
-	}
-	
-	if (isDuplicated == false) {
-		return false;
-	}
-		
-}
-// 		return true;
-	
-$(function() {
-
-	$('input[name=id]').on('keyup',	function(event) {
-		var id = $(this).val();
-
-		$.ajax({
-			url : '/member/joinIdCheckJson',
-			data : {
-				userId : id
-			}, // userId=id입력값
-			success : function(isDup) {
-				isDuplicated = isDup;
-				
-				console.log('result 변수 타입: ' + typeof (isDup));
-				console.log('result: ' + isDup);
-
-				if (isDup) {// id중복
-					$('span#dupCheck').html('존재하는 아이디입니다.').css('color', 'green');
-				} else { // id중복아님
-					$('span#dupCheck').html('존재 하지 않은 아이디입니다.').css('color', 'red');
-				}
-			}
-		});
-
-	});
-
-});
-	
-	
-
-
-
-</Script>
 
 <!-- Hero section -->
 <section class="page-top-section set-bg" data-setbg="/resources/img/page-top-bg.jpg">
@@ -103,22 +49,23 @@ $(function() {
 	<div class="row">
 		<div class="col-lg-6" style="margin: auto;">
 		<div class="contact-form-warp">
-			<h4>비밀번호 찾기</h4>
-			<p>비밀번호를 찾을 아이디를 입력하세요.</p>
-			<form action="/member/hintID" class="contact-form" name = "frm" method="POST" onsubmit="return formCheck();">
+		
+			<h4>새로운비밀번호 입력하세요.</h4>
+			<p>까먹지말아주세요.</p>
+			<form action="/member/hintPassword" class="contact-form" method="POST">
 				<div class="row">
 					<!-- <div class="col-md-6">
 						<input type="text" placeholder="Name">
-					</div>
+					</div
 					<div class="col-md-6">
 						<input type="text" placeholder="E-mail">
 					</div> -->
 					<div class="col-md-12">
-						<label>User ID</label><span id="dupCheck" style="float: right;"></span>
-					<input type="text" name="id" class="id" required><br>
-					
-						<!-- <a href="/member/hintUser"> -->
-						<button class="site-btn" style="float: right;">다음</button>
+					<input type="hidden" name="id" value="${id }">
+						<label>Password</label> 
+						<input type="password" name="password" value="${password }" ><br>
+											
+						<button class="site-btn" style="float: right;">비밀번호수정 </button>
 					</div>
 				</div>
 			</form>
