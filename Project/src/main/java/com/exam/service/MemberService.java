@@ -23,11 +23,15 @@ public interface MemberService {
 	
 	public int countById(String id);
 	
-	public int countByhint(String hint);
+	
 	
 	public void hintUser(String id);
 	
+	public int updatePassword(String id , String password);
 	
+	public int countByhint(String hint);
+	
+	public String getHintById(String hint);
 	
 	
 	/* 구매 관련 */
@@ -37,6 +41,9 @@ public interface MemberService {
 	public int updateCash(int cash, String id);
 	
 	public int buyPackageUseCash(int price, String id);
+
+
+	
 	
 	/* 구매 관련 */
 	

@@ -28,8 +28,11 @@ public interface MemberMapper {
 	public void hintID(String id);
 	
 	public void hintUser(String id);
+	
+	public String getHintById(String hint);	
+	
+	public int updatePassword(@Param("id") String id , @Param("password")String password);
 
-	public int countByhint(String hint);
 	
 	
 	
@@ -48,6 +51,7 @@ public interface MemberMapper {
 	
 	/* 별 점 Score*/
 	public int insertScore(@Param("id") String id,@Param("starInput") int starInput,@Param("movieCd") int movieCd);
+
 	
 	public int countByScore(int movieCd);
 	

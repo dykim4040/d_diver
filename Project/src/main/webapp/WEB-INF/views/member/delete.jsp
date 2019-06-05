@@ -12,7 +12,7 @@
 <meta name="keywords" content="food, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Favicon -->
-<link href="/resources/img/clapperboard.png" rel="shortcut icon" />
+<link href="/resources/img/w.png" rel="shortcut icon" />
 
 <!-- Google Fonts -->
 <link

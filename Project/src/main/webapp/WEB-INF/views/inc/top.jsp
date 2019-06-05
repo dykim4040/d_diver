@@ -21,7 +21,7 @@
 			<img src="/resources/img/package/bronze.png" width="23px" >
 			</c:when>
 			</c:choose>
-			<a href="/member/myInfo?id=${sessionID}"><b><span style="color: #FFBBBB;">${sessionID}</span></b></a>&nbsp;님&nbsp;
+			<a href="/member/myInfo?id=${sessionID}"><b><span style="color: #FFF;">${sessionID}</span></b></a>&nbsp;님&nbsp;
 			<a href="/member/logout"><button class="logout">로그아웃</button></a>
 		</c:otherwise>
 		</c:choose>
@@ -29,8 +29,9 @@
 	</div>
 	<div class="header-bottom">
 		<div class="container">
-			<a href="/" class="site-logo">
-				<img src="/resources/img/logo.png" alt="">
+			<a href="/" class="site-logo" style="height: 55px;">
+<!-- 				<img src="/resources/img/logo.png" alt=""> -->
+				WEBFLIX
 			</a>
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>

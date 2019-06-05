@@ -12,15 +12,12 @@
 <meta name="keywords" content="food, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Favicon -->
-<link href="/resources/img/clapperboard.png" rel="shortcut icon" />
+<link href="/resources/img/w.png" rel="shortcut icon" />
 
 <!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
@@ -80,7 +77,7 @@
 <div id="preloder">
 	<div class="loader"></div>
 </div>
-
+<div id="wish-list-selected" style="display: none;">${wishList }</div>
 <!-- Header section -->
 <jsp:include page="/WEB-INF/views/inc/top.jsp"></jsp:include>
 <!-- Header section end -->
@@ -171,6 +168,8 @@
 				</li>
 			</ul>
 			<button class="btn">구매하기</button>
+			<button class="btn wish-list" style="float: right;">즐겨찾기</button>
+			<!-- 선택되면 selected 클래스 추가 -->
 		</div>
 	</div>
 </div>
@@ -183,6 +182,7 @@
 <div class="container">
 
 	<div class="container-row">
+	
 		<div class="thumb">
 			<span id="fnt">Leave a comment</span>
 		</div>
@@ -190,38 +190,37 @@
 		<form method="post" id="frmStar" name="frmStar">
 			<span class="starInput">
 	 
-	<span class="input">
-	 
-	<input type="radio" name="starInput"  value="1" id="p1"> 
-	<label for="p1">1</label> 
-	<input type="radio" name="starInput"  value="2" id="p2"> 
-	<label for="p2">2</label> 
-	<input type="radio" name="starInput"  value="3" id="p3"> 
-	<label for="p3">3</label>
-	<input type="radio" name="starInput"  value="4" id="p4"> 
-	<label for="p4">4</label> 
-	<input type="radio" name="starInput"  value="5" id="p5"> 
-	<label for="p5">5</label> 
-	<input type="radio" name="starInput"  value="6" id="p6"> 
-	<label for="p6">6</label> 
-	<input type="radio" name="starInput"  value="7" id="p7"> 
-	<label for="p7">7</label> 
-	<input type="radio" name="starInput"  value="8" id="p8"> 
-	<label for="p8">8</label> 
-	<input type="radio" name="starInput"  value="9" id="p9"> 
-	<label for="p9">9</label> 
-	<input type="radio" name="starInput"  value="10" id="p10"> 
-	<label for="p10">10</label>
-
-	</span>
-	<input type="hidden" name="id" value="${sessionID}">
-	 <input type="hidden" name="movieCd" value="${movie.movieCd}"> 
-	<output for="starInput">
-			<b>0</b>점
-	</output>
-	</span>
-	<button class="btn" type="submit">별</button>
-	</form>
+			<span class="input">
+			<input type="radio" name="starInput"  value="1" id="p1"> 
+			<label for="p1">1</label> 
+			<input type="radio" name="starInput"  value="2" id="p2"> 
+			<label for="p2">2</label> 
+			<input type="radio" name="starInput"  value="3" id="p3"> 
+			<label for="p3">3</label>
+			<input type="radio" name="starInput"  value="4" id="p4"> 
+			<label for="p4">4</label> 
+			<input type="radio" name="starInput"  value="5" id="p5"> 
+			<label for="p5">5</label> 
+			<input type="radio" name="starInput"  value="6" id="p6"> 
+			<label for="p6">6</label> 
+			<input type="radio" name="starInput"  value="7" id="p7"> 
+			<label for="p7">7</label> 
+			<input type="radio" name="starInput"  value="8" id="p8"> 
+			<label for="p8">8</label> 
+			<input type="radio" name="starInput"  value="9" id="p9"> 
+			<label for="p9">9</label> 
+			<input type="radio" name="starInput"  value="10" id="p10"> 
+			<label for="p10">10</label>
+			</span>
+			
+			<input type="hidden" name="id" value="${sessionID}">
+			<input type="hidden" name="movieCd" value="${movie.movieCd}"> 
+			<output for="starInput">
+				<b>0</b>점
+			</output>
+			</span>
+			<button class="btn" type="submit">별</button>
+		</form>
 		</div>
 		
 	</div><br>
@@ -268,33 +267,88 @@
 <script src="/resources/js/owl.carousel.min.js"></script>
 <script src="/resources/js/main.js"></script>
 <script>
-	var starRating = function() {
-		var $star = $(".starInput");
-		$result = $star.find("output>b");
+var starRating = function() {
+	var $star = $(".starInput");
+	$result = $star.find("output>b");
 
-		$(document).on("focusin", ".starInput>.input", function() {
-			$(this).addClass("focus");
-		})
+	$(document).on("focusin", ".starInput>.input", function() {
+		$(this).addClass("focus");
+	})
 
-		.on("focusout", ".starInput>.input", function() {
-			var $this = $(this);
-			setTimeout(function() {
-				if ($this.find(":focus").length === 0) {
-					$this.removeClass("focus");
-				}
-			}, 100);
-		})
+	.on("focusout", ".starInput>.input", function() {
+		var $this = $(this);
+		setTimeout(function() {
+			if ($this.find(":focus").length === 0) {
+				$this.removeClass("focus");
+			}
+		}, 100);
+	})
 
-		.on("change", ".starInput :radio", function() {
-			$result.text($(this).next().text());
-		}).on("mouseover", ".starInput label", function() {
-			$result.text($(this).text());
-		}).on("mouseleave", ".starInput>.input", function() {
-			var $checked = $star.find(":checked");
-			if ($checked.length === 0) {
-				$result.text("0");
-			} else {
-				$result.text($checked.next().text());
+	.on("change", ".starInput :radio", function() {
+		$result.text($(this).next().text());
+	}).on("mouseover", ".starInput label", function() {
+		$result.text($(this).text());
+	}).on("mouseleave", ".starInput>.input", function() {
+		var $checked = $star.find(":checked");
+		if ($checked.length === 0) {
+			$result.text("0");
+		} else {
+			$result.text($checked.next().text());
+		}
+	});
+};
+
+starRating();
+
+$(document).ready(function(){
+	var wishList = $('#wish-list-selected').text();
+	console.log(wishList);
+	if (wishList == 'selected') {
+		$('.wish-list').addClass('selected');
+	}
+	
+	$('#frmStar').submit(function(){
+		var id = $('input[name=id]').val();
+		var movieCd = $('input[name=movieCd]').val();
+		var starInput = $('input:radio[name="starInput"]:checked').val();
+		console.log('id: ' + id);
+		console.log('movieCd: ' + movieCd);
+		console.log('score: ' + starInput);
+		
+		$.ajax({
+			url : '/movieDetailJson',
+			data :{
+				id : id,
+				movieCd : movieCd,
+				starInput : starInput
+			},
+			
+			success : function(){
+				alert("성공입니다.");
+				location.reload();
+			}
+			
+		});
+		
+		return false;
+	});
+	
+	$('.wish-list').on('click', function() {
+		$(this).toggleClass('selected');
+		var id = $('input[name=id]').val();
+		var movieCd = $('input[name=movieCd]').val();
+		console.log('id: ' + id);
+		console.log('movieCd: ' + movieCd);
+		
+		$.ajax({
+			
+			url: '/wishList',
+			data :{
+				id : id,
+				movieCd : movieCd
+			},
+			success: function() {
+				console.log('즐겨찾기');
 			}
 		});
 	};
@@ -331,6 +385,8 @@ $(document).ready(function(){
 			return false;
 		});
 	});
+	
+});
 </script>
 </body>
 </html>

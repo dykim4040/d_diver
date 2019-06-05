@@ -12,7 +12,7 @@
 <meta name="keywords" content="food, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Favicon -->
-<link href="/resources/img/clapperboard.png" rel="shortcut icon" />
+<link href="/resources/img/w.png" rel="shortcut icon" />
 
 <!-- Google Fonts -->
 <link
@@ -69,7 +69,7 @@
 						<legend>"${member.id }" 회원님의 정보입니다.</legend><br>
 							
 						<label>Password</label>
-						<input type="password" name="password" id="password" required><br>
+						<input type="password"  name="password" id="password" value = "${member.password }" disabled="disabled" required><br>
 						
 						<label>E-Mail</label>
 						<input type="email" name="email" disabled="disabled"

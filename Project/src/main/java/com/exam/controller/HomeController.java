@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exam.domain.BoardVO;
 import com.exam.domain.MemberVO;
@@ -21,10 +22,8 @@ import com.exam.service.MemberService;
 import com.exam.service.MovieService;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
 
 @Controller
-@Log4j
 public class HomeController {
 	
 	@Setter(onMethod_ = @Autowired)
@@ -53,7 +52,7 @@ public class HomeController {
 		String id = (String) session.getAttribute("sessionID");
 		
 		List<MovieVO> watchList = movieService.getWatchList(id, 6);
-		List<MovieVO> wishList = movieService.getWishList(id, 6);
+		List<MovieVO> wishList = movieService.getWishList(id, 0);
 		
 		model.addAttribute("watchList", watchList);
 		model.addAttribute("wishList", wishList);
@@ -172,7 +171,6 @@ public class HomeController {
 	@GetMapping("/movieDetail")
 	public String detail(int movieCd, Model model, HttpSession session){
 		System.out.println("<< movieDetail >>");
-		log.info("movieCd : " + movieCd );
 		
 		MovieInfoVO movieInfo = movieService.getMovieInfo(movieCd);
 		model.addAttribute("movieInfo", movieInfo);
@@ -181,34 +179,32 @@ public class HomeController {
 		if (!(id == null || "".equals(id))) {
 			movieService.insertWatchList(id, movieCd);
 			System.out.println(id + " 시청 목록에 " + movieCd + " 영화 추가!");
+			
+			int count = movieService.countWishListByIdAndMovieCd(id, movieCd);
+			if (count >= 1) {
+				model.addAttribute("wishList", "selected");
+			}
 		}
 		model.addAttribute("movieInfo", movieInfo);
 		
 	    return "movieDetail";
 	}
-//	@PostMapping("/movieDetail")
-//	public String detail(String id,  int starInput, int movieCd) {
-//		System.out.println("<<movieStar>>");
-//		log.info("userId : " + id );
-//		log.info("별점 : " + starInput );
-//		log.info("영화번호 : " + movieCd );
-//		
-//		memberService.insertScore(id, starInput, movieCd);
-//		
-//		return "redirect:/";
-//		
-//	}
 	
 	@GetMapping("/movieDetailJson")
-	public void detail(String id,  int starInput, int movieCd) {
-		System.out.println("<<movieStar>>");
-		log.info("userId : " + id );
-		log.info("별점 : " + starInput );
-		log.info("영화번호 : " + movieCd );
+	@ResponseBody
+	public void detail(String id, int starInput, int movieCd) {
+		System.out.println("<< movieStar >>");
 		
 		memberService.insertScore(id, starInput, movieCd);
 		
 	}
+	
+	@GetMapping("/wishList")
+	public void wishList(String id, int movieCd) {
+		System.out.println("<< wishList, GET >>");
+		movieService.wishListProcess(id, movieCd);
+	}
+	
 
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	
@@ -228,7 +224,7 @@ public class HomeController {
 		
 		model.addAttribute("member", member);
 		model.addAttribute("packList", packList);
-//		System.out.println(id + "의 현재 캐쉬 잔액 " + member.getCash() + "원");
+		
 		return "purchase/purchase";
 	}
 	

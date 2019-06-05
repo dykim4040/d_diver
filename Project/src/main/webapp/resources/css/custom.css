@@ -51,7 +51,7 @@
     position: relative;
     color: #fff;
     cursor: pointer;
-    background: #ff2a6b;
+    background: #c40f0f;
     font-size: 40px;
 }
 
@@ -87,6 +87,10 @@
 	text-align: center;
 }
 
+.pagePaddingZero {
+	padding-top: 0px;
+	margin: 0 auto;
+}
 
 
 /* movieDetail */
@@ -231,6 +235,12 @@
 	min-width: 140px;
 	margin-top: 20px;	
 }
+
+.selected {
+	background: #ea003d;
+	color: #fff;	
+}
+
 .movie-detail{
 	margin-bottom: 30px;
 }
@@ -256,7 +266,6 @@
 .fnt{
 	font-size: 20px;
 }
-
 
 
 
