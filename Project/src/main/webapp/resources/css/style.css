@@ -25,7 +25,7 @@ h5,
 h6 {
 	margin: 0;
 	font-weight: 500;
-	color: #474747;
+	color: #fff;
 }
 
 h1 {
@@ -98,7 +98,7 @@ ol {
 	height: 5px;
 	left: 0;
 	top: 0;
-	background: #000000a0;
+	background: #fff;
 	-webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
 }
@@ -157,7 +157,7 @@ ol {
 	position: relative;
 	color: #fff;
 	cursor: pointer;
-	background: #000000a0;
+	background: #c40f0f;
 }
 
 /* Preloder */
@@ -233,7 +233,7 @@ ol {
 }
 
 .header-top {
-	background: #000000a0;
+	background: #141414;
 	overflow: hidden;
 	padding: 18px 0;
 }
@@ -289,13 +289,13 @@ ol {
 	display: inline-block;
 	font-size: 15px;
 	font-weight: 500;
-	color: #474747;
+	color: #fff;
 	padding: 25px 20px;
 }
 
 .main-menu li a:hover,
 .footer-menu li a:hover {
-	color: #000000a0;
+	color: #c40f0f;
 }
 
 .header-search {
@@ -307,7 +307,7 @@ ol {
 	height: 37px;
 	width: 34px;
 	border: none;
-	background: #000000a0;
+	background: #141414;
 	color: #fff;
 	border-radius: 4px;
 	display: inline-block;
@@ -612,7 +612,7 @@ ol {
 ------------------------*/
 
 .bottom-widgets-section {
-	background: #f4f7fb;
+	background: #141414;
 }
 
 .sp-recipes-list {
@@ -731,7 +731,7 @@ ol {
 
 .review-section {
 	padding: 65px 0;
-	background: #fdc856;
+	background: #141414;
 }
 
 .review-item {
@@ -890,12 +890,13 @@ ol {
 	font-size: 16px;
 	font-weight: 700;
 	color: #fff;
-	background: #cccccc;
+	background: #871212;
 	margin-right: 4px;
+	
 }
 
 .site-pagination span {
-	background: #000000a0;
+	background: #7a7a7a;
 }
 
 .recipe-view {
@@ -922,7 +923,7 @@ ol {
 	width: 1229px;
 	margin: 72px auto 0;
 	padding: 44px 0;
-	background: #000000a0;
+	background: #141414;
 }
 
 .big-search-form select {
@@ -962,7 +963,7 @@ ol {
 	font-size: 14px;
 	color: #fff;
 	min-width: 132px;
-	background: #474747;
+	background: #c40f0f;
 }
 
 .big-search-form ::-webkit-input-placeholder {
@@ -993,7 +994,7 @@ ol {
 .facts-warp {
 	width: 1558px;
 	margin: 0 auto;
-	background: #eff3f7;
+	background: #141414;
 	padding: 115px 0;
 }
 
@@ -1014,7 +1015,7 @@ ol {
 .fact-item p {
 	font-size: 18;
 	font-weight: 500;
-	color: #474747;
+	color: #fff;
 }
 
 .newsletter-section .nl-text h2 {
