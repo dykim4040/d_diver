@@ -47,10 +47,10 @@
 </section>
 <!-- Hero section end -->
 
-<section class="contact-section spad">
+<section id="board" class="contact-section spad">
 <div class="container">
 	<div class="row">
-		<h1 class="text-center">Q&A [전체글개수: ${pageInfoMap.allRowCount}]</h1>
+		<h1 class="text-center">Q&A : ${pageInfoMap.allRowCount}</h1>
 
 		<table class="table table-striped table-bordered table-list">
 			<thead>
@@ -106,28 +106,31 @@
 		</table>
 
 
-		<div class="site-pagination text-center">
+		<div class="site-pagination text-center pagePaddingZero">
 			<c:if test="${pageInfoMap.allRowCount > 0 }">
 
 			<c:if test="${pageInfoMap.startPage > pageInfoMap.pageBlockSize }">
 			<a href="/board/list?pageNum=1&search=${search }&#board">1</a><span class="more-page">...</span>
-			<a href="/board/list?pageNum=${pageInfoMap.startPage - 1 }&search=${search }&#board"><span class="pt"><img src="images/left-arrow.png" width="18px" height="18px"></span></a>
+			<a href="/board/list?pageNum=${pageInfoMap.startPage - 1 }&search=${search }&#board"><span class="pt">
+			<img src="images/left-arrow.png" width="18px" height="18px"></span></a>
 			</c:if>
 
 			<c:forEach begin="${pageInfoMap.startPage }" end="${pageInfoMap.endPage }" step="1" varStatus="i">
 			
 			<c:choose>
-			<c:when test="${i.current eq pageInfoMap.pageNum }">
-			<span>${i.current }</span>
-			</c:when>
-			<c:otherwise>
-				<a href="/board/list?pageNum=${i.current }&search=${search }">${i.current }</a>
-			</c:otherwise>
+				<c:when test="${i.current eq pageInfoMap.pageNum }">
+					<span>${i.current }</span>
+				</c:when>
+				<c:otherwise>
+					<a href="/board/list?pageNum=${i.current }&search=${search }&#board">${i.current }</a>
+				</c:otherwise>
 			</c:choose>
+			
 			</c:forEach>
 
 			<c:if test="${pageInfoMap.endPage < pageInfoMap.maxPage }">
-			<a href="boardCategory.do?pageNum=${pageInfoMap.endPage + 1 }&search=${search }&#board"><span class="pt"><img src="images/right-arrow.png" width="18px" height="18px"></span></a>
+			<a href="boardCategory.do?pageNum=${pageInfoMap.endPage + 1 }&search=${search }&#board"><span class="pt">
+			<img src="images/right-arrow.png" width="18px" height="18px"></span></a>
 			<span class="more-page">...</span>
 			<a href="/board/list?pageNum=${pageInfoMap.maxPage }&search=${search }&#board">${pageInfoMap.maxPage }</a>
 			</c:if>
@@ -135,12 +138,27 @@
 			</c:if>
 		</div>
 		
-		<input type="button" value="글쓰기" class="btn" onclick="location.href = '/board/write';">
-		<form action="/board/list" method="GET">
-			<input type="text" name="search" class="input_box" value="${search}">
-			<input type="submit" value="검색" class="btn" style="float: right;">
-		</form>
+		
 	</div>
+	<p style="text-align: right;">
+	<input type="button" value="글쓰기" class="btn" onclick="location.href = '/board/write';">
+	</p>
+	
+	
+<!-- 	<div class="row" style="text-align: center;"> -->
+<!-- 	<h3 class="h5 text-black mb-3">Search</h3> -->
+<!-- 	<form action="/board/list" method="GET"> -->
+<%-- 		<input type="text" name="search" class="form-control" value="${search}"> --%>
+<!-- 		<input type="submit" value="검색" class="btn"> -->
+<!-- 	</form> -->
+<!-- 	</div> -->
+	
+	<h3 class="h5 text-black mb-3">Search</h3>
+	<form action="/contact" method="GET">
+		<div class="form-group d-flex">
+			<input type="text" class="form-control" name="search" placeholder="Search keyword and hit enter..." value="${search }">
+		</div>
+	</form>
 </div>
 </section>
 

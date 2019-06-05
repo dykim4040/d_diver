@@ -192,8 +192,8 @@ public class HomeController {
 	
 	@GetMapping("/movieDetailJson")
 	@ResponseBody
-	public void detail(String id,  int starInput, int movieCd) {
-		System.out.println("<<movieStar>>");
+	public void detail(String id, int starInput, int movieCd) {
+		System.out.println("<< movieStar >>");
 		
 		memberService.insertScore(id, starInput, movieCd);
 		
