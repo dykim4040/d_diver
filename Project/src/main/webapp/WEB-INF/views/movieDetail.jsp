@@ -27,8 +27,6 @@
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
 <style>
-
-   
       .a{
 	background-image: url('/resources/img/grade_img.png');
             background-repeat: no-repeat;
@@ -351,7 +349,7 @@ $(document).ready(function(){
 				console.log('즐겨찾기');
 			}
 		});
-	};
+	});
 	
 
 	starRating();
