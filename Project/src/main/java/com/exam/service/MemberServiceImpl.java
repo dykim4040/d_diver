@@ -157,6 +157,18 @@ public class MemberServiceImpl implements MemberService {
 
 	
 
+	/* 구매 관련 */
+	
+	
+	@Override
+	public int insertScore(String id, int starInput, int movieCd) {
+		return mapper.insertScore(id, starInput, movieCd);
+	}
+	
+	
+	
+	
+	
 	
 	
 	

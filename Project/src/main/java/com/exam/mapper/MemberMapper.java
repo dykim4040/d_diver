@@ -44,6 +44,11 @@ public interface MemberMapper {
 	
 	public int insertPackage(@Param("id") String id, @Param("pack") String pack, @Param("month") int month);
 
+	/* 구매 관련 */
+	
+	
+	/* 별 점 Score*/
+	public int insertScore(@Param("id") String id,@Param("starInput") int starInput,@Param("movieCd") int movieCd);
 
 
 	

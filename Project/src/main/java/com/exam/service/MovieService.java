@@ -2,8 +2,7 @@ package com.exam.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
+import com.exam.domain.MovieInfoVO;
 import com.exam.domain.MovieVO;
 
 public interface MovieService {
@@ -13,6 +12,22 @@ public interface MovieService {
     public int getMovieCount(String search, String repNationNm);
     
     public MovieVO getMovie(int movieCd);
+    
+    public List<MovieVO> newGetMovie(int amount) throws Exception;
+    
+
+    
+	/* 내 컨텐츠 */
+	
+	public void insertWatchList(String id, int movieCd);
+	
+	public List<MovieVO> getWatchList(String id, int amount);
+	
+	public List<MovieVO> getWishList(String id, int amount);
+	
+	/* 내 컨텐츠 */
+    
+    public MovieInfoVO getMovieInfo(int movieCd);
     
 }
 

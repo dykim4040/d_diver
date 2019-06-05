@@ -126,6 +126,8 @@ public class MemberController {
 		model.addAttribute("pack", pack);
 		model.addAttribute("member", member);
 		System.out.println("아이디 : " + id);
+		System.out.println("RegDate : " + member.getRegDate());
+
 
 		return "member/myInfo";
 	}

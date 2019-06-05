@@ -43,32 +43,13 @@ public interface MemberService {
 	public int buyPackageUseCash(int price, String id);
 
 
-
-	
-
-
-	
-
 	
 	
-
+	/* 구매 관련 */
+	
+	/* 별 스코어*/
+	public int insertScore(String id, int starInput, int movieCd);
+	
 	
 
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-
-
-	
 }
