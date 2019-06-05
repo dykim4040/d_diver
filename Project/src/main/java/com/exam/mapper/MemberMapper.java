@@ -26,8 +26,11 @@ public interface MemberMapper {
 	public void hintID(String id);
 	
 	public void hintUser(String id);
+	
+	public String getHintById(String hint);	
+	
+	public int updatePassword(@Param("id") String id , @Param("password")String password);
 
-	public int countByhint(String hint);
 	
 	
 	
@@ -40,6 +43,10 @@ public interface MemberMapper {
 	public int updateCash(@Param("cash") int cash, @Param("id") String id);
 	
 	public int insertPackage(@Param("id") String id, @Param("pack") String pack, @Param("month") int month);
+
+
+
+	
 
 
 	

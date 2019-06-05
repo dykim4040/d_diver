@@ -25,6 +25,23 @@
 <link rel="stylesheet" href="/resources/css/custom.css" />
 </head>
 <body>
+<script src="/resources/script/jquery-3.3.1.min.js"></script>
+
+<script>
+
+function formCheck() {
+	if(hhh.hint.value.length < 3) {
+		alert('힌트 는  3글자이상 입력해주세요');
+		hhh.hint.focus();
+		return false;
+		}
+	}
+	// 힌트 3글자 이상쓰시오
+
+
+
+
+</script>
 <!-- Page Preloder -->
 <div id="preloder">
 	<div class="loader"></div>
@@ -51,7 +68,7 @@
 		<div class="contact-form-warp">
 			<h4>비밀번호 찾기</h4>
 			<p>좋아하는 동물 이름은?</p>
-			<form action="/member/hintUser" class="contact-form" method="POST">
+			<form action="/member/hintUser" class="contact-form" name = "hhh" method="POST" onsubmit="return formCheck();">
 				<div class="row">
 					<!-- <div class="col-md-6">
 						<input type="text" placeholder="Name">
@@ -60,8 +77,10 @@
 						<input type="text" placeholder="E-mail">
 					</div> -->
 					<div class="col-md-12">
-						<input type="text" name="hint" placeholder="hint">
-						<button class="site-btn">확인</button>
+						<input type="hidden" name="id" value="${id }">
+						<span id="dupCheck" style="float: right;"></span>
+						<input type="text" name="hint" class = "hint" placeholder="힌트">
+						<button class="site-btn" style="float: right;">다음</button>
 					</div>
 				</div>
 			</form>

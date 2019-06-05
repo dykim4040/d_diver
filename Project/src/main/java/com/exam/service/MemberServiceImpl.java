@@ -85,16 +85,25 @@ public class MemberServiceImpl implements MemberService {
 		mapper.hintUser(id);
 	}
 	
+	@Override
+	public int updatePassword(String id ,String password) {
+		return mapper.updatePassword(id,password);
+	}
 	
 	@Override
 	public int countById(String id) {
 		return mapper.countById(id);
 	}
 	@Override
-	public int countByhint(String hint) {
-		return mapper.countByhint(hint);
+	public String getHintById(String hint) {
+		return mapper.getHintById(hint);
 	}
-	
+	@Override
+	public int countByhint(String hint) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+		
 	
 	
 	
@@ -145,6 +154,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mapper.insertPackage(id, pack, month);
 	}
+
+	
 
 	
 	
