@@ -53,7 +53,7 @@ public class HomeController {
 		String id = (String) session.getAttribute("sessionID");
 		
 		List<MovieVO> watchList = movieService.getWatchList(id, 6);
-		List<MovieVO> wishList = movieService.getWishList(id, 6);
+		List<MovieVO> wishList = movieService.getWishList(id, 0);
 		
 		model.addAttribute("watchList", watchList);
 		model.addAttribute("wishList", wishList);
@@ -181,6 +181,11 @@ public class HomeController {
 		if (!(id == null || "".equals(id))) {
 			movieService.insertWatchList(id, movieCd);
 			System.out.println(id + " 시청 목록에 " + movieCd + " 영화 추가!");
+			
+			int count = movieService.countWishListByIdAndMovieCd(id, movieCd);
+			if (count >= 1) {
+				model.addAttribute("wishList", "selected");
+			}
 		}
 		model.addAttribute("movieInfo", movieInfo);
 		
@@ -209,6 +214,13 @@ public class HomeController {
 		memberService.insertScore(id, starInput, movieCd);
 		
 	}
+	
+	@GetMapping("/wishList")
+	public void wishList(String id, int movieCd) {
+		System.out.println("<< wishList, GET >>");
+		movieService.wishListProcess(id, movieCd);
+	}
+	
 
 	// 각각 패키지 금액
 	public final static int gold = 35000, silver = 20000, bronze = 8000;	

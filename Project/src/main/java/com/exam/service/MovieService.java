@@ -23,6 +23,10 @@ public interface MovieService {
 	
 	public List<MovieVO> getWatchList(String id, int amount);
 	
+	public void wishListProcess(String id, int movieCd);
+	
+	public int countWishListByIdAndMovieCd(String id, int movieCd);
+	
 	public List<MovieVO> getWishList(String id, int amount);
 	
 	/* 내 컨텐츠 */
