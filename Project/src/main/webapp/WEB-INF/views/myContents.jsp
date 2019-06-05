@@ -60,7 +60,9 @@
 	<c:forEach var="movie" items="${watchList}">
 		<div class="col-lg-4 col-md-6">
 		<div class="recipe">
-			<a href="/movieDetail?movieCd=${movie.movieCd}"><img src="${movie.covThUrl}" ></a>
+			<a href="/movieDetail?movieCd=${movie.movieCd}">
+				<img src="${movie.covThUrl}" width="350px" height="500px">
+			</a>
 			<div class="recipe-info-warp">
 				<div class="recipe-info">
 				<h3>${movie.movieNm}</h3>
@@ -82,7 +84,7 @@
 		시청 목록이 없습니다.
 		</div></div>
 	</c:otherwise>
-	</c:choose>	
+	</c:choose>
 	</div>
 </div>
 </section>
@@ -98,7 +100,9 @@
 	<c:forEach var="movie" items="${wishList}">
 		<div class="col-lg-4 col-md-6">
 		<div class="recipe">
-			<img src="${movie.covThUrl}" alt="">
+			<a href="/movieDetail?movieCd=${movie.movieCd}">
+				<img src="${movie.covThUrl}" width="350px" height="500px">
+			</a>
 			<div class="recipe-info-warp">
 				<div class="recipe-info">
 				<h3>${movie.movieNm}</h3>

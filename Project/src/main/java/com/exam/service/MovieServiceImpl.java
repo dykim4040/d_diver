@@ -74,6 +74,23 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
+	public void wishListProcess(String id, int movieCd) {
+		int count = mapper.countWishListByIdAndMovieCd(id, movieCd);
+		if (count >= 1) { // 즐겨찾기에 이미 존재하는 경우 그 존재하는 값 삭제
+			mapper.deleteWishList(id, movieCd);
+			System.out.println("즐겨찾기 삭제 완료!");
+		} else { // 존재하지 않는 경우 새 값을 즐겨찾기 테이블에 입력
+			mapper.insertWishList(id, movieCd);
+			System.out.println("즐겨찾기 추가 완료!");
+		}
+	}
+	
+	@Override
+	public int countWishListByIdAndMovieCd(String id, int movieCd) {
+		return mapper.countWishListByIdAndMovieCd(id, movieCd);
+	}
+	
+	@Override
 	public List<MovieVO> getWishList(String id, int amount) {
 		return mapper.getWishList(id, amount);
 	}
@@ -84,4 +101,8 @@ public class MovieServiceImpl implements MovieService {
     public MovieInfoVO getMovieInfo(int movieCd) {
         return mapper.getMovieInfo(movieCd);
     }
+
+	
+
+
 }

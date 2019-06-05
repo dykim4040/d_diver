@@ -72,7 +72,7 @@
 	ORDER BY watch_date ASC LIMIT 1;
 </delete>
 
-<select id="getWatchList" resultType="movieVO"><!-- 시청 목록 -->
+<select id="getWatchList" resultType="movieVO"><!-- 시청 목록 가져오기 -->
 	SELECT m.*
 	FROM d_diver.movie m INNER JOIN 
 	(SELECT * FROM d_diver.watch_list WHERE id = #{id}) w
@@ -80,13 +80,34 @@
 	ORDER BY watch_date DESC
 	LIMIT #{amount}
 </select>
+
+
+<insert id="insertWishList"><!-- 즐겨찾기 추가 -->
+	INSERT INTO d_diver.wish_list (id, movie_cd)
+	VALUES (#{id}, #{movieCd})
+</insert>
+
+<select id="countWishListByIdAndMovieCd" resultType="_int">
+	SELECT COUNT(*) FROM d_diver.wish_list 
+	WHERE id = #{id} 
+	<if test="movieCd != 0" >
+		AND movie_cd = #{movieCd}
+	</if>
+</select>
+
+<delete id="deleteWishList"><!-- 즐겨찾기 삭제 -->
+	DELETE FROM d_diver.wish_list
+	WHERE id = #{id} AND movie_cd = #{movieCd}
+</delete>
 	
-<select id="getWishList" resultType="movieVO"><!-- 즐겨찾기 -->
+<select id="getWishList" resultType="movieVO"><!-- 즐겨찾기 목록 가져오기 -->
 	SELECT m.*
 	FROM d_diver.movie m INNER JOIN 
 	(SELECT * FROM d_diver.wish_List WHERE id = #{id}) w
 	ON m.movie_cd = w.movie_cd
-	LIMIT #{amount}
+	<if test="amount != 0">
+		LIMIT #{amount}
+	</if>
 </select>
 
 <!-- 내 컨텐츠 -->
