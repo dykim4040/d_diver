@@ -144,6 +144,13 @@
 					${movieInfo.showTm}분
 				</li>
 				<li>
+					<strong>장르</strong><br>
+					<c:forEach var="genre" items="${movieInfo.movieGenre }" varStatus="index">
+						${genre.movieGenre }
+						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
+					</c:forEach>
+				</li>
+				<li>
 					<strong>출연</strong><br>
 					<c:forEach var="star" items="${movieInfo.starsIn }" varStatus="index">
 						${star.starNm }
@@ -227,7 +234,7 @@
 	</div>
 	<b>스틸컷</b>
 	<c:forEach var="stillCut" items="${movieInfo.movieStillCut }" varStatus="index">
-		<br>&nbsp;
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<img src="${stillCut.stillCutUrl }">
 	</c:forEach>
 </div>
