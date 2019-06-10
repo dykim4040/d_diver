@@ -71,7 +71,7 @@
 						<div id="table_search">
 						<input type="submit" value="글쓰기" class="btn">
 						<input type="reset" value="다시작성" class="btn">
-						<input type="button" value="글목록" class="btn" onclick="location.href='contact';">
+						<input type="button" value="글목록" class="btn" onclick="location.href='/contact';">
 						</div>
 						</form>
 						

@@ -55,7 +55,7 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
-						<h1>Q&A 글수정</h1>
+						<h1>Q&A 답글쓰기</h1>
 						
 						<form action="/board/reply" method="post" name="frm">
 						<input type="hidden" name="pageNum" value="${param.pageNum}">
