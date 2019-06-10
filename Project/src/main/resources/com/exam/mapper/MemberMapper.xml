@@ -86,6 +86,16 @@
 	INSERT INTO d_diver.member_movie_score (movie_cd, id, score)
 	VALUES (#{movieCd}, #{id}, #{starInput});
 </insert>
+
+<update id="updateAvg">
+	update movie 
+	set avg_score = (
+		select avg(score) as avg_score 
+		from member_movie_score 
+		where movie_cd = #{movieCd}
+		group by MOVIE_CD) 
+	where movie_cd = #{movieCd}
+</update>
 <!-- 별점 -->
 
 

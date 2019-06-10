@@ -30,7 +30,7 @@
 	<div class="header-bottom">
 		<div class="container">
 			<a href="/" class="site-logo" style="height: 55px;">
-<!-- 				<img src="/resources/img/logo.png" alt=""> -->
+<!-- 				<img src="/resources/img/w.png" height="55px">  -->
 				WEBFLIX
 			</a>
 			<div class="nav-switch">

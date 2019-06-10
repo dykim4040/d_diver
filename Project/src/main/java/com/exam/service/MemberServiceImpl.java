@@ -163,25 +163,26 @@ public class MemberServiceImpl implements MemberService {
 	/* 구매 관련 */
 	
 	/*별 관련*/
+	
 	@Transactional
-	   @Override
-	   public int insertScore(String id, int starInput, int movieCd) {
-	        mapper.insertScore(id, starInput, movieCd);
-	      
-	       return mapper.updateAvg(movieCd);
-	   }
-
-
 	@Override
-	public int countByScore(int movieCd) {
-		return mapper.countByScore(movieCd);
+	public int insertScore(String id, int starInput, int movieCd) {
+		  mapper.insertScore(id, starInput, movieCd);
+		
+		 return mapper.updateAvg(movieCd);
 	}
 
-	@Override
-	public int updateAvg(int movieCd) {
-		// TODO Auto-generated method stub
-		return mapper.updateAvg(movieCd);
-	}
+
+//	@Override
+//	public int countByScore(int movieCd) {
+//		return mapper.countByScore(movieCd);
+//	}
+
+//	@Override
+//	public int updateAvg(int movieCd) {
+//		// TODO Auto-generated method stub
+//		return mapper.updateAvg(movieCd);
+//	}
 
 	
 

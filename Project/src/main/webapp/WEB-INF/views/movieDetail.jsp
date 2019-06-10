@@ -27,8 +27,6 @@
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/custom.css" />
 <style>
-
-   
       .a{
 	background-image: url('/resources/img/grade_img.png');
             background-repeat: no-repeat;
@@ -146,6 +144,13 @@
 					${movieInfo.showTm}분
 				</li>
 				<li>
+					<strong>장르</strong><br>
+					<c:forEach var="genre" items="${movieInfo.movieGenre }" varStatus="index">
+						${genre.movieGenre }
+						<c:if test="${!index.last}">,&nbsp;&nbsp;</c:if>
+					</c:forEach>
+				</li>
+				<li>
 					<strong>출연</strong><br>
 					<c:forEach var="star" items="${movieInfo.starsIn }" varStatus="index">
 						${star.starNm }
@@ -229,7 +234,7 @@
 	</div>
 	<b>스틸컷</b>
 	<c:forEach var="stillCut" items="${movieInfo.movieStillCut }" varStatus="index">
-		<br>&nbsp;
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<img src="${stillCut.stillCutUrl }">
 	</c:forEach>
 </div>
@@ -355,36 +360,8 @@ $(document).ready(function(){
 	
 
 	starRating();
-/* $(document).ready(function(){
-		$('#frmStar').submit(function(){
-			var id = $('input[name="id" ]').val();
-			var movieCd = $('input[name="movieCd"]').val();
-			var starInput = $('input:radio[name="starInput"]:checked').val();
-			console.log('id: ' + id);
-			console.log('movieCd: ' + movieCd);
-			console.log('score: ' + starInput);
-			
-			
-			$.ajax({
-				url : '/movieDetailJson',
-				data :{
-					id : id,
-					movieCd : movieCd,
-					starInput : starInput
-				},
-				
-				success : function(){
-					alert("성공입니다.");
-					$('.myInput').addClass('a');
-					$('.myStar').addClass('b c');
-					location.reload();
-				}
-				
-			});
-			
-			return false;
-		});
-	}); */
+
+
 	
 });
 </script>

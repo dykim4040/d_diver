@@ -50,9 +50,9 @@ public interface MemberService {
 	/* 별 스코어*/
 	public int insertScore(String id, int starInput, int movieCd);
 	
-	public int countByScore(int movieCd);
+//	public int countByScore(int movieCd);
 	
-	public int updateAvg(int movieCd);
+//	public int updateAvg(int movieCd);
 	
 
 }
