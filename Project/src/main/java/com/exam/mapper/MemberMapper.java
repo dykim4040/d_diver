@@ -53,7 +53,7 @@ public interface MemberMapper {
 	public int insertScore(@Param("id") String id,@Param("starInput") int starInput,@Param("movieCd") int movieCd);
 
 	
-	public int countByScore(int movieCd);
+//	public int countByScore(int movieCd);
 	
 	public int updateAvg(int movieCd);
 }

@@ -351,40 +351,11 @@ $(document).ready(function(){
 				console.log('즐겨찾기');
 			}
 		});
-	};
+	});
 	
 
 	starRating();
-$(document).ready(function(){
-		$('#frmStar').submit(function(){
-			var id = $('input[name="id" ]').val();
-			var movieCd = $('input[name="movieCd"]').val();
-			var starInput = $('input:radio[name="starInput"]:checked').val();
-			console.log('id: ' + id);
-			console.log('movieCd: ' + movieCd);
-			console.log('score: ' + starInput);
-			
-			
-			$.ajax({
-				url : '/movieDetailJson',
-				data :{
-					id : id,
-					movieCd : movieCd,
-					starInput : starInput
-				},
-				
-				success : function(){
-					alert("성공입니다.");
-					$('.myInput').addClass('a');
-					$('.myStar').addClass('b c');
-					location.reload();
-				}
-				
-			});
-			
-			return false;
-		});
-	});
+
 	
 });
 </script>

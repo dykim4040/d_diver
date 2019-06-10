@@ -20,7 +20,7 @@ public class MovieInfoVO {
     int showTm;
     int views;
     int price;
-    double avg_score;
+    double avgScore;
     List<StarsInVO> starsIn;
     List<DirectorsInVO> directorsIn;
     List<CompaniesInVO> companiesIn;
