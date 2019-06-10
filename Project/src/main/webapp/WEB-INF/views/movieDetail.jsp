@@ -91,15 +91,15 @@
 	</div>
 </section>
 <!-- Hero section end -->
-
 <!-- Recipe big view -->
 <section class="movie-details-section">
 <div class="recipe-view-section">
 	<div class="container">
+<!-- 	?amp;autoplay=1 -->
 		<%-- 		<img src="${movie.covThUrl}" width="350px" height="500px"> --%>
 		<iframe width="100%" height="600"
-			src="https://www.youtube.com/embed/pWemV6TiUZE" frameborder="0"
-			allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			src="https://www.youtube.com/embed/2S24-y0Ij3Y" frameborder="0"
+			allow="autoplay; encrypted-media" allowfullscreen  ></iframe>
 
 	</div>
 </div>
@@ -351,11 +351,11 @@ $(document).ready(function(){
 				console.log('즐겨찾기');
 			}
 		});
-	};
+	});
 	
 
 	starRating();
-$(document).ready(function(){
+/* $(document).ready(function(){
 		$('#frmStar').submit(function(){
 			var id = $('input[name="id" ]').val();
 			var movieCd = $('input[name="movieCd"]').val();
@@ -384,7 +384,7 @@ $(document).ready(function(){
 			
 			return false;
 		});
-	});
+	}); */
 	
 });
 </script>

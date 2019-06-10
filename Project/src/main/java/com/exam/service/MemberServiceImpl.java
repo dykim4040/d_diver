@@ -104,6 +104,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 		
 	
 	
@@ -155,16 +156,20 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mapper.insertPackage(id, pack, month);
 	}
+	
 
 	
 
 	/* 구매 관련 */
 	
 	/*별 관련*/
-	@Override
-	public int insertScore(String id, int starInput, int movieCd) {
-		return mapper.insertScore(id, starInput, movieCd);
-	}
+	@Transactional
+	   @Override
+	   public int insertScore(String id, int starInput, int movieCd) {
+	        mapper.insertScore(id, starInput, movieCd);
+	      
+	       return mapper.updateAvg(movieCd);
+	   }
 
 
 	@Override

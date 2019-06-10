@@ -50,7 +50,15 @@
 	DELETE FROM d_diver.member WHERE id = #{id}
 </delete>
 
-
+<update id="updateAvg">
+   update movie 
+   set avg_score = (
+      select avg(score) as avg_score 
+      from member_movie_score 
+      where movie_cd = #{movieCd}
+      group by MOVIE_CD) 
+   where movie_cd = #{movieCd}
+</update>
 
 
 
